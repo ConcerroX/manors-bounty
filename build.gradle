@@ -71,8 +71,10 @@ configurations {
 }
 
 dependencies {
-    implementation "thedarkcolour:kotlinforforge-neoforge:5.5.0"
-    implementation "curse.maven:farmers-delight-398521:6597295"
+    implementation "thedarkcolour:kotlinforforge-neoforge:5.5.0" // Kotlin for Forge
+    implementation "curse.maven:farmers-delight-398521:6597295" // Farmer's Delight
+    localRuntime "curse.maven:lmft-656346:5425796" // Load My F***ing Tags
+    localRuntime "curse.maven:jade-324717:6291517" // Jade
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
