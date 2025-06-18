@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:scots_pine_planks",
+    "manors_bounty:alpine_tree_planks",
+    "manors_bounty:cherries_tree_planks",
+    "manors_bounty:starfruit_tree_planks",
+    "manors_bounty:olive_tree_planks",
+    "manors_bounty:kiwifruit_tree_planks",
+    "manors_bounty:avocado_tree_planks",
+    "manors_bounty:mango_tree_planks",
+    "manors_bounty:durian_tree_planks",
+    "manors_bounty:mango_tree_planks",
+    "manors_bounty:rosaceae_tree_planks",
+    "manors_bounty:rutaceae_tree_planks"
+  ]
+}

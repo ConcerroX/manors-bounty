@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:rosaceae_tree_log",
+    "manors_bounty:stripped_rosaceae_tree_log",
+    "manors_bounty:rosaceae_tree_wood",
+    "manors_bounty:stripped_rosaceae_tree_wood"
+  ]
+}

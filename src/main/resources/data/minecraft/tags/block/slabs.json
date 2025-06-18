@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:avocado_tree_slab",
+    "manors_bounty:kiwifruit_tree_slab",
+    "manors_bounty:mango_tree_slab",
+    "manors_bounty:durian_tree_slab",
+    "manors_bounty:rosaceae_tree_slab",
+    "manors_bounty:rutaceae_tree_slab",
+    "manors_bounty:olive_tree_slab",
+    "manors_bounty:starfruit_tree_slab",
+    "manors_bounty:cherries_tree_slab",
+    "manors_bounty:polished_marble_brick_slab",
+    "manors_bounty:polished_marble_slab",
+    "manors_bounty:marble_slab",
+    "manors_bounty:alpine_tree_slab",
+    "manors_bounty:scots_pine_slab"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:starfruit",
+    "manors_bounty:starfruit_slice",
+    "manors_bounty:starfruit_ice_cream",
+    "manors_bounty:starfruit_jalapeno_ice_cream"
+  ]
+}

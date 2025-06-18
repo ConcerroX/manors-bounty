@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:cherries_tree_log",
+    "manors_bounty:stripped_cherries_tree_log",
+    "manors_bounty:stripped_cherries_tree_wood",
+    "manors_bounty:cherries_tree_wood"
+  ]
+}

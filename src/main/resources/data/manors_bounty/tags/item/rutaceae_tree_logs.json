@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:rutaceae_tree_log",
+    "manors_bounty:stripped_rutaceae_tree_log",
+    "manors_bounty:rutaceae_tree_wood",
+    "manors_bounty:stripped_rutaceae_tree_wood"
+  ]
+}

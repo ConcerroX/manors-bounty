@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:black_dirt",
+    "manors_bounty:snowy_black_dirt",
+    "manors_bounty:snowy_mycelium",
+    "minecraft:snow"
+  ]
+}

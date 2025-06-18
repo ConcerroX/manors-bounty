@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:orange",
+    "manors_bounty:lemon",
+    "manors_bounty:peach",
+    "manors_bounty:pear",
+    "manors_bounty:cherries",
+    "manors_bounty:strawberry",
+    "manors_bounty:pineberry",
+    "manors_bounty:starfruit",
+    "manors_bounty:olive_fruit",
+    "manors_bounty:pineapple",
+    "manors_bounty:cranberry",
+    "manors_bounty:blueberry",
+    "manors_bounty:hamimelon",
+    "manors_bounty:hamimelon_slice",
+    "manors_bounty:mango",
+    "manors_bounty:dragon_fruit",
+    "manors_bounty:musang_king_durian",
+    "manors_bounty:half_of_musang_king_durian",
+    "manors_bounty:half_of_kiwifruit"
+  ]
+}

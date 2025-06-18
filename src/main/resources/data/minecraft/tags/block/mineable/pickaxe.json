@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:cream_with_mushroom_soup_block",
+    "manors_bounty:miso_soup_block",
+    "manors_bounty:borscht_block",
+    "manors_bounty:prawn_and_corn_soup_block",
+    "manors_bounty:marble_bowl",
+    "manors_bounty:oven",
+    "manors_bounty:fryer",
+    "manors_bounty:ice_cream_machine",
+    "manors_bounty:snow_concrete",
+    "manors_bounty:snow_glazed_terracotta",
+    "manors_bounty:snow_terracotta",
+    "manors_bounty:debrishroom",
+    "manors_bounty:deepslate_pearl_rock_ore",
+    "manors_bounty:pearl_rock_ore",
+    "manors_bounty:polished_marble_brick_stairs",
+    "manors_bounty:polished_marble_stairs",
+    "manors_bounty:marble_stairs",
+    "manors_bounty:polished_marble_brick_slab",
+    "manors_bounty:polished_marble_slab",
+    "manors_bounty:marble_slab",
+    "manors_bounty:polished_marble_brick_wall",
+    "manors_bounty:polished_marble_wall",
+    "manors_bounty:marble_wall",
+    "manors_bounty:polished_marble_brick",
+    "manors_bounty:polished_marble",
+    "manors_bounty:marble"
+  ]
+}

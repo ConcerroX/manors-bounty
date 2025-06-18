@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:pineapple_slice",
+    "manors_bounty:pineapple_juice",
+    "manors_bounty:pineapple_pastries",
+    "manors_bounty:pineapple_paleteria",
+    "manors_bounty:pineapple_pies"
+  ]
+}

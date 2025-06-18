@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:scots_pine_leaves",
+    "manors_bounty:alpine_tree_leaves",
+    "manors_bounty:cherries_tree_leaves",
+    "manors_bounty:starfruit_tree_leaves",
+    "manors_bounty:olive_tree_leaves",
+    "manors_bounty:orange_leaves",
+    "manors_bounty:apple_leaves",
+    "manors_bounty:peach_leaves",
+    "manors_bounty:durian_tree_leaves",
+    "manors_bounty:lemon_leaves",
+    "manors_bounty:pear_leaves",
+    "manors_bounty:mango_tree_leaves",
+    "manors_bounty:kiwifruit_tree_leaves",
+    "manors_bounty:avocado_tree_leaves"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:avocado_seed",
+    "manors_bounty:kiwifruit_seed",
+    "manors_bounty:mango_seed",
+    "manors_bounty:pear_seed",
+    "manors_bounty:lemon_seed",
+    "manors_bounty:durian_seed",
+    "manors_bounty:peach_seed",
+    "manors_bounty:apple_seed",
+    "manors_bounty:orange_seed",
+    "manors_bounty:olive_fruit_seed",
+    "manors_bounty:starfruit_seed",
+    "manors_bounty:cherries_seed"
+  ]
+}

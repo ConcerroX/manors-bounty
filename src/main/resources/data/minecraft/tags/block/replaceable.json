@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:chorus_fruit_juice_fluid",
+    "manors_bounty:martini_fluid",
+    "manors_bounty:watermelon_juice_fluid",
+    "manors_bounty:pineapple_juice_fluid",
+    "manors_bounty:mango_juice_fluid",
+    "manors_bounty:strawberry_shake_fluid",
+    "manors_bounty:bellini_base_fluid",
+    "manors_bounty:pear_with_rock_sugar_fluid",
+    "manors_bounty:apple_juice_fluid",
+    "manors_bounty:lemonade_fluid",
+    "manors_bounty:orange_juice_fluid",
+    "manors_bounty:grimace_shake_fluid",
+    "manors_bounty:bubble_tea_fluid",
+    "manors_bounty:melon_soda_fluid",
+    "manors_bounty:coffee_fluid",
+    "manors_bounty:cake_liquid",
+    "manors_bounty:hot_spring",
+    "manors_bounty:olive_oil",
+    "manors_bounty:jalapeno_ice_cream_fluid",
+    "manors_bounty:chocolate_ice_cream_fluid",
+    "manors_bounty:starfruit_ice_cream_fluid",
+    "manors_bounty:cherries_ice_cream_fluid",
+    "manors_bounty:blueberry_ice_cream_fluid",
+    "manors_bounty:vanilla_ice_cream_fluid",
+    "manors_bounty:frigid_grass"
+  ]
+}

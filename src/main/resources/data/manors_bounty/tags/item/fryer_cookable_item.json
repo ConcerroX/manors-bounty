@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:porkchop",
+    "minecraft:beef",
+    "minecraft:mutton",
+    "minecraft:chicken",
+    "minecraft:rabbit",
+    "minecraft:cod",
+    "minecraft:salmon",
+    "manors_bounty:raw_prawn",
+    "manors_bounty:musang_king_durian_flesh",
+    "manors_bounty:pineapple_slice",
+    "#forge:dough/wheat"
+  ]
+}

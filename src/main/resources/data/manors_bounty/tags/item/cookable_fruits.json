@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:cherries",
+    "manors_bounty:strawberry",
+    "manors_bounty:starfruit_slice",
+    "manors_bounty:pineapple_slice",
+    "manors_bounty:musang_king_durian_flesh",
+    "manors_bounty:cranberry",
+    "manors_bounty:blueberry",
+    "manors_bounty:hamimelon_slice",
+    "manors_bounty:mango_slice",
+    "manors_bounty:pear",
+    "manors_bounty:lemon_slice",
+    "manors_bounty:orange_segment",
+    "manors_bounty:peach",
+    "minecraft:apple",
+    "manors_bounty:apple_slice"
+  ]
+}

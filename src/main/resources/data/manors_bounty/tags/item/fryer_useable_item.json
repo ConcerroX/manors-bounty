@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#manors_bounty:fryer_fryable_item",
+    "#manors_bounty:fryer_cookable_item"
+  ]
+}

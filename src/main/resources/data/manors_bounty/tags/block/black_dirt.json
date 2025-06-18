@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:black_dirt",
+    "manors_bounty:snowy_black_dirt",
+    "manors_bounty:rich_black_dirt_farmland",
+    "manors_bounty:rich_black_dirt",
+    "manors_bounty:snowy_mycelium"
+  ]
+}

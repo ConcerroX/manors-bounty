@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:starfruit_tree_log",
+    "manors_bounty:stripped_starfruit_tree_log",
+    "manors_bounty:starfruit_tree_wood",
+    "manors_bounty:stripped_starfruit_tree_wood"
+  ]
+}

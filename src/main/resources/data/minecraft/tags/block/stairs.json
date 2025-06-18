@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:avocado_tree_stairs",
+    "manors_bounty:kiwifruit_tree_stairs",
+    "manors_bounty:mango_tree_stairs",
+    "manors_bounty:durian_tree_stairs",
+    "manors_bounty:rosaceae_tree_stairs",
+    "manors_bounty:rutaceae_tree_stairs",
+    "manors_bounty:olive_tree_stairs",
+    "manors_bounty:starfruit_tree_stairs",
+    "manors_bounty:cherries_tree_stairs",
+    "manors_bounty:polished_marble_brick_stairs",
+    "manors_bounty:polished_marble_stairs",
+    "manors_bounty:marble_stairs",
+    "manors_bounty:alpine_tree_stairs",
+    "manors_bounty:scots_pine_stairs"
+  ]
+}

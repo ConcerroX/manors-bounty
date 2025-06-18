@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:cherries",
+    "manors_bounty:jalapeno",
+    "manors_bounty:blueberry",
+    "manors_bounty:starfruit_slice",
+    "#forge:bar_of_chocolate"
+  ]
+}

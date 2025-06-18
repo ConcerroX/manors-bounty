@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:watermelon_paleteria",
+    "minecraft:melon_slice",
+    "manors_bounty:watermelon_juice"
+  ]
+}

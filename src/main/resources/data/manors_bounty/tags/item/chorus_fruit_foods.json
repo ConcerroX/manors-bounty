@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:chorus_fruit",
+    "manors_bounty:chorus_chrome_cube",
+    "manors_bounty:chorus_fruit_juice",
+    "manors_bounty:chorus_flower_jelly_cake_slice",
+    "manors_bounty:chorus_flower_jelly_cake"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:alpine_tree_log",
+    "manors_bounty:stripped_alpine_tree_log",
+    "manors_bounty:alpine_tree_wood",
+    "manors_bounty:stripped_alpine_tree_wood"
+  ]
+}

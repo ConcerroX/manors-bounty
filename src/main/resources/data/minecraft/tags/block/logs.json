@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:scots_pine_log",
+    "manors_bounty:alpine_tree_log",
+    "manors_bounty:stripped_alpine_tree_log",
+    "manors_bounty:stripped_scots_pine_log",
+    "manors_bounty:cherries_tree_log",
+    "manors_bounty:starfruit_tree_log",
+    "manors_bounty:stripped_starfruit_tree_log",
+    "manors_bounty:olive_tree_log",
+    "manors_bounty:rutaceae_tree_log",
+    "manors_bounty:rosaceae_tree_log",
+    "manors_bounty:durian_tree_log",
+    "manors_bounty:mango_tree_log",
+    "manors_bounty:stripped_olive_tree_log",
+    "manors_bounty:stripped_rutaceae_tree_log",
+    "manors_bounty:stripped_rosaceae_tree_log",
+    "manors_bounty:stripped_durian_tree_log",
+    "manors_bounty:stripped_mango_tree_log",
+    "manors_bounty:stripped_cherries_tree_log",
+    "manors_bounty:kiwifruit_tree_log",
+    "manors_bounty:stripped_kiwifruit_tree_log",
+    "manors_bounty:avocado_tree_log",
+    "manors_bounty:stripped_avocado_tree_log"
+  ]
+}

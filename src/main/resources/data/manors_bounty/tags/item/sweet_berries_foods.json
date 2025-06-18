@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sweet_berries",
+    "manors_bounty:sweet_berry_cake_slice",
+    "manors_bounty:sweet_berry_cake"
+  ]
+}

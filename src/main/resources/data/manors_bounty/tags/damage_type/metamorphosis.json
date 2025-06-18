@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_fire",
+    "cactus",
+    "#minecraft:is_drowning",
+    "dry_out",
+    "#minecraft:is_fall",
+    "#minecraft:is_freezing",
+    "fly_into_wall",
+    "#minecraft:is_lightning",
+    "in_wall",
+    "starve",
+    "sweet_berry_bush"
+  ]
+}

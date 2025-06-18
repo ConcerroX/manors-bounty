@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:vanilla_ice_cream",
+    "manors_bounty:blueberry_ice_cream",
+    "manors_bounty:cherries_ice_cream",
+    "manors_bounty:starfruit_ice_cream",
+    "manors_bounty:chocolate_ice_cream",
+    "manors_bounty:jalapeno_ice_cream",
+    "manors_bounty:vanilla_chocolate_ice_cream",
+    "manors_bounty:blueberry_cherries_ice_cream",
+    "manors_bounty:starfruit_jalapeno_ice_cream"
+  ]
+}

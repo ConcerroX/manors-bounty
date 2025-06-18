@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:lemon",
+    "manors_bounty:lemon_slice",
+    "manors_bounty:lemon_cookie",
+    "manors_bounty:lemon_donut",
+    "manors_bounty:lemonade"
+  ]
+}

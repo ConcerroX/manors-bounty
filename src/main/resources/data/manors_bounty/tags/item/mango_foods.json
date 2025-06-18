@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:mango",
+    "manors_bounty:mango_slice",
+    "manors_bounty:mango_juice",
+    "manors_bounty:mango_pudding"
+  ]
+}
