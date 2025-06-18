@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_0"
+    },
+    "bites=1": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_1"
+    },
+    "bites=2": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_2"
+    },
+    "bites=3": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_3"
+    },
+    "bites=4": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_4"
+    },
+    "bites=5": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_5"
+    },
+    "bites=6": {
+      "model": "manors_bounty:block/sweet_berry_cake_state_blockstate_6"
+    }
+  }
+}

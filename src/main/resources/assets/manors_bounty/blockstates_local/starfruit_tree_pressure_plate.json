@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "manors_bounty:block/starfruit_tree_pressure_plate"
+    },
+    "powered=true": {
+      "model": "manors_bounty:block/starfruit_tree_pressure_plate_down"
+    }
+  }
+}

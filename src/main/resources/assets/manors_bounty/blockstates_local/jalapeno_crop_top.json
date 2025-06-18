@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:block/jalapeno_crop_top"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/jalapeno_crop_top_state_blockstate_0"
+    }
+  }
+}

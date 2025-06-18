@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "manors_bounty:block/snow_concrete"
+    },
+    "facing=east": {
+      "model": "manors_bounty:block/snow_concrete",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "manors_bounty:block/snow_concrete",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "manors_bounty:block/snow_concrete",
+      "y": 270
+    }
+  }
+}

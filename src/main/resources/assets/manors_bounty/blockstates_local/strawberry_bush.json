@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:block/strawberry_bush"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/strawberry_bush_state_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "manors_bounty:block/strawberry_bush_state_blockstate_1"
+    },
+    "blockstate=3": {
+      "model": "manors_bounty:block/strawberry_bush_state_blockstate_2"
+    },
+    "blockstate=4": {
+      "model": "manors_bounty:block/strawberry_bush_state_blockstate_3"
+    },
+    "blockstate=5": {
+      "model": "manors_bounty:block/strawberry_bush_state_blockstate_4"
+    }
+  }
+}

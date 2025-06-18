@@ -4,17 +4,22 @@ import com.djinfinite.manors_bounty.ManorsBounty
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
-import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.level.ItemLike
 import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Supplier
 
 object ModCreativeModeTabs {
 
-    val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ManorsBounty.ID)
+    val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(
+        Registries.CREATIVE_MODE_TAB, ManorsBounty.ID)
 
-    // A lazy list that will contain all registered items for the creative tab.
-    // This ensures that all items are initialized before being added to the tab.
+    val MAIN = CREATIVE_MODE_TABS.register("tab", Supplier { CreativeModeTab.builder()
+        .title(Component.translatable("item_group.manors_bounty.manors_bounty"))
+        .icon { ModItems.MAIN_ICON_ITEM.get().defaultInstance }
+        .displayItems { _, output -> TAB_ITEMS.forEach { output.accept(it) } }
+        .build()
+    })
+
     private val TAB_ITEMS by lazy {
         listOf<ItemLike>(
             ModItems.PEARL_ROCK.get(),
@@ -215,21 +220,8 @@ object ModCreativeModeTabs {
             ModItems.GIFT_SHORT_PINK.get(),
             ModItems.GIFT_TALL_PINK.get(),
             ModItems.GIFT_SHORT_LUCKY.get(),
-            ModItems.GIFT_TALL_LUCKY.get()
+            ModItems.GIFT_TALL_LUCKY.get(),
         )
     }
 
-    init {
-        CREATIVE_MODE_TABS.register("tab", Supplier {
-            CreativeModeTab.builder().title(Component.translatable("itemGroup.manors_bounty"))
-                .withTabsBefore(CreativeModeTabs.COMBAT) // Places this tab before the Combat tab
-                // .icon { ModItems.PEARL_ROCK.get().defaultInstance } // Uncomment and choose an icon if desired
-                .displayItems { _, output ->
-                    // Adds all items from the TAB_ITEMS list to the creative tab
-                    TAB_ITEMS.forEach {
-                        output.accept(it)
-                    }
-                }.build()
-        })
-    }
 }

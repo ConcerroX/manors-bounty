@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:custom/picnic_mat_particle"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/picnic_mat_blockstate_0"
+    }
+  }
+}

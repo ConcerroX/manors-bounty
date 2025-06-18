@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "manors_bounty:block/rosaceae_tree_slab"
+    },
+    "type=top": {
+      "model": "manors_bounty:block/rosaceae_tree_slab_top"
+    },
+    "type=double": {
+      "model": "manors_bounty:block/rosaceae_tree_slab_full"
+    }
+  }
+}

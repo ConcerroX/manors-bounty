@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:block/dragon_fruit_crop"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/dragon_fruit_crop_state_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "manors_bounty:block/dragon_fruit_crop_state_blockstate_1"
+    }
+  }
+}

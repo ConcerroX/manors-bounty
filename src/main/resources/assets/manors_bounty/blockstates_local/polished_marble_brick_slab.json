@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "manors_bounty:block/polished_marble_brick_slab"
+    },
+    "type=top": {
+      "model": "manors_bounty:block/polished_marble_brick_slab_top"
+    },
+    "type=double": {
+      "model": "manors_bounty:block/polished_marble_brick_slab_full"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:block/corn_crop_2"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/corn_crop_2_state_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "manors_bounty:block/corn_crop_2_state_blockstate_1"
+    }
+  }
+}

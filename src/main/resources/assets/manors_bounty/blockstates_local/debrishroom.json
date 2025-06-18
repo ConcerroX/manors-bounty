@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:block/debrishroom"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/debrishroom_state_blockstate_0"
+    }
+  }
+}

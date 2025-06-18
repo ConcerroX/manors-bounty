@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "manors_bounty:block/scots_pine_slab"
+    },
+    "type=top": {
+      "model": "manors_bounty:block/scots_pine_slab_top"
+    },
+    "type=double": {
+      "model": "manors_bounty:block/scots_pine_slab_full"
+    }
+  }
+}

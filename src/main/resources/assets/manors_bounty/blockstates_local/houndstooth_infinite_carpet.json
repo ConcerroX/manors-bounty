@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:custom/houndstooth_infinite_carpet_particle"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_1"
+    },
+    "blockstate=3": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_2"
+    },
+    "blockstate=4": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_3"
+    },
+    "blockstate=5": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_4"
+    },
+    "blockstate=6": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_5"
+    },
+    "blockstate=7": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_6"
+    },
+    "blockstate=8": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_7"
+    },
+    "blockstate=9": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_8"
+    },
+    "blockstate=10": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_9"
+    },
+    "blockstate=11": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_10"
+    },
+    "blockstate=12": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_11"
+    },
+    "blockstate=13": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_12"
+    },
+    "blockstate=14": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_13"
+    },
+    "blockstate=15": {
+      "model": "manors_bounty:block/houndstooth_infinite_carpet_blockstate_14"
+    }
+  }
+}

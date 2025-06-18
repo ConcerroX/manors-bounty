@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "manors_bounty:custom/pancake_block_particle"
+    },
+    "blockstate=1": {
+      "model": "manors_bounty:block/pancake_block_blockstate_0"
+    }
+  }
+}
