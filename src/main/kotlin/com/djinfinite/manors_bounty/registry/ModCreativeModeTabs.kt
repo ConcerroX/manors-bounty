@@ -223,6 +223,9 @@ object ModCreativeModeTabs {
             ModItems.GIFT_TALL_PINK.get(),
             ModItems.GIFT_SHORT_LUCKY.get(),
             ModItems.GIFT_TALL_LUCKY.get(),
+
+            ModItems.PEARL_ROCK_ORE.get(),
+            ModItems.DEEPSLATE_PEARL_ROCK_ORE.get(),
         )
     }
 

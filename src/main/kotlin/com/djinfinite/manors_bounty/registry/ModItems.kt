@@ -1,6 +1,7 @@
 package com.djinfinite.manors_bounty.registry
 
 import com.djinfinite.manors_bounty.ManorsBounty
+import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
@@ -210,5 +211,8 @@ object ModItems {
     val GIFT_TALL_PINK: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_tall_pink", Item.Properties())
     val GIFT_SHORT_LUCKY: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_short_lucky", Item.Properties())
     val GIFT_TALL_LUCKY: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_tall_lucky", Item.Properties())
+
+    val PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.PEARL_ROCK_ORE)
+    val DEEPSLATE_PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
 
 }
