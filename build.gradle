@@ -73,7 +73,6 @@ configurations {
 dependencies {
     implementation "thedarkcolour:kotlinforforge-neoforge:5.5.0"
     implementation "curse.maven:farmers-delight-398521:6597295"
-    compileOnly "curse.maven:manors-bounty-1164929:6166597"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

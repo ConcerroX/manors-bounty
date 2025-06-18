@@ -9,6 +9,8 @@ object ModItems {
 
     val ITEMS: DeferredRegister.Items = DeferredRegister.createItems(ManorsBounty.ID)
 
+    val MAIN_ICON_ITEM: DeferredItem<Item> = ITEMS.registerSimpleItem("main_icon_item", Item.Properties())
+
     val PEARL_ROCK: DeferredItem<Item> = ITEMS.registerSimpleItem("pearl_rock", Item.Properties())
     val SNOW_DYE: DeferredItem<Item> = ITEMS.registerSimpleItem("snow_dye", Item.Properties())
     val CREATIVITY_MECHANISM: DeferredItem<Item> = ITEMS.registerSimpleItem("creativity_mechanism", Item.Properties())

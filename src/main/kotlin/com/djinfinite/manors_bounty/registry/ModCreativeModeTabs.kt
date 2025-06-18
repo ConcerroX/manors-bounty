@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.level.ItemLike
+import net.neoforged.neoforge.registries.DeferredHolder
 import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Supplier
 
@@ -13,14 +14,15 @@ object ModCreativeModeTabs {
     val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(
         Registries.CREATIVE_MODE_TAB, ManorsBounty.ID)
 
-    val MAIN = CREATIVE_MODE_TABS.register("tab", Supplier { CreativeModeTab.builder()
+    @Suppress("Unused")
+    val MAIN_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("main_tab", Supplier { CreativeModeTab.builder()
         .title(Component.translatable("item_group.manors_bounty.manors_bounty"))
-        .icon { ModItems.MAIN_ICON_ITEM.get().defaultInstance }
-        .displayItems { _, output -> TAB_ITEMS.forEach { output.accept(it) } }
+        .icon(ModItems.MAIN_ICON_ITEM.get()::getDefaultInstance)
+        .displayItems { _, output -> MAIN_TAB_ITEMS.forEach { output.accept(it) } }
         .build()
     })
 
-    private val TAB_ITEMS by lazy {
+    private val MAIN_TAB_ITEMS by lazy {
         listOf<ItemLike>(
             ModItems.PEARL_ROCK.get(),
             ModItems.SNOW_DYE.get(),
