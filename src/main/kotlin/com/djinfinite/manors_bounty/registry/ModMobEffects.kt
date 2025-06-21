@@ -34,4 +34,8 @@ object ModMobEffects {
         }
     })
 
+    val HACKED_THORNS: DeferredHolder<MobEffect, SimpleMobEffect> = MOB_EFFECTS.register("hacked_thorns", Supplier {
+        SimpleMobEffect(MobEffectCategory.BENEFICIAL, -3818659)
+    })
+
 }
