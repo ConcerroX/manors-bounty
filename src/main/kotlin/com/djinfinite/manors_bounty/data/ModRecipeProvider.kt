@@ -1,6 +1,7 @@
 package com.djinfinite.manors_bounty.data
 
 import com.djinfinite.manors_bounty.registry.ModItems
+import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
 import net.minecraft.data.recipes.RecipeBuilder
@@ -14,26 +15,26 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
 import net.neoforged.neoforge.common.Tags
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab
 import vectorwing.farmersdelight.common.tag.CommonTags
+import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder
 import java.util.concurrent.CompletableFuture
+
 
 class ModRecipeProvider(output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>) :
     RecipeProvider(output, lookupProvider) {
 
     override fun buildRecipes(output: RecipeOutput) {
-        paleteria(
-            ModItems.PINEAPPLE_PALETERIA.get(), ModItems.PINEAPPLE_SLICE.get(), "has_pineapple_slice"
-        ).save(output)
-        pastries(
-            ModItems.PINEAPPLE_PASTRIES.get(), ModItems.PINEAPPLE_SLICE.get(), "has_pineapple_slice"
-        ).save(output)
-        cutting(
-            ModItems.PINEAPPLE_SLICE, 4, ModItems.PINEAPPLE.get(), "has_pineapple", ModItems.PINEAPPLE_CROP.get(), 1
-        ).save(output)
+        shapedPaleteria(ModItems.PINEAPPLE_PALETERIA, ModItems.PINEAPPLE_SLICE, "has_pineapple_slice").save(output)
+        shapedPastries(ModItems.PINEAPPLE_PASTRIES, ModItems.PINEAPPLE_SLICE, "has_pineapple_slice").save(output)
+        cutSlice(ModItems.PINEAPPLE_SLICE, 4, ModItems.PINEAPPLE, "has_pineapple", ModItems.PINEAPPLE_CROP, 1).save(
+            output
+        )
+        cookJuice(ModItems.PINEAPPLE_JUICE, ModItems.PINEAPPLE_SLICE).save(output)
     }
 
-    private fun paleteria(result: ItemLike, itemLike: ItemLike, unlockedBy: String): ShapedRecipeBuilder {
+    private fun shapedPaleteria(result: ItemLike, itemLike: ItemLike, unlockedBy: String): ShapedRecipeBuilder {
         return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).pattern(
             " AB",
             "ACA",
@@ -46,7 +47,7 @@ class ModRecipeProvider(output: PackOutput, lookupProvider: CompletableFuture<Ho
         ).unlockedBy(unlockedBy, has(itemLike))
     }
 
-    private fun pastries(result: ItemLike, itemLike: ItemLike, unlockedBy: String): ShapedRecipeBuilder {
+    private fun shapedPastries(result: ItemLike, itemLike: ItemLike, unlockedBy: String): ShapedRecipeBuilder {
         return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, result).pattern(
             "AA ",
             "ABC",
@@ -61,7 +62,18 @@ class ModRecipeProvider(output: PackOutput, lookupProvider: CompletableFuture<Ho
         ).unlockedBy(unlockedBy, has(itemLike))
     }
 
-    private fun cutting(
+    private fun cookJuice(
+        result: Holder<Item>, ingredient: Holder<Item>
+    ): CookingPotRecipeBuilder {
+        return CookingPotRecipeBuilder.cookingPotRecipe(result.value(), 1, 200, 0.35F, ModItems.DEFORMED_GLASS_BOTTLE)
+            .setRecipeBookTab(
+                CookingPotRecipeBookTab.DRINKS
+            ).addIngredient(ingredient.value()).addIngredient(ingredient.value()).addIngredient(ingredient.value())
+            .addIngredient(Items.SUGAR).addIngredient(Items.SUGAR)
+            .unlockedByItems("has_${ingredient.unwrapKey().get().location().path}", ingredient.value())
+    }
+
+    private fun cutSlice(
         result: ItemLike, count: Int, itemLike: ItemLike, unlockedBy: String, result2: ItemLike? = null, count2: Int = 0
     ): RecipeBuilder {
         return CuttingBoardRecipeBuilder.cuttingRecipe(
