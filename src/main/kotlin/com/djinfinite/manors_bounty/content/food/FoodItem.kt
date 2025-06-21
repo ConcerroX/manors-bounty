@@ -1,6 +1,5 @@
 package com.djinfinite.manors_bounty.content.food
 
-import com.djinfinite.manors_bounty.util.letChanced
 import com.djinfinite.manors_bounty.util.valueChanced
 import net.minecraft.core.Holder
 import net.minecraft.world.effect.MobEffect
@@ -12,12 +11,13 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.UseAnim
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.Level
+import kotlin.random.Random
 
 open class FoodItem(
     properties: Properties,
     val foodIngredientType: FoodIngredientType,
     val foodType: FoodType,
-    private val foodEffect: Holder<MobEffect>,
+    private val foodEffects: Array<Holder<MobEffect>>,
     private val returnItem: ItemLike? = null,
     private val sliceCount: Int = 1,
     private val useAnimation: UseAnim? = null
@@ -28,6 +28,8 @@ open class FoodItem(
         get() = foodType.applyChance / sliceCount
     private val upgradeChance: Float
         get() = foodType.upgradeChance / sliceCount
+    private val extensionChance: Float
+        get() = foodType.extensionChance / sliceCount
     val cooldownTime: Int
         get() = foodType.cooldownTime / sliceCount
 
@@ -35,22 +37,25 @@ open class FoodItem(
 
     override fun finishUsingItem(stack: ItemStack, level: Level, livingEntity: LivingEntity): ItemStack {
         if (!isInCooldown) {
-            val effect = livingEntity.getEffect(foodEffect)
-            if (effect != null) {
-                if (foodType == FoodType.A) FoodCooldownManager.cooldown(this, livingEntity)
-                if (effect.amplifier < foodType.maxAmplifier) {
-                    livingEntity.addEffect(
-                        MobEffectInstance(
-                            foodEffect,
-                            effect.duration + valueChanced(upgradeChance, foodType.extensionTime, 0),
-                            effect.amplifier + valueChanced(upgradeChance, 1, 0),
+            val extensionDuration = valueChanced(extensionChance, foodType.extensionTime, 0)
+            val extraAmplifier = valueChanced(upgradeChance, 1, 0)
+            val apply = Random.nextFloat()
+            foodEffects.forEach { foodEffect ->
+                val effect = livingEntity.getEffect(foodEffect)
+                if (effect != null) {
+                    if (foodType == FoodType.A) FoodCooldownManager.cooldown(this, livingEntity)
+                    if (effect.amplifier < foodType.maxAmplifier) {
+                        livingEntity.addEffect(
+                            MobEffectInstance(
+                                foodEffect, effect.duration + extensionDuration, effect.amplifier + extraAmplifier
+                            )
                         )
-                    )
+                        if (foodType == FoodType.B) FoodCooldownManager.cooldown(this, livingEntity)
+                    }
+                } else if (apply < applyChance) {
+                    livingEntity.addEffect(MobEffectInstance(foodEffect, foodType.applyTime, 0))
                     if (foodType == FoodType.B) FoodCooldownManager.cooldown(this, livingEntity)
                 }
-            } else letChanced(applyChance) {
-                livingEntity.addEffect(MobEffectInstance(foodEffect, foodType.applyTime, 0))
-                if (foodType == FoodType.B) FoodCooldownManager.cooldown(this, livingEntity)
             }
             if (foodType == FoodType.C) FoodCooldownManager.cooldown(this, livingEntity)
         }
