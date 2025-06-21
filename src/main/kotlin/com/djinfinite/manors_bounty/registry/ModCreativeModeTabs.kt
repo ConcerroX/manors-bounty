@@ -32,6 +32,8 @@ object ModCreativeModeTabs {
             ModItems.HOT_SPRING_BUCKET.get(),
             ModItems.CAKE_LIQUID_BUCKET.get(),
 
+            ModItems.ICE_CREAM_MACHINE.get(),
+
             ModItems.VANILLA_CAKE_SLICE.get(),
             ModItems.CARAMEL_CHOCOLATE_CAKE.get(),
             ModItems.CARAMEL_CHOCOLATE_CAKE_SLICE.get(),

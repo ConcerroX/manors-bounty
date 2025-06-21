@@ -1,16 +1,28 @@
 package com.djinfinite.manors_bounty.registry
 
 import com.djinfinite.manors_bounty.ManorsBounty
+import com.djinfinite.manors_bounty.content.food.FoodItem
+import com.djinfinite.manors_bounty.content.pineapple.PineappleFoodItems
+import net.minecraft.core.Holder
+import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.BucketItem
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.Items
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.material.Fluid
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
+import java.util.function.Function
+import java.util.function.Supplier
 
 object ModItems {
 
     val ITEMS: DeferredRegister.Items = DeferredRegister.createItems(ManorsBounty.ID)
+    val FOOD_ITEM_HOLDERS = mutableListOf<DeferredItem<out FoodItem>>()
 
     val MAIN_ICON_ITEM: DeferredItem<Item> = ITEMS.registerSimpleItem("main_icon_item", Item.Properties())
+    val SLOT_BAN_ITEM: DeferredItem<Item> = ITEMS.registerSimpleItem("slot_ban_item", Item.Properties())
 
     val PEARL_ROCK: DeferredItem<Item> = ITEMS.registerSimpleItem("pearl_rock", Item.Properties())
     val SNOW_DYE: DeferredItem<Item> = ITEMS.registerSimpleItem("snow_dye", Item.Properties())
@@ -20,19 +32,29 @@ object ModItems {
     val HOT_SPRING_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("hot_spring_bucket", Item.Properties())
     val CAKE_LIQUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("cake_liquid_bucket", Item.Properties())
 
+    val ICE_CREAM_MACHINE: DeferredItem<BlockItem> =
+        ITEMS.registerSimpleBlockItem("ice_cream_machine", ModBlocks.ICE_CREAM_MACHINE)
+
     val VANILLA_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_cake_slice", Item.Properties())
-    val CARAMEL_CHOCOLATE_CAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("caramel_chocolate_cake", Item.Properties())
-    val CARAMEL_CHOCOLATE_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("caramel_chocolate_cake_slice", Item.Properties())
+    val CARAMEL_CHOCOLATE_CAKE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("caramel_chocolate_cake", Item.Properties())
+    val CARAMEL_CHOCOLATE_CAKE_SLICE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("caramel_chocolate_cake_slice", Item.Properties())
     val SWEET_BERRY_CAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("sweet_berry_cake", Item.Properties())
-    val SWEEP_BERRY_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("sweet_berry_cake_slice", Item.Properties())
-    val CHORUS_FLOWER_JELLY_CAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_flower_jelly_cake", Item.Properties())
-    val CHORUS_FLOWER_JELLY_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_flower_jelly_cake_slice", Item.Properties())
+    val SWEEP_BERRY_CAKE_SLICE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("sweet_berry_cake_slice", Item.Properties())
+    val CHORUS_FLOWER_JELLY_CAKE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("chorus_flower_jelly_cake", Item.Properties())
+    val CHORUS_FLOWER_JELLY_CAKE_SLICE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("chorus_flower_jelly_cake_slice", Item.Properties())
     val NETHER_WART_SOUL_CAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("nether_wart_soul_cake", Item.Properties())
-    val NETHER_WART_SOUL_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("nether_wart_soul_cake_slice", Item.Properties())
+    val NETHER_WART_SOUL_CAKE_SLICE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("nether_wart_soul_cake_slice", Item.Properties())
 
     val MARBLE_BOWL: DeferredItem<Item> = ITEMS.registerSimpleItem("marble_bowl", Item.Properties())
     val BORSCHT: DeferredItem<Item> = ITEMS.registerSimpleItem("borscht", Item.Properties())
-    val CREAM_WITH_MUSHROOM_SOUP: DeferredItem<Item> = ITEMS.registerSimpleItem("cream_with_mushroom_soup", Item.Properties())
+    val CREAM_WITH_MUSHROOM_SOUP: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("cream_with_mushroom_soup", Item.Properties())
     val MISO_SOUP: DeferredItem<Item> = ITEMS.registerSimpleItem("miso_soup", Item.Properties())
     val PRAWN_AND_CORN_SOUP: DeferredItem<Item> = ITEMS.registerSimpleItem("prawn_and_corn_soup", Item.Properties())
     val COSMIC_DRAGON_SALAD: DeferredItem<Item> = ITEMS.registerSimpleItem("cosmic_dragon_salad", Item.Properties())
@@ -52,7 +74,7 @@ object ModItems {
     val BELLINI_BASE: DeferredItem<Item> = ITEMS.registerSimpleItem("bellini_base", Item.Properties())
     val STRAWBERRY_SHAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("strawberry_shake", Item.Properties())
     val MANGO_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("mango_juice", Item.Properties())
-    val PINEAPPLE_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_juice", Item.Properties())
+
     val WATERMELON_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("watermelon_juice", Item.Properties())
     val MARTINI: DeferredItem<Item> = ITEMS.registerSimpleItem("martini", Item.Properties())
     val CHORUS_FRUIT_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_fruit_juice", Item.Properties())
@@ -65,7 +87,8 @@ object ModItems {
     val BOXED_CHOCOLATE_MILK: DeferredItem<Item> = ITEMS.registerSimpleItem("boxed_chocolate_milk", Item.Properties())
     val BOXED_LEMON_TEA: DeferredItem<Item> = ITEMS.registerSimpleItem("boxed_lemon_tea", Item.Properties())
     val BOTTLED_OLIVE_OIL: DeferredItem<Item> = ITEMS.registerSimpleItem("bottled_olive_oil", Item.Properties())
-    val LAVENDER_ESSENTIAL_OIL: DeferredItem<Item> = ITEMS.registerSimpleItem("lavender_essential_oil", Item.Properties())
+    val LAVENDER_ESSENTIAL_OIL: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("lavender_essential_oil", Item.Properties())
 
     val CHORUS_CHROME_CUBE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_chrome_cube", Item.Properties())
 
@@ -76,23 +99,32 @@ object ModItems {
     val CHERRIES_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_ice_cream", Item.Properties())
     val STARFRUIT_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("starfruit_ice_cream", Item.Properties())
     val JALAPENO_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("jalapeno_ice_cream", Item.Properties())
-    val VANILLA_CHOCOLATE_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_chocolate_ice_cream", Item.Properties())
-    val BLUEBERRY_CHERRIES_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_cherries_ice_cream", Item.Properties())
-    val STARFRUIT_JALAPENO_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("starfruit_jalapeno_ice_cream", Item.Properties())
+    val VANILLA_CHOCOLATE_ICE_CREAM: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("vanilla_chocolate_ice_cream", Item.Properties())
+    val BLUEBERRY_CHERRIES_ICE_CREAM: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("blueberry_cherries_ice_cream", Item.Properties())
+    val STARFRUIT_JALAPENO_ICE_CREAM: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("starfruit_jalapeno_ice_cream", Item.Properties())
 
-    val VANILLA_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_ice_cream_fluid_bucket", Item.Properties())
-    val CHOCOLATE_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("chocolate_ice_cream_fluid_bucket", Item.Properties())
-    val BLUEBERRY_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_ice_cream_fluid_bucket", Item.Properties())
-    val CHERRIES_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_ice_cream_fluid_bucket", Item.Properties())
-    val STARFRUIT_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("starfruit_ice_cream_fluid_bucket", Item.Properties())
-    val JALAPENO_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("jalapeno_ice_cream_fluid_bucket", Item.Properties())
+    val VANILLA_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("vanilla_ice_cream_fluid_bucket", Item.Properties())
+    val CHOCOLATE_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("chocolate_ice_cream_fluid_bucket", Item.Properties())
+    val BLUEBERRY_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("blueberry_ice_cream_fluid_bucket", Item.Properties())
+    val CHERRIES_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("cherries_ice_cream_fluid_bucket", Item.Properties())
+    val STARFRUIT_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("starfruit_ice_cream_fluid_bucket", Item.Properties())
+    val JALAPENO_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("jalapeno_ice_cream_fluid_bucket", Item.Properties())
 
     val POWSICLE_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("powsicle_paleteria", Item.Properties())
     val LUAU_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("luau_paleteria", Item.Properties())
     val WATERMELON_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("watermelon_paleteria", Item.Properties())
-    val PINK_SNOWMAN_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("pink_snowman_paleteria", Item.Properties())
+    val PINK_SNOWMAN_PALETERIA: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("pink_snowman_paleteria", Item.Properties())
     val HEART_CRUSH_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("heart_crush_paleteria", Item.Properties())
-    val PINEAPPLE_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_paleteria", Item.Properties())
     val HAMIMELON_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("hamimelon_paleteria", Item.Properties())
 
     val CHERRIES_PIE: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_pie", Item.Properties())
@@ -100,8 +132,10 @@ object ModItems {
     val TRUFFLE_PIE: DeferredItem<Item> = ITEMS.registerSimpleItem("truffle_pie", Item.Properties())
     val TRUFFLE_PIE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("truffle_pie_slice", Item.Properties())
     val PANCAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("pancake", Item.Properties())
-    val DURIAN_MILE_CREPE_CAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("durian_mile_crepe_cake", Item.Properties())
-    val DURIAN_MILE_CREPE_CAKE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("durian_mile_crepe_cake_slice", Item.Properties())
+    val DURIAN_MILE_CREPE_CAKE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("durian_mile_crepe_cake", Item.Properties())
+    val DURIAN_MILE_CREPE_CAKE_SLICE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("durian_mile_crepe_cake_slice", Item.Properties())
 
     val MUFFIN: DeferredItem<Item> = ITEMS.registerSimpleItem("muffin", Item.Properties())
     val BLUEBERRY_MUFFIN: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_muffin", Item.Properties())
@@ -137,14 +171,36 @@ object ModItems {
     val CORN: DeferredItem<Item> = ITEMS.registerSimpleItem("corn", Item.Properties())
     val CORN_SEED: DeferredItem<Item> = ITEMS.registerSimpleItem("corn_seed", Item.Properties())
     val APPLE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("apple_slice", Item.Properties())
-    val PINEAPPLE: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple", Item.Properties())
-    val PINEAPPLE_CROP: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_crop", Item.Properties())
-    val PINEAPPLE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_slice", Item.Properties())
-    val PINEAPPLE_PASTRIES: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_pastries", Item.Properties())
-    val PINEAPPLE_PIES: DeferredItem<Item> = ITEMS.registerSimpleItem("pineapple_pies", Item.Properties())
+
+    // Pineapple
+    val PINEAPPLE = registerSimpleBlockItem(ModBlocks.PINEAPPLE)
+    val PINEAPPLE_CROP = registerSimpleBlockItem(ModBlocks.PINEAPPLE_CROP)
+    val PINEAPPLE_JUICE_BUCKET = registerBucketItem("pineapple_juice_bucket", ModFluids.PINEAPPLE_JUICE)
+    val PINEAPPLE_SLICE = registerFoodItem("pineapple_slice") {
+        PineappleFoodItems.Slice(it.build(food = FoodProperties(nutrition = 3, saturationModifier = 0.3F)))
+    }
+    val PINEAPPLE_JUICE = registerFoodItem("pineapple_juice") {
+        PineappleFoodItems.Juice(
+            it.build(
+                food = FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true), stackSize = 64
+            )
+        )
+    }
+    val PINEAPPLE_PASTRIES = registerFoodItem("pineapple_pastries") {
+        PineappleFoodItems.Pastries(it.build(food = FoodProperties(nutrition = 5, saturationModifier = 0.6F)))
+    }
+    val PINEAPPLE_PIES = registerFoodItem("pineapple_pies") {
+        PineappleFoodItems.Pie(it.build(food = FoodProperties(nutrition = 5, saturationModifier = 0.35F)))
+    }
+    val PINEAPPLE_PALETERIA = registerFoodItem("pineapple_paleteria") {
+        PineappleFoodItems.Paleteria(it.build(food = FoodProperties(nutrition = 10, saturationModifier = 0.2F)))
+    }
+
     val MUSANG_KING_DURIAN: DeferredItem<Item> = ITEMS.registerSimpleItem("musang_king_durian", Item.Properties())
-    val HALF_OF_MUSANG_KING_DURIAN: DeferredItem<Item> = ITEMS.registerSimpleItem("half_of_musang_king_durian", Item.Properties())
-    val MUSANG_KING_DURIAN_FLESH: DeferredItem<Item> = ITEMS.registerSimpleItem("musang_king_durian_flesh", Item.Properties())
+    val HALF_OF_MUSANG_KING_DURIAN: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("half_of_musang_king_durian", Item.Properties())
+    val MUSANG_KING_DURIAN_FLESH: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("musang_king_durian_flesh", Item.Properties())
     val COOKED_DURIAN_FLESH: DeferredItem<Item> = ITEMS.registerSimpleItem("cooked_durian_flesh", Item.Properties())
     val DURIAN_CRISP: DeferredItem<Item> = ITEMS.registerSimpleItem("durian_crisp", Item.Properties())
     val HAMIMELON: DeferredItem<Item> = ITEMS.registerSimpleItem("hamimelon", Item.Properties())
@@ -171,7 +227,8 @@ object ModItems {
     val DRAGON_FRUIT: DeferredItem<Item> = ITEMS.registerSimpleItem("dragon_fruit", Item.Properties())
     val DRAGON_FRUIT_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("dragon_fruit_slice", Item.Properties())
     val DRAGON_FRUIT_CACTUS: DeferredItem<Item> = ITEMS.registerSimpleItem("dragon_fruit_cactus", Item.Properties())
-    val DRAGON_FRUIT_CACTUS_FLOWER: DeferredItem<Item> = ITEMS.registerSimpleItem("dragon_fruit_cactus_flower", Item.Properties())
+    val DRAGON_FRUIT_CACTUS_FLOWER: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("dragon_fruit_cactus_flower", Item.Properties())
     val STRAWBERRY: DeferredItem<Item> = ITEMS.registerSimpleItem("strawberry", Item.Properties())
     val PINEBERRY: DeferredItem<Item> = ITEMS.registerSimpleItem("pineberry", Item.Properties())
     val BLUEBERRY: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry", Item.Properties())
@@ -186,7 +243,8 @@ object ModItems {
     val TRUFFLE: DeferredItem<Item> = ITEMS.registerSimpleItem("truffle", Item.Properties())
     val GARLIC: DeferredItem<Item> = ITEMS.registerSimpleItem("garlic", Item.Properties())
     val BOTTON_MUSHROOM: DeferredItem<Item> = ITEMS.registerSimpleItem("botton_mushroom", Item.Properties())
-    val COOKED_BOTTON_MUSHROOM: DeferredItem<Item> = ITEMS.registerSimpleItem("cooked_botton_mushroom", Item.Properties())
+    val COOKED_BOTTON_MUSHROOM: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("cooked_botton_mushroom", Item.Properties())
     val WOOD_MUSHROOM: DeferredItem<Item> = ITEMS.registerSimpleItem("wood_mushroom", Item.Properties())
     val RAW_PRAWN: DeferredItem<Item> = ITEMS.registerSimpleItem("raw_prawn", Item.Properties())
     val COOKED_PRAWN: DeferredItem<Item> = ITEMS.registerSimpleItem("cooked_prawn", Item.Properties())
@@ -197,7 +255,8 @@ object ModItems {
     val CHRISTMAS_HAT_HELMET: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_hat_helmet", Item.Properties())
     val MINER_HAT_HELMET: DeferredItem<Item> = ITEMS.registerSimpleItem("miner_hat_helmet", Item.Properties())
 
-    val CHRISTMAS_MUFFLER_CHESTPLATE: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_muffler_chestplate", Item.Properties())
+    val CHRISTMAS_MUFFLER_CHESTPLATE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("christmas_muffler_chestplate", Item.Properties())
     val CHRISTMAS_WREATHS: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_wreaths", Item.Properties())
     val CHRISTMAS_SOCK: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_sock", Item.Properties())
 
@@ -213,6 +272,40 @@ object ModItems {
     val GIFT_TALL_LUCKY: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_tall_lucky", Item.Properties())
 
     val PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.PEARL_ROCK_ORE)
-    val DEEPSLATE_PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
+    val DEEPSLATE_PEARL_ROCK_ORE: DeferredItem<BlockItem> =
+        ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
+
+    private fun <I : FoodItem> registerFoodItem(name: String, func: Function<Item.Properties, out I>): DeferredItem<I> {
+        val holder = ITEMS.registerItem(name, func, Item.Properties())
+        FOOD_ITEM_HOLDERS.add(holder)
+        return holder
+    }
+
+    private fun registerSimpleBlockItem(block: Holder<Block>): DeferredItem<BlockItem> {
+        return ITEMS.registerSimpleBlockItem(block)
+    }
+
+    private fun registerBucketItem(name: String, fluid: Supplier<out Fluid>): DeferredItem<BucketItem> {
+        return ITEMS.registerItem(name) {
+            BucketItem(fluid.get(), Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))
+        }
+    }
+
+    private fun Item.Properties.build(
+        food: FoodProperties? = null, stackSize: Int = 64,
+    ): Item.Properties = apply {
+        stacksTo(stackSize)
+        if (food != null) food(food)
+    }
+
+    private fun FoodProperties(
+        nutrition: Int = 0, saturationModifier: Float = 0F, alwaysEdible: Boolean = false
+    ): FoodProperties {
+        return FoodProperties.Builder().apply {
+            nutrition(nutrition)
+            saturationModifier(saturationModifier)
+            if (alwaysEdible) alwaysEdible()
+        }.build()
+    }
 
 }
