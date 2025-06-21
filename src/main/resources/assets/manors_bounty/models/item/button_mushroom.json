@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "manors_bounty:item/botton_moshroom"
+    "layer0": "manors_bounty:item/button_mushroom"
   },
   "render_type": "translucent"
 }

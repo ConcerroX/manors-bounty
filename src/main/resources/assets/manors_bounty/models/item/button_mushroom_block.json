@@ -1,5 +1,5 @@
 {
-  "parent": "manors_bounty:block/botton_mushroom_3",
+  "parent": "manors_bounty:block/button_mushroom_block",
   "display": {
     "thirdperson": {
       "rotation": [
