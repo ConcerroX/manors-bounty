@@ -4,6 +4,8 @@ import com.djinfinite.manors_bounty.registry.ModAttachmentTypes
 import com.djinfinite.manors_bounty.registry.ModBlockEntityTypes
 import com.djinfinite.manors_bounty.registry.ModBlocks
 import com.djinfinite.manors_bounty.registry.ModCreativeModeTabs
+import com.djinfinite.manors_bounty.registry.ModFluidTypes
+import com.djinfinite.manors_bounty.registry.ModFluids
 import com.djinfinite.manors_bounty.registry.ModItems
 import com.djinfinite.manors_bounty.registry.ModMenuTypes
 import com.djinfinite.manors_bounty.registry.ModMobEffects
@@ -30,7 +32,9 @@ class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
 
         ModItems.ITEMS.register(modEventBus)
         ModBlocks.BLOCKS.register(modEventBus)
+        ModFluids.FLUIDS.register(modEventBus)
         ModMenuTypes.MENU_TYPES.register(modEventBus)
+        ModFluidTypes.FLUID_TYPES.register(modEventBus)
         ModMobEffects.MOB_EFFECTS.register(modEventBus)
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus)
         ModAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus)
