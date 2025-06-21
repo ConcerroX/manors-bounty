@@ -182,7 +182,7 @@ object ModItems {
     val PINEAPPLE_JUICE = registerFoodItem("pineapple_juice") {
         PineappleFoodItems.Juice(
             it.build(
-                food = FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true), stackSize = 64
+                food = FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true), stackSize = 16
             )
         )
     }
