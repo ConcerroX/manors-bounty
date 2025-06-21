@@ -1,4 +1,4 @@
-package com.djinfinite.manors_bounty.content.pineapple
+package com.djinfinite.manors_bounty.content.durian
 
 import com.djinfinite.manors_bounty.content.food.FoodIngredientType
 import com.djinfinite.manors_bounty.content.food.FoodItem
@@ -8,10 +8,10 @@ import com.djinfinite.manors_bounty.registry.ModMobEffects
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.UseAnim
 
-object PineappleFoodItems {
+object DurianFoodItems {
 
-    class Slice(properties: Properties) :
-        FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.A, arrayOf(ModMobEffects.SUMMER_HEATWAVE), null, 4)
+    class Half(properties: Properties) :
+        FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.A, arrayOf(ModMobEffects.SUMMER_HEATWAVE), null, 2)
 
     class Juice(properties: Properties) : FoodItem(
         properties,
@@ -29,7 +29,8 @@ object PineappleFoodItems {
     class Paleteria(properties: Properties) :
         FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE))
 
-    class Pastries(properties: Properties) :
-        FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE), Items.STICK)
+    class Pastries(properties: Properties) : FoodItem(
+        properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE), Items.STICK
+    )
 
 }
