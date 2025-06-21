@@ -14,12 +14,6 @@ tasks.named("wrapper", Wrapper).configure {
 version = mod_version
 group = mod_group_id
 
-repositories {
-    mavenLocal()
-    maven { url "https://thedarkcolour.github.io/KotlinForForge/" }
-    maven { url "https://cursemaven.com/" }
-}
-
 base {
     archivesName = mod_id
 }
@@ -64,39 +58,36 @@ neoForge {
     }
 }
 
-sourceSets.main.resources { srcDir "src/generated/resources" }
+sourceSets.main.resources { srcDirs("src/generated/resources") }
 
 configurations {
     runtimeClasspath.extendsFrom localRuntime
+}
+
+repositories {
+    mavenLocal()
+    maven { url "https://thedarkcolour.github.io/KotlinForForge/" }
+    maven { url "https://cursemaven.com/" }
+    maven { url "https://maven.createmod.net/" }
+    maven { url "https://mvn.devos.one/snapshots/" }
+    maven { url "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
+    maven { url "https://maven.terraformersmc.com/" }
 }
 
 dependencies {
     implementation "thedarkcolour:kotlinforforge-neoforge:5.5.0" // Kotlin for Forge
     implementation "curse.maven:farmers-delight-398521:6597295" // Farmer's Delight
     localRuntime "curse.maven:lmft-656346:5425796" // Load My F***ing Tags
+    localRuntime "curse.maven:tmrv-1194921:6649213" // TMRV
     localRuntime "curse.maven:jade-324717:6291517" // Jade
 
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
+    localRuntime("com.simibubi.create:create-1.21.1:6.0.6-98:slim") { transitive = false } // Create
+    localRuntime "dev.engine-room.flywheel:flywheel-neoforge-1.21.1:1.0.4-27" // Flywheel
+    localRuntime "net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.58" // Ponder
+    localRuntime "com.tterrag.registrate:Registrate:MC1.21-1.3.0+62" // Registrate
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
-
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    compileOnly "dev.emi:emi-neoforge:1.1.22+1.21.1:api" // EMI API
+    runtimeOnly "dev.emi:emi-neoforge:1.1.22+1.21.1" // EMI
 }
 
 tasks.withType(ProcessResources).configureEach {
