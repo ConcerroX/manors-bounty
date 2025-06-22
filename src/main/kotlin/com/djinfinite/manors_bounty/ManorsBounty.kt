@@ -4,6 +4,7 @@ import com.djinfinite.manors_bounty.registry.ModAttachmentTypes
 import com.djinfinite.manors_bounty.registry.ModBlockEntityTypes
 import com.djinfinite.manors_bounty.registry.ModBlocks
 import com.djinfinite.manors_bounty.registry.ModCreativeModeTabs
+import com.djinfinite.manors_bounty.registry.ModFeatures
 import com.djinfinite.manors_bounty.registry.ModFluidTypes
 import com.djinfinite.manors_bounty.registry.ModFluids
 import com.djinfinite.manors_bounty.registry.ModItems
@@ -11,6 +12,7 @@ import com.djinfinite.manors_bounty.registry.ModMenuTypes
 import com.djinfinite.manors_bounty.registry.ModMobEffects
 import com.djinfinite.manors_bounty.registry.ModRecipeSerializers
 import com.djinfinite.manors_bounty.registry.ModRecipeTypes
+import com.djinfinite.manors_bounty.registry.ModWoodTypes
 import com.mojang.logging.LogUtils
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.IEventBus
@@ -33,6 +35,7 @@ class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
         ModItems.ITEMS.register(modEventBus)
         ModBlocks.BLOCKS.register(modEventBus)
         ModFluids.FLUIDS.register(modEventBus)
+        ModFeatures.FEATURES.register(modEventBus)
         ModMenuTypes.MENU_TYPES.register(modEventBus)
         ModFluidTypes.FLUID_TYPES.register(modEventBus)
         ModMobEffects.MOB_EFFECTS.register(modEventBus)
@@ -41,6 +44,8 @@ class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus)
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus)
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus)
+
+        ModWoodTypes.register()
     }
 
     fun onCommonSetup(event: FMLCommonSetupEvent) {
