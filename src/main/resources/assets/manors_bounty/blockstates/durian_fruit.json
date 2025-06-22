@@ -1,13 +1,16 @@
 {
   "variants": {
-    "blockstate=0": {
+    "age=0": {
       "model": "manors_bounty:block/durian_fruit_1"
     },
-    "blockstate=1": {
+    "age=1": {
       "model": "manors_bounty:block/durian_fruit_1_state_blockstate_0"
     },
-    "blockstate=2": {
+    "age=2": {
       "model": "manors_bounty:block/durian_fruit_1_state_blockstate_1"
+    },
+    "age=3": {
+      "model": "manors_bounty:block/durian_fruit_2"
     }
   }
 }
