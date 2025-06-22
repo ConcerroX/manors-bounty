@@ -4,6 +4,7 @@ import com.djinfinite.manors_bounty.res
 import net.minecraft.core.registries.Registries
 import net.minecraft.tags.TagKey
 import net.minecraft.world.item.Item
+import net.minecraft.world.level.biome.Biome
 
 object ModTags {
 
@@ -60,6 +61,14 @@ object ModTags {
         val STARFRUIT_TREE_LOGS = create("starfruit_tree_logs")
 
         private fun create(tag: String): TagKey<Item> = TagKey.create(Registries.ITEM, res(tag))
+
+    }
+
+    object Biomes {
+
+        val OPTIONAL_VIOLET_BLUE_PLAINS = create("optional_violet_blue_plains")
+
+        private fun create(tag: String): TagKey<Biome> = TagKey.create(Registries.BIOME, res(tag))
 
     }
 
