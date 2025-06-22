@@ -25,6 +25,15 @@ object ModWoodTypes {
 
     // Experimental APIs: WoodBlocks
     val SCOTS_PINE = registerWoodBlocks("scots_pine", MapColor.WOOD, MapColor.PODZOL)
+    val ALPINE_TREE = registerWoodBlocks("alpine_tree", MapColor.WOOD, MapColor.PODZOL)
+    val CHERRIES_TREE = registerWoodBlocks("cherries_tree", MapColor.WOOD, MapColor.PODZOL)
+    val STARFRUIT_TREE = registerWoodBlocks("starfruit_tree", MapColor.WOOD, MapColor.PODZOL)
+    val OLIVE_TREE = registerWoodBlocks("olive_tree", MapColor.WOOD, MapColor.PODZOL)
+    val RUTACEAE_TREE = registerWoodBlocks("rutaceae_tree", MapColor.WOOD, MapColor.PODZOL)
+    val ROSACEAE_TREE = registerWoodBlocks("rosaceae_tree", MapColor.WOOD, MapColor.PODZOL)
+    val MANGO_TREE = registerWoodBlocks("mango_tree", MapColor.WOOD, MapColor.PODZOL)
+    val KIWIFRUIT_TREE = registerWoodBlocks("kiwifruit_tree", MapColor.WOOD, MapColor.PODZOL)
+    val AVOCADO_TREE = registerWoodBlocks("avocado_tree", MapColor.WOOD, MapColor.PODZOL)
 
     // ItemLike is only used when adding items to creative mode tabs
     // Will Kotlin support union type? 😭😥

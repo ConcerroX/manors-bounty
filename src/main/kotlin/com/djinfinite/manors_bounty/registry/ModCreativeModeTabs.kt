@@ -12,15 +12,30 @@ import java.util.function.Supplier
 object ModCreativeModeTabs {
 
     val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(
-        Registries.CREATIVE_MODE_TAB, ManorsBounty.ID)
+        Registries.CREATIVE_MODE_TAB, ManorsBounty.ID
+    )
 
     @Suppress("Unused")
-    val MAIN_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("main_tab", Supplier { CreativeModeTab.builder()
-        .title(Component.translatable("item_group.manors_bounty.manors_bounty"))
-        .icon(ModItems.MAIN_ICON_ITEM.get()::getDefaultInstance)
-        .displayItems { _, output -> MAIN_TAB_ITEMS.forEach { output.accept(it) } }
-        .build()
+    val MAIN_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("main_tab", Supplier {
+        CreativeModeTab.builder().title(Component.translatable("item_group.manors_bounty.manors_bounty"))
+            .icon(ModItems.MAIN_ICON_ITEM.get()::getDefaultInstance)
+            .displayItems { _, output -> MAIN_TAB_ITEMS.forEach { output.accept(it) } }.build()
     })
+
+    @Suppress("Unused")
+    val BUILDING_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> =
+        CREATIVE_MODE_TABS.register("building_tab", Supplier {
+            CreativeModeTab.builder().title(Component.translatable("item_group.manors_bounty.manors_bounty_building"))
+                .icon(ModItems.BUILDING_ICON_ITEM.get()::getDefaultInstance).displayItems { _, output ->
+                    BUILDING_TAB_ITEMS.forEach { itemLike ->
+                        if (itemLike is ModWoodTypes.WoodType) {
+                            itemLike.values().forEach { output.acceptNullable(it) }
+                        } else {
+                            output.accept(itemLike)
+                        }
+                    }
+                }.build()
+        })
 
     private val MAIN_TAB_ITEMS by lazy {
         listOf<ItemLike>(
@@ -156,6 +171,7 @@ object ModCreativeModeTabs {
             ModItems.PINEAPPLE_SLICE.get(),
             ModItems.PINEAPPLE_PASTRIES.get(),
             ModItems.PINEAPPLE_PIES.get(),
+            ModItems.DURIAN_SEED,
             ModItems.MUSANG_KING_DURIAN.get(),
             ModItems.HALF_OF_MUSANG_KING_DURIAN.get(),
             ModItems.MUSANG_KING_DURIAN_FLESH.get(),
@@ -199,8 +215,8 @@ object ModCreativeModeTabs {
             ModItems.FILBERT.get(),
             ModItems.TRUFFLE.get(),
             ModItems.GARLIC.get(),
-            ModItems.BOTTON_MUSHROOM.get(),
-            ModItems.COOKED_BOTTON_MUSHROOM.get(),
+            ModItems.BUTTON_MUSHROOM.get(),
+            ModItems.COOKED_BUTTON_MUSHROOM.get(),
             ModItems.WOOD_MUSHROOM.get(),
             ModItems.RAW_PRAWN.get(),
             ModItems.COOKED_PRAWN.get(),
@@ -229,6 +245,27 @@ object ModCreativeModeTabs {
             ModItems.PEARL_ROCK_ORE.get(),
             ModItems.DEEPSLATE_PEARL_ROCK_ORE.get(),
         )
+    }
+
+    private val BUILDING_TAB_ITEMS by lazy {
+        listOf<ItemLike>(
+            ModWoodTypes.SCOTS_PINE,
+            ModWoodTypes.ALPINE_TREE,
+            ModWoodTypes.CHERRIES_TREE,
+            ModWoodTypes.STARFRUIT_TREE,
+            ModWoodTypes.OLIVE_TREE,
+            ModWoodTypes.RUTACEAE_TREE,
+            ModWoodTypes.ROSACEAE_TREE,
+            ModWoodTypes.MANGO_TREE,
+            ModWoodTypes.KIWIFRUIT_TREE,
+            ModWoodTypes.AVOCADO_TREE,
+        )
+    }
+
+    private fun CreativeModeTab.Output.acceptNullable(item: ItemLike?) {
+        if (item != null) {
+            accept(item)
+        }
     }
 
 }
