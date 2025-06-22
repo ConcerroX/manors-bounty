@@ -22,7 +22,7 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder
 import java.util.concurrent.CompletableFuture
 
 
-class ModRecipeProvider(output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>) :
+class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>) :
     RecipeProvider(output, lookupProvider) {
 
     override fun buildRecipes(output: RecipeOutput) {

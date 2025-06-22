@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "manors_bounty:blocks/ice_cream_machine",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "manors_bounty:ice_cream_machine"
+        }
+      ]
+    }
+  ]
+}
