@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "stony_peaks",
+    "windswept_forest",
+    "windswept_hills"
+  ],
+  "features": "manors_bounty:kiwifruit_tree_spawn",
+  "step": "surface_structures"
+}

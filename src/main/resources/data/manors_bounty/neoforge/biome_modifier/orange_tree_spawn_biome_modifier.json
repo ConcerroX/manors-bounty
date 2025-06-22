@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "sparse_jungle",
+    "forest"
+  ],
+  "features": "manors_bounty:orange_tree_spawn",
+  "step": "surface_structures"
+}

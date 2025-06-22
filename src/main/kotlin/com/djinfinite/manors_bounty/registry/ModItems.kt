@@ -31,7 +31,7 @@ object ModItems {
     val CREATIVITY_MECHANISM: DeferredItem<Item> = ITEMS.registerSimpleItem("creativity_mechanism", Item.Properties())
 
     val OLIVE_OIL_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("olive_oil_bucket", Item.Properties())
-    val HOT_SPRING_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("hot_spring_bucket", Item.Properties())
+    // val HOT_SPRING_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("hot_spring_bucket", Item.Properties())
     val CAKE_LIQUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("cake_liquid_bucket", Item.Properties())
 
     val ICE_CREAM_MACHINE: DeferredItem<BlockItem> =
@@ -300,7 +300,32 @@ object ModItems {
     val DEEPSLATE_PEARL_ROCK_ORE: DeferredItem<BlockItem> =
         ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
 
+    // Leaves
+    val SCOTS_PINE_LEAVES = registerSimpleBlockItem(ModBlocks.SCOTS_PINE_LEAVES)
+    val ALPINE_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.ALPINE_TREE_LEAVES)
+    val CHERRIES_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.CHERRIES_TREE_LEAVES)
+    val STARFRUIT_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.STARFRUIT_TREE_LEAVES)
+    val OLIVE_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.OLIVE_TREE_LEAVES)
+    val ORANGE_LEAVES = registerSimpleBlockItem(ModBlocks.ORANGE_LEAVES)
+    val PEACH_LEAVES = registerSimpleBlockItem(ModBlocks.PEACH_LEAVES)
+    val PEAR_LEAVES = registerSimpleBlockItem(ModBlocks.PEAR_LEAVES)
+    val APPLE_LEAVES = registerSimpleBlockItem(ModBlocks.APPLE_LEAVES)
+    val MANGO_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.MANGO_TREE_LEAVES)
+    val KIWIFRUIT_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.KIWIFRUIT_TREE_LEAVES)
+    val AVOCADO_TREE_LEAVES = registerSimpleBlockItem(ModBlocks.AVOCADO_TREE_LEAVES)
+
+    // Saplings & Seeds
     val SCOTS_PINE_SAPLING = registerSimpleBlockItem(ModBlocks.SCOTS_PINE_SAPLING)
+    val CHERRIES_SEED = registerSimpleBlockItem(ModBlocks.CHERRIES_SEED)
+    val STARFRUIT_SEED = registerSimpleBlockItem(ModBlocks.STARFRUIT_SEED)
+    val OLIVE_FRUIT_SEED = registerSimpleBlockItem(ModBlocks.OLIVE_FRUIT_SEED)
+    val ORANGE_SEED = registerSimpleBlockItem(ModBlocks.ORANGE_SEED)
+    val PEACH_SEED = registerSimpleBlockItem(ModBlocks.PEACH_SEED)
+    val PEAR_SEED = registerSimpleBlockItem(ModBlocks.PEAR_SEED)
+    val APPLE_SEED = registerSimpleBlockItem(ModBlocks.APPLE_SEED)
+    val MANGO_SEED = registerSimpleBlockItem(ModBlocks.MANGO_SEED)
+    val KIWIFRUIT_SEED = registerSimpleBlockItem(ModBlocks.KIWIFRUIT_SEED)
+    val AVOCADO_SEED = registerSimpleBlockItem(ModBlocks.AVOCADO_SEED)
 
     private fun <I : FoodItem> registerFoodItem(name: String, func: Function<Item.Properties, out I>): DeferredItem<I> {
         val holder = ITEMS.registerItem(name, func, Item.Properties())

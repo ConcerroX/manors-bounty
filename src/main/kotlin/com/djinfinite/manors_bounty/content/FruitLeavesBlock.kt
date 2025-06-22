@@ -8,9 +8,12 @@ import net.minecraft.core.BlockPos
 import net.minecraft.core.Holder
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.RandomSource
+import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.item.ItemEntity
+import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
@@ -19,10 +22,11 @@ import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.IntegerProperty
+import net.minecraft.world.phys.BlockHitResult
 import kotlin.math.abs
 
 
-class FruitLeavesBlock(val fruit: Holder<Item>, val fruitDropCount: IntRange, properties: Properties) :
+class FruitLeavesBlock(val fruit: ItemLike, val fruitDropCount: IntRange, properties: Properties) :
     LeavesBlock(properties), BonemealableBlock {
 
     companion object {
@@ -88,6 +92,18 @@ class FruitLeavesBlock(val fruit: Holder<Item>, val fruitDropCount: IntRange, pr
         }
     }
 
+    override fun useWithoutItem(
+        state: BlockState, level: Level, pos: BlockPos, player: Player, hitResult: BlockHitResult
+    ): InteractionResult {
+        if (state.getValue(AGE) == AGE_BEARING) {
+            if (level is ServerLevel) spawnFruitItem(level, pos)
+            setAge(level, pos, AGE_OTHER_CYCLE_START)
+            return InteractionResult.SUCCESS
+        } else {
+            return super.useWithoutItem(state, level, pos, player, hitResult)
+        }
+    }
+
     private fun setAge(level: Level, pos: BlockPos, age: Int) {
         level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AGE, age))
     }
@@ -127,15 +143,7 @@ class FruitLeavesBlock(val fruit: Holder<Item>, val fruitDropCount: IntRange, pr
                 val fruitLeavesDropRate = if (isBonemealed) 1.0 else ManorsBountyConfig.fruitLeavesDropRate.get()
                 letChanced(abs(fruitLeavesDropRate), success = {
                     if (fruitLeavesDropRate > 0) {
-                        level.addFreshEntity(
-                            ItemEntity(
-                                level,
-                                pos.x.toDouble(),
-                                pos.y.toDouble(),
-                                pos.z.toDouble(),
-                                ItemStack(fruit, fruitDropCount.random())
-                            ).apply { setPickUpDelay(10) },
-                        )
+                        spawnFruitItem(level, pos)
                     }
                     AGE_OTHER_CYCLE_START
                 }, failure = {
@@ -147,6 +155,14 @@ class FruitLeavesBlock(val fruit: Holder<Item>, val fruitDropCount: IntRange, pr
             else -> null // should never happen
         }
         targetAge?.let { setAge(level, pos, it) }
+    }
+
+    private fun spawnFruitItem(level: Level, pos: BlockPos) {
+        level.addFreshEntity(
+            ItemEntity(
+                level, pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), ItemStack(fruit, fruitDropCount.random())
+            ).apply { setPickUpDelay(10) },
+        )
     }
 
 }

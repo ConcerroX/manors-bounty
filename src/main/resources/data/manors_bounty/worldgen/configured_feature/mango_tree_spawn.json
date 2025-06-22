@@ -4,52 +4,41 @@
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "manors_bounty:black_dirt"
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "manors_bounty:scots_pine_leaves"
+        "Name": "manors_bounty:mango_tree_leaves"
       }
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "manors_bounty:scots_pine_log"
+        "Name": "manors_bounty:mango_tree_log"
       }
     },
     "force_dirt": false,
     "ignore_vines": true,
     "foliage_placer": {
-      "type": "minecraft:spruce_foliage_placer",
-      "offset": {
-        "type": "minecraft:weighted_list",
-        "distribution": [
-          {
-            "data": 1,
-            "weight": 1
-          },
-          {
-            "data": 2,
-            "weight": 1
-          }
-        ]
-      },
+      "type": "minecraft:fancy_foliage_placer",
       "radius": 2,
-      "trunk_height": 2
+      "offset": 4,
+      "height": 4
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
-      "base_height": 10,
+      "type": "minecraft:fancy_trunk_placer",
+      "base_height": 4,
       "height_rand_a": 2,
-      "height_rand_b": 1
+      "height_rand_b": 0
     },
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 2,
+      "limit": 0,
       "lower_size": 0,
-      "upper_size": 2
+      "upper_size": 0,
+      "min_clipped_height": 4
     },
     "decorators": []
   }

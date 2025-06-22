@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "sunflower_plains",
+  "features": "manors_bounty:pear_tree_spawn",
+  "step": "surface_structures"
+}

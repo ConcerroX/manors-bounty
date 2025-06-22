@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "savanna",
+    "savanna_plateau"
+  ],
+  "features": "manors_bounty:olive_tree_spawn",
+  "step": "surface_structures"
+}
