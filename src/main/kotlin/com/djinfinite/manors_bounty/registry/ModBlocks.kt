@@ -12,9 +12,11 @@ import com.djinfinite.manors_bounty.content.icecream.IceCreamMachineBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleCropBlock
 import com.djinfinite.manors_bounty.util.FeatureUtils
+import net.minecraft.util.valueproviders.UniformInt
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.DropExperienceBlock
 import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.LiquidBlock
 import net.minecraft.world.level.block.SaplingBlock
@@ -36,20 +38,24 @@ object ModBlocks {
     val BLOCKS: DeferredRegister.Blocks = DeferredRegister.createBlocks(ManorsBounty.ID)
 
     // Pearl Rock Ore
-    val PEARL_ROCK_ORE: DeferredBlock<Block> = BLOCKS.registerSimpleBlock(
-        "pearl_rock_ore",
-        newProperties().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.STONE).sound(SoundType.STONE)
-            .strength(3F).requiresCorrectToolForDrops().lightLevel { 15 })
-    val DEEPSLATE_PEARL_ROCK_ORE: DeferredBlock<Block> = BLOCKS.registerSimpleBlock(
-        "deepslate_pearl_rock_ore",
-        newProperties().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.DEEPSLATE).sound(SoundType.STONE)
-            .strength(4.5F, 3F).requiresCorrectToolForDrops().lightLevel { 15 })
+    val PEARL_ROCK_ORE = registerBlock("pearl_rock_ore") {
+        DropExperienceBlock(UniformInt.of(2, 6), newProperties(Blocks.IRON_ORE, lightLevel = 15))
+    }
+    val DEEPSLATE_PEARL_ROCK_ORE = registerBlock("deepslate_pearl_rock_ore") {
+        DropExperienceBlock(UniformInt.of(2, 6), newProperties(Blocks.DEEPSLATE_IRON_ORE, lightLevel = 15))
+    }
 
     // Ice Cream Machine
-    val ICE_CREAM_MACHINE: DeferredBlock<IceCreamMachineBlock> = BLOCKS.registerBlock("ice_cream_machine") {
+    val ICE_CREAM_MACHINE = registerBlock("ice_cream_machine") {
         IceCreamMachineBlock(
-            newProperties().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_PINK)
-                .sound(SoundType.METAL).strength(2F).noOcclusion().isRedstoneConductor { _, _, _ -> false })
+            newProperties(
+                mapColor = MapColor.COLOR_PINK,
+                sound = SoundType.METAL,
+                destroyTime = 2F,
+                noOcclusion = true,
+                isRedstoneConductor = IsRedstoneConductor.Never
+            )
+        )
     }
 
     // Olive
@@ -307,7 +313,9 @@ object ModBlocks {
     // Mango
     val MANGO_TREE_LEAVES = registerBlockWithWoodType("mango_tree_leaves", ModWoodTypes.ROSACEAE_TREE) {
         FruitLeavesBlock(
-            ModItems.MANGO, fruitDropCount = 1..2, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.COLOR_LIGHT_GREEN)
+            ModItems.MANGO,
+            fruitDropCount = 1..2,
+            newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.COLOR_LIGHT_GREEN)
         )
     }
     val MANGO_SEED = registerBlockWithWoodType("mango_seed", ModWoodTypes.ROSACEAE_TREE) {
@@ -341,7 +349,9 @@ object ModBlocks {
     // Avocado
     val AVOCADO_TREE_LEAVES = registerBlockWithWoodType("avocado_tree_leaves", ModWoodTypes.ROSACEAE_TREE) {
         FruitLeavesBlock(
-            ModItems.AVOCADO, fruitDropCount = 1..1, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.TERRACOTTA_GREEN)
+            ModItems.AVOCADO,
+            fruitDropCount = 1..1,
+            newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.TERRACOTTA_GREEN)
         )
     }
     val AVOCADO_SEED = registerBlockWithWoodType("avocado_seed", ModWoodTypes.ROSACEAE_TREE) {
@@ -416,6 +426,7 @@ object ModBlocks {
         instrument: NoteBlockInstrument = NoteBlockInstrument.BASEDRUM,
         mapColor: MapColor = MapColor.STONE,
         sound: SoundType = SoundType.STONE,
+        lightLevel: Int = 0,
         destroyTime: Float = 0F,
         explosionResistance: Float? = null,
         noOcclusion: Boolean = false,
@@ -435,6 +446,7 @@ object ModBlocks {
             mapColor(mapColor)
             sound(sound)
             strength(destroyTime, explosionResistance ?: destroyTime)
+            lightLevel { lightLevel }
             if (ignitedByLava) ignitedByLava()
             if (noOcclusion) noOcclusion()
             if (noCollission) noCollission()
