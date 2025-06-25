@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "swamp",
+    "mangrove_swamp"
+  ],
+  "features": "manors_bounty:durian_tree_spawn",
+  "step": "surface_structures"
+}
