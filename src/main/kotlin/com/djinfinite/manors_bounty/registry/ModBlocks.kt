@@ -65,7 +65,6 @@ object ModBlocks {
     val PINEAPPLE = registerBlock("pineapple") {
         PineappleBlock(
             newProperties(
-                ignitedByLava = true,
                 instrument = NoteBlockInstrument.BASS,
                 mapColor = MapColor.COLOR_ORANGE,
                 sound = SoundType.BAMBOO,
@@ -78,15 +77,7 @@ object ModBlocks {
     val PINEAPPLE_CROP = registerBlock("pineapple_crop") {
         PineappleCropBlock(
             newProperties(
-                ignitedByLava = true,
-                instrument = NoteBlockInstrument.BASS,
-                mapColor = MapColor.GRASS,
-                sound = SoundType.CROP,
-                destroyTime = 0.6F,
-                noOcclusion = true,
-                noCollission = true,
-                randomTicks = true,
-                isRedstoneConductor = IsRedstoneConductor.Never
+                Blocks.WHEAT, destroyTime = 0.6F, noOcclusion = true, isRedstoneConductor = IsRedstoneConductor.Never
             )
         )
     }
@@ -94,17 +85,7 @@ object ModBlocks {
 
     // Durian
     val DURIAN_SEED = registerBlock("durian_seed") {
-        DurianSaplingBlock(
-            newProperties(
-                mapColor = MapColor.TERRACOTTA_LIGHT_GREEN,
-                sound = SoundType.GRASS,
-                instabreak = true,
-                noCollission = true,
-                randomTicks = true,
-                offsetType = BlockBehaviour.OffsetType.NONE,
-                pushReaction = PushReaction.DESTROY,
-            )
-        )
+        DurianSaplingBlock(newProperties(Blocks.OAK_SAPLING))
     }
     val MUSANG_KING_DURIAN = registerBlock("musang_king_durian") {
         DurianBlock(
@@ -130,17 +111,7 @@ object ModBlocks {
     //    com.djinfinite.manors_bounty.registries.ModBlocks.STRIPPED_DURIAN_TREE_WOOD = com.djinfinite.manors_bounty.registries.ModBlocks.REGISTRY.register("stripped_durian_tree_wood", com.djinfinite.manors_bounty.registries.ModBlocks.getStrippedWood())
 //    com.djinfinite.manors_bounty.registries.ModBlocks.DURIAN_TREE_WOOD = com.djinfinite.manors_bounty.registries.ModBlocks.REGISTRY.register("durian_tree_wood", com.djinfinite.manors_bounty.registries.ModBlocks.getWood(com.djinfinite.manors_bounty.registries.ModBlocks.STRIPPED_DURIAN_TREE_WOOD))
     val DURIAN_LEAVES = registerBlock("durian_tree_leaves") {
-        DurianLeavesBlock(
-            newProperties(
-                ignitedByLava = true,
-                mapColor = MapColor.TERRACOTTA_LIGHT_GREEN,
-                sound = SoundType.GRASS,
-                destroyTime = 0.2F,
-                noOcclusion = true,
-                randomTicks = true,
-                isRedstoneConductor = IsRedstoneConductor.Never
-            )
-        )
+        DurianLeavesBlock(newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.TERRACOTTA_LIGHT_GREEN))
     }
 
     //    val DURIAN_TREE_PLANKS = registerBlock("durian_tree_planks", val getPlanks ())
