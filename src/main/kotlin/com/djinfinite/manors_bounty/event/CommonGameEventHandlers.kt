@@ -4,14 +4,29 @@ import com.djinfinite.manors_bounty.ManorsBounty
 import com.djinfinite.manors_bounty.content.mobeffect.MobEffectManager
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
+import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent
+import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent
+import net.neoforged.neoforge.event.entity.player.CriticalHitEvent
 
 @EventBusSubscriber(modid = ManorsBounty.ID, bus = EventBusSubscriber.Bus.GAME)
 object CommonGameEventHandlers {
 
     @SubscribeEvent
     fun onLivingIncomingDamage(event: LivingIncomingDamageEvent) {
-        MobEffectManager.applyHackedThornsEffect(event)
+        MobEffectManager.applyHackedThorns(event)
+        MobEffectManager.applyRosaHedge(event)
+        MobEffectManager.applyMomentaryMeteor(event)
+    }
+
+    @SubscribeEvent
+    fun onCriticalHit(event: CriticalHitEvent) {
+        MobEffectManager.applyBurstingBerry(event)
+    }
+
+    @SubscribeEvent
+    fun onLivingExperienceDrop(event: LivingExperienceDropEvent) {
+        MobEffectManager.applyRutinLemonene(event)
     }
 
 }

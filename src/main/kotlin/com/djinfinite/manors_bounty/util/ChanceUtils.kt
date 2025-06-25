@@ -14,10 +14,30 @@ internal fun <R : Any?> letChanced(chance: Float, action: () -> R): R? {
     return if (Random.nextFloat() < chance) action() else null
 }
 
-internal fun <R : Any?> valueChancedOrNull(chance: Float, value: R?, default: R?): R? {
+internal fun <R : Any?> letChanced(chance: Double, action: () -> R): R? {
+    return if (Random.nextDouble() < chance) action() else null
+}
+
+internal fun <R : Any?> letChanced(chance: Float, action: () -> R, default: () -> R): R? {
+    return if (Random.nextFloat() < chance) action() else default()
+}
+
+internal fun <R : Any?> letChanced(chance: Double, success: () -> R, failure: () -> R): R? {
+    return if (Random.nextDouble() < chance) success() else failure()
+}
+
+internal fun <R : Any?> valueChancedOrNull(chance: Float, value: R?, default: R? = null): R? {
     return if (Random.nextFloat() < chance) value else default
 }
 
-internal fun <R : Any> valueChanced(chance: Float, value: R, default: R): R {
-    return if (Random.nextFloat() < chance) value else default
+internal fun <R : Any?> valueChancedOrNull(chance: Double, value: R?, default: R? = null): R? {
+    return if (Random.nextDouble() < chance) value else default
+}
+
+internal fun <R : Any> valueChanced(chance: Float, success: R, failure: R): R {
+    return if (Random.nextFloat() < chance) success else failure
+}
+
+internal fun <R : Any> valueChanced(chance: Double, success: R, failure: R): R {
+    return if (Random.nextDouble() < chance) success else failure
 }
