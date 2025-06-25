@@ -16,17 +16,19 @@ object ModCreativeModeTabs {
     )
 
     @Suppress("Unused")
-    val MAIN_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("main_tab", Supplier {
-        CreativeModeTab.builder().title(Component.translatable("item_group.manors_bounty.manors_bounty"))
-            .icon(ModItems.MAIN_ICON_ITEM::toStack)
-            .displayItems { _, output -> MAIN_TAB_ITEMS.forEach { output.accept(it) } }.build()
-    })
+    private val MAIN_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> =
+        CREATIVE_MODE_TABS.register("main_tab", Supplier {
+            CreativeModeTab.builder().title(Component.translatable("item_group.manors_bounty.manors_bounty"))
+                .icon(ModItems.MAIN_ICON_ITEM::toStack)
+                .displayItems { _, output -> MAIN_TAB_ITEMS.forEach { output.accept(it) } }.build()
+        })
 
     @Suppress("Unused")
-    val BUILDING_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> =
-        CREATIVE_MODE_TABS.register("building_tab", Supplier {
+    private val BUILDING_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register(
+        "building_tab",
+        Supplier {
             CreativeModeTab.builder().title(Component.translatable("item_group.manors_bounty.manors_bounty_building"))
-                .icon(ModItems.BUILDING_ICON_ITEM::toStack).displayItems { _, output ->
+                .icon(ModItems.BUILDING_ICON_ITEM::toStack).withTabsBefore(MAIN_TAB.key).displayItems { _, output ->
                     BUILDING_TAB_ITEMS.forEach { itemLike ->
                         if (itemLike is ModWoodTypes.WoodType) {
                             itemLike.values().forEach { output.acceptNullable(it) }
@@ -35,7 +37,8 @@ object ModCreativeModeTabs {
                         }
                     }
                 }.build()
-        })
+        },
+    )
 
     private val MAIN_TAB_ITEMS by lazy {
         listOf<ItemLike>(

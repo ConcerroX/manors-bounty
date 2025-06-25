@@ -30,7 +30,7 @@ object ModItems {
     val SNOW_DYE: DeferredItem<Item> = ITEMS.registerSimpleItem("snow_dye", Item.Properties())
     val CREATIVITY_MECHANISM: DeferredItem<Item> = ITEMS.registerSimpleItem("creativity_mechanism", Item.Properties())
 
-    val OLIVE_OIL_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("olive_oil_bucket", Item.Properties())
+    val OLIVE_OIL_BUCKET = registerBucketItem("olive_oil_bucket", ModFluids.OLIVE_OIL)
     // val HOT_SPRING_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("hot_spring_bucket", Item.Properties())
     val CAKE_LIQUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("cake_liquid_bucket", Item.Properties())
 
@@ -339,7 +339,7 @@ object ModItems {
 
     private fun registerBucketItem(name: String, fluid: Supplier<out Fluid>): DeferredItem<BucketItem> {
         return ITEMS.registerItem(name) {
-            BucketItem(fluid.get(), Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))
+            BucketItem(fluid.get(), it.craftRemainder(Items.BUCKET).stacksTo(1))
         }
     }
 

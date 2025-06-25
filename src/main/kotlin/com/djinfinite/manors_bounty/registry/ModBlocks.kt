@@ -7,7 +7,7 @@ import com.djinfinite.manors_bounty.content.durian.DurianBlock
 import com.djinfinite.manors_bounty.content.durian.DurianFruitBlock
 import com.djinfinite.manors_bounty.content.durian.DurianLeavesBlock
 import com.djinfinite.manors_bounty.content.durian.DurianSaplingBlock
-import com.djinfinite.manors_bounty.content.food.FoodJuiceFluid
+import com.djinfinite.manors_bounty.content.food.SimpleFluid
 import com.djinfinite.manors_bounty.content.icecream.IceCreamMachineBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleCropBlock
@@ -52,6 +52,9 @@ object ModBlocks {
                 .sound(SoundType.METAL).strength(2F).noOcclusion().isRedstoneConductor { _, _, _ -> false })
     }
 
+    // Olive
+    val OLIVE_OIL = registerFluidBlock("olive_oil", ModFluids.OLIVE_OIL)
+
     // Pineapple
     val PINEAPPLE: DeferredBlock<PineappleBlock> = BLOCKS.registerBlock("pineapple") {
         PineappleBlock(
@@ -81,7 +84,7 @@ object ModBlocks {
             )
         )
     }
-    val PINEAPPLE_JUICE: DeferredBlock<LiquidBlock> = registerJuiceBlock("pineapple_juice", ModFluids.PINEAPPLE_JUICE)
+    val PINEAPPLE_JUICE = registerFluidBlock("pineapple_juice", ModFluids.PINEAPPLE_JUICE)
 
     // Durian
     val DURIAN_SEED: DeferredBlock<DurianSaplingBlock> = BLOCKS.registerBlock("durian_seed") {
@@ -368,8 +371,8 @@ object ModBlocks {
         return BLOCKS.registerBlock(id, func, BlockBehaviour.Properties.of())
     }
 
-    private fun registerJuiceBlock(
-        id: String, fluid: DeferredHolder<Fluid, FoodJuiceFluid.Source>
+    private fun registerFluidBlock(
+        id: String, fluid: DeferredHolder<Fluid, SimpleFluid.Source>
     ): DeferredBlock<LiquidBlock> {
         return BLOCKS.registerBlock(id) {
             LiquidBlock(

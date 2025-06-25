@@ -1,7 +1,7 @@
 package com.djinfinite.manors_bounty.registry
 
 import com.djinfinite.manors_bounty.ManorsBounty
-import com.djinfinite.manors_bounty.content.food.FoodJuiceFluid
+import com.djinfinite.manors_bounty.content.food.SimpleFluid
 import net.minecraft.core.registries.Registries
 import net.minecraft.world.item.BucketItem
 import net.minecraft.world.level.block.LiquidBlock
@@ -17,11 +17,14 @@ object ModFluids {
 
     val FLUIDS: DeferredRegister<Fluid> = DeferredRegister.create(Registries.FLUID, ManorsBounty.ID)
 
-    lateinit var PINEAPPLE_JUICE: DeferredHolder<Fluid, FoodJuiceFluid.Source>
-    lateinit var PINEAPPLE_JUICE_FLOWING: DeferredHolder<Fluid, FoodJuiceFluid.Flowing>
+    lateinit var PINEAPPLE_JUICE: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var PINEAPPLE_JUICE_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var OLIVE_OIL: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var OLIVE_OIL_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
 
     init {
-        register("pineapple_juice", FoodJuiceFluid::Source, FoodJuiceFluid::Flowing, {
+        register("pineapple_juice", SimpleFluid::Source, SimpleFluid::Flowing, {
             newProperties(
                 ModFluidTypes.PINEAPPLE_JUICE,
                 PINEAPPLE_JUICE,
@@ -32,6 +35,18 @@ object ModFluids {
         }).apply {
             PINEAPPLE_JUICE = source
             PINEAPPLE_JUICE_FLOWING = flowing
+        }
+        register("olive_oil", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.OLIVE_OIL,
+                OLIVE_OIL,
+                OLIVE_OIL_FLOWING,
+                ModBlocks.OLIVE_OIL,
+                ModItems.OLIVE_OIL_BUCKET
+            )
+        }).apply {
+            OLIVE_OIL = source
+            OLIVE_OIL_FLOWING = flowing
         }
     }
 
