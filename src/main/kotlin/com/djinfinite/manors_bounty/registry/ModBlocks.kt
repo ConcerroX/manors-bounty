@@ -62,7 +62,7 @@ object ModBlocks {
     val OLIVE_OIL = registerFluidBlock("olive_oil", ModFluids.OLIVE_OIL)
 
     // Pineapple
-    val PINEAPPLE: DeferredBlock<PineappleBlock> = BLOCKS.registerBlock("pineapple") {
+    val PINEAPPLE = registerBlock("pineapple") {
         PineappleBlock(
             newProperties(
                 ignitedByLava = true,
@@ -75,7 +75,7 @@ object ModBlocks {
             )
         )
     }
-    val PINEAPPLE_CROP: DeferredBlock<PineappleCropBlock> = BLOCKS.registerBlock("pineapple_crop") {
+    val PINEAPPLE_CROP = registerBlock("pineapple_crop") {
         PineappleCropBlock(
             newProperties(
                 ignitedByLava = true,
@@ -93,7 +93,7 @@ object ModBlocks {
     val PINEAPPLE_JUICE = registerFluidBlock("pineapple_juice", ModFluids.PINEAPPLE_JUICE)
 
     // Durian
-    val DURIAN_SEED: DeferredBlock<DurianSaplingBlock> = BLOCKS.registerBlock("durian_seed") {
+    val DURIAN_SEED = registerBlock("durian_seed") {
         DurianSaplingBlock(
             newProperties(
                 mapColor = MapColor.TERRACOTTA_LIGHT_GREEN,
