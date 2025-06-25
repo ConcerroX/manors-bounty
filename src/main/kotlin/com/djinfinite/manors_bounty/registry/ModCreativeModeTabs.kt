@@ -287,7 +287,7 @@ object ModCreativeModeTabs {
     }
 
     private val BUILDING_TAB_ITEMS by lazy {
-        listOf<ItemLike>(
+        listOf(
             // Woods
             ModWoodTypes.SCOTS_PINE,
             ModWoodTypes.ALPINE_TREE,
@@ -299,6 +299,14 @@ object ModCreativeModeTabs {
             ModWoodTypes.MANGO_TREE,
             ModWoodTypes.KIWIFRUIT_TREE,
             ModWoodTypes.AVOCADO_TREE,
+
+            // Snow Color Blocks
+            ModItems.SNOW_TERRACOTTA,
+            ModItems.SNOW_GLAZED_TERRACOTTA,
+            ModItems.SNOW_CONCRETE,
+            ModItems.SNOW_CONCRETE_POWDER,
+            ModItems.SNOW_GLASS,
+            ModItems.SNOW_GLASS_PANE,
         )
     }
 

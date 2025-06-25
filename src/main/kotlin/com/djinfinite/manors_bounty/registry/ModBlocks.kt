@@ -359,6 +359,26 @@ object ModBlocks {
         Block(newProperties(Blocks.DIRT))
     }
 
+    // Snow Color Blocks
+    val SNOW_TERRACOTTA = registerBlock("snow_terracotta") {
+        Block(newProperties(Blocks.TERRACOTTA, mapColor = MapColor.DIAMOND))
+    }
+    val SNOW_GLAZED_TERRACOTTA = registerBlock("snow_glazed_terracotta") {
+        Block(newProperties(Blocks.WHITE_GLAZED_TERRACOTTA, mapColor = MapColor.DIAMOND))
+    }
+    val SNOW_CONCRETE = registerBlock("snow_concrete") {
+        Block(newProperties(Blocks.WHITE_CONCRETE, mapColor = MapColor.DIAMOND))
+    }
+    val SNOW_CONCRETE_POWDER = registerBlock("snow_concrete_powder") {
+        Block(newProperties(Blocks.WHITE_CONCRETE_POWDER, mapColor = MapColor.DIAMOND))
+    }
+    val SNOW_GLASS = registerBlock("snow_glass") {
+        Block(newProperties(Blocks.GLASS, mapColor = MapColor.DIAMOND))
+    }
+    val SNOW_GLASS_PANE = registerBlock("snow_glass_pane") {
+        Block(newProperties(Blocks.GLASS_PANE, mapColor = MapColor.DIAMOND))
+    }
+
     private fun <B : Block> registerBlock(
         id: String, func: Function<BlockBehaviour.Properties, out B>
     ): DeferredBlock<B> {

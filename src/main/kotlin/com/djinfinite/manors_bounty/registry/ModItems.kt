@@ -327,6 +327,14 @@ object ModItems {
     val KIWIFRUIT_SEED = registerSimpleBlockItem(ModBlocks.KIWIFRUIT_SEED)
     val AVOCADO_SEED = registerSimpleBlockItem(ModBlocks.AVOCADO_SEED)
 
+    // Snow Color Blocks
+    val SNOW_TERRACOTTA = registerSimpleBlockItem(ModBlocks.SNOW_TERRACOTTA)
+    val SNOW_GLAZED_TERRACOTTA = registerSimpleBlockItem(ModBlocks.SNOW_GLAZED_TERRACOTTA)
+    val SNOW_CONCRETE = registerSimpleBlockItem(ModBlocks.SNOW_CONCRETE)
+    val SNOW_CONCRETE_POWDER = registerSimpleBlockItem(ModBlocks.SNOW_CONCRETE_POWDER)
+    val SNOW_GLASS = registerSimpleBlockItem(ModBlocks.SNOW_GLASS)
+    val SNOW_GLASS_PANE = registerSimpleBlockItem(ModBlocks.SNOW_GLASS_PANE)
+
     private fun <I : FoodItem> registerFoodItem(name: String, func: Function<Item.Properties, out I>): DeferredItem<I> {
         val holder = ITEMS.registerItem(name, func, Item.Properties())
         FOOD_ITEM_HOLDERS.add(holder)
