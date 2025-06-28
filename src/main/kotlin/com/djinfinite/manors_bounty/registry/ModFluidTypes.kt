@@ -15,23 +15,39 @@ import java.util.function.Supplier
 
 object ModFluidTypes {
 
-    val FLUID_TYPES: DeferredRegister<FluidType> =
-        DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, ManorsBounty.ID)
-
-    val PINEAPPLE_JUICE: DeferredHolder<FluidType, FluidType> = registerJuice("pineapple_juice")
-    val OLIVE_OIL: DeferredHolder<FluidType, FluidType> = registerJuice("olive_oil")
-    val CAKE_LIQUID: DeferredHolder<FluidType, FluidType> = registerJuice(
-        "cake_liquid",
+    val FLUID_TYPES: DeferredRegister<FluidType> = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, ManorsBounty.ID)
+    private val ICE_CREAM_PROPERTIES: Properties =
         Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true)
-            .motionScale(0.007).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+            .motionScale(0.0035).temperature(260).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_POWDER_SNOW)
+            .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+
+    val PINEAPPLE_JUICE = registerJuice("pineapple_juice")
+    val OLIVE_OIL = registerJuice("olive_oil")
+    val CAKE_LIQUID = registerJuice(
+        "cake_liquid",
+        Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(0.007)
+            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
             .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
     )
+    val VANILLA_ICE_CREAM = registerJuice("vanilla_ice_cream", ICE_CREAM_PROPERTIES)
+    val CHOCOLATE_ICE_CREAM = registerJuice("chocolate_ice_cream", ICE_CREAM_PROPERTIES)
+    val BLUEBERRY_ICE_CREAM = registerJuice("blueberry_ice_cream", ICE_CREAM_PROPERTIES)
+    val CHERRIES_ICE_CREAM = registerJuice("cherries_ice_cream", ICE_CREAM_PROPERTIES)
+    val STARFRUIT_ICE_CREAM = registerJuice("starfruit_ice_cream", ICE_CREAM_PROPERTIES)
+    val JALAPENO_ICE_CREAM = registerJuice("jalapeno_ice_cream", ICE_CREAM_PROPERTIES)
 
     internal fun registerTextures(event: RegisterClientExtensionsEvent) {
         event.registerTexture(PINEAPPLE_JUICE)
         event.registerTexture(OLIVE_OIL)
         event.registerTexture(CAKE_LIQUID)
+        event.registerTexture(VANILLA_ICE_CREAM)
+        event.registerTexture(CHOCOLATE_ICE_CREAM)
+        event.registerTexture(BLUEBERRY_ICE_CREAM)
+        event.registerTexture(CHERRIES_ICE_CREAM)
+        event.registerTexture(STARFRUIT_ICE_CREAM)
+        event.registerTexture(JALAPENO_ICE_CREAM)
     }
 
     private fun RegisterClientExtensionsEvent.registerTexture(fluidType: DeferredHolder<FluidType, FluidType>) {

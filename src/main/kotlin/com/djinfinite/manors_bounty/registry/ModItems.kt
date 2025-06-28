@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Function
 import java.util.function.Supplier
 import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Duration.Companion.seconds
 
 object ModItems {
 
@@ -25,14 +26,14 @@ object ModItems {
     val FOOD_ITEM_HOLDERS = mutableListOf<DeferredItem<out FoodItem>>()
 
     // === Icons ===
-    val MAIN_ICON_ITEM = item("main_icon_item") { it }
-    val BUILDING_ICON_ITEM = item("building_icon_item") { it }
-    val SLOT_BAN_ITEM = item("slot_ban_item") { it }
+    val MAIN_ICON_ITEM = item("main_icon_item")
+    val BUILDING_ICON_ITEM = item("building_icon_item")
+    val SLOT_BAN_ITEM = item("slot_ban_item")
 
     // === Misc ===
-    val PEARL_ROCK = item("pearl_rock") { it }
-    val SNOW_DYE = item("snow_dye") { it }
-    val CREATIVITY_MECHANISM = item("creativity_mechanism") { it }
+    val PEARL_ROCK = item("pearl_rock")
+    val SNOW_DYE = item("snow_dye")
+    val CREATIVITY_MECHANISM = item("creativity_mechanism")
 
     // === Liquids ===
     val OLIVE_OIL_BUCKET = bucketItem("olive_oil_bucket", ModFluids.OLIVE_OIL)
@@ -44,117 +45,337 @@ object ModItems {
     val ICE_CREAM_MACHINE = blockItem(ModBlocks.ICE_CREAM_MACHINE)
 
     // === Cakes ===
-    val VANILLA_CAKE_SLICE = item("vanilla_cake_slice") {
-        it.build(food = FoodProperties(nutrition = 2, saturationModifier = 0.1F))
-    }
-    val CARAMEL_CHOCOLATE_CAKE = blockItem(ModBlocks.CARAMEL_CHOCOLATE_CAKE)
-    val CARAMEL_CHOCOLATE_CAKE_SLICE = item("caramel_chocolate_cake_slice") {
-        it.build(food = FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true))
-    }
-    val SWEET_BERRY_CAKE = blockItem(ModBlocks.SWEET_BERRY_CAKE)
-    val SWEEP_BERRY_CAKE_SLICE = item("sweet_berry_cake_slice") {
-        it.build(
-            food = FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true),
-            fruitEffect = FruitEffectDataComponent(
-                FoodIngredientType.SWEET_BERRY, FoodType.C, ModMobEffects.BURSTING_BERRY
-            ),
-        )
-    }
-    val CHORUS_FLOWER_JELLY_CAKE = blockItem(ModBlocks.CHORUS_FLOWER_JELLY_CAKE)
-    val CHORUS_FLOWER_JELLY_CAKE_SLICE = foodItemNew(
-        "chorus_flower_jelly_cake_slice",
-        { FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true) },
-        FruitEffectDataComponent(FoodIngredientType.CHORUS_FRUIT, FoodType.C, ModMobEffects.TRANSMIT),
-    )
-    val NETHER_WART_SOUL_CAKE = blockItem(ModBlocks.NETHER_WART_SOUL_CAKE)
-    val NETHER_WART_SOUL_CAKE_SLICE = item("nether_wart_soul_cake_slice") {
-        it.build(food = FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true))
-    }
-
-    // === Bowled Foods ===
-    val MARBLE_BOWL = item("marble_bowl") { it.build() }
-    val BORSCHT = foodItemNew("borscht", stackSize = 16, food = {
-        FoodProperties(nutrition = 20, saturationModifier = 0.8F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL) {
-            effect({ MobEffectInstance(MobEffects.REGENERATION, 20.minutes.inWholeTicks, 0, false, true) }, 1F)
-            effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 20.minutes.inWholeTicks, 0, false, true) }, 1F)
-        }
+    val VANILLA_CAKE_SLICE = foodItez("vanilla_cake_slice", food = {
+        FoodProperties(nutrition = 2, saturationModifier = 0.1F)
     })
-    val CREAM_WITH_MUSHROOM_SOUP = foodItemNew("cream_with_mushroom_soup", stackSize = 16, food = {
+
+    val CARAMEL_CHOCOLATE_CAKE = blockItem(ModBlocks.CARAMEL_CHOCOLATE_CAKE)
+    val CARAMEL_CHOCOLATE_CAKE_SLICE = foodItez("caramel_chocolate_cake_slice", food = {
+        FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true)
+    })
+
+    val SWEET_BERRY_CAKE = blockItem(ModBlocks.SWEET_BERRY_CAKE)
+    val SWEEP_BERRY_CAKE_SLICE = foodItez(
+        "sweet_berry_cake_slice",
+        food = { FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true) },
+        fruitEffect = FruitEffectDataComponent(FoodIngredientType.SWEET_BERRY, FoodType.C, ModMobEffects.BURSTING_BERRY),
+    )
+
+    val CHORUS_FLOWER_JELLY_CAKE = blockItem(ModBlocks.CHORUS_FLOWER_JELLY_CAKE)
+    val CHORUS_FLOWER_JELLY_CAKE_SLICE = foodItez(
+        "chorus_flower_jelly_cake_slice",
+        food = { FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true) },
+        fruitEffect = FruitEffectDataComponent(FoodIngredientType.CHORUS_FRUIT, FoodType.C, ModMobEffects.TRANSMIT),
+    )
+
+    val NETHER_WART_SOUL_CAKE = blockItem(ModBlocks.NETHER_WART_SOUL_CAKE)
+    val NETHER_WART_SOUL_CAKE_SLICE = foodItez("nether_wart_soul_cake_slice", food = {
+        FoodProperties(nutrition = 2, saturationModifier = 0.1F, eatFast = true)
+    })
+
+    // === Bowled ===
+    val MARBLE_BOWL = item("marble_bowl")
+    val COFFEE = foodItez("coffee", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+        FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL)
+    })
+
+    // === Soups ===
+    val BORSCHT = foodItez(
+        "borscht", stackSize = 16, food = {
+            FoodProperties(nutrition = 20, saturationModifier = 0.8F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL) {
+                effect({ MobEffectInstance(MobEffects.REGENERATION, 20.minutes.inWholeTicks, 0, false, true) }, 1F)
+                effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 20.minutes.inWholeTicks, 0, false, true) }, 1F)
+            }
+        })
+
+    val CREAM_WITH_MUSHROOM_SOUP = foodItez("cream_with_mushroom_soup", stackSize = 16, food = {
         FoodProperties(nutrition = 16, saturationModifier = 0.8F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL) {
             effect({ MobEffectInstance(MobEffects.MOVEMENT_SPEED, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
             effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
         }
     })
-    val MISO_SOUP: DeferredItem<Item> = ITEMS.registerSimpleItem("miso_soup", Item.Properties())
-    val PRAWN_AND_CORN_SOUP: DeferredItem<Item> = ITEMS.registerSimpleItem("prawn_and_corn_soup", Item.Properties())
+
+    val MISO_SOUP = foodItez("miso_soup", stackSize = 16, food = {
+        FoodProperties(nutrition = 16, saturationModifier = 0.8F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL) {
+            effect({ MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
+            effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
+        }
+    })
+
+    val PRAWN_AND_CORN_SOUP = foodItez("prawn_and_corn_soup", stackSize = 16, food = {
+        FoodProperties(nutrition = 16, saturationModifier = 0.8F, alwaysEdible = true, usingConvertsTo = MARBLE_BOWL) {
+            effect({ MobEffectInstance(MobEffects.DAMAGE_BOOST, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
+            effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 16.minutes.inWholeTicks, 0, false, true) }, 1F)
+        }
+    })
+
+    // === Salads ===
     val COSMIC_DRAGON_SALAD: DeferredItem<Item> = ITEMS.registerSimpleItem("cosmic_dragon_salad", Item.Properties())
     val ROSA_SALAD: DeferredItem<Item> = ITEMS.registerSimpleItem("rosa_salad", Item.Properties())
     val SEA_PEARL_SALAD: DeferredItem<Item> = ITEMS.registerSimpleItem("sea_pearl_salad", Item.Properties())
     val MELON_SALAD: DeferredItem<Item> = ITEMS.registerSimpleItem("melon_salad", Item.Properties())
 
-    val COFFEE: DeferredItem<Item> = ITEMS.registerSimpleItem("coffee", Item.Properties())
-    val DEFORMED_GLASS_BOTTLE: DeferredItem<Item> = ITEMS.registerSimpleItem("deformed_glass_bottle", Item.Properties())
-    val MELON_SODA: DeferredItem<Item> = ITEMS.registerSimpleItem("melon_soda", Item.Properties())
-    val BUBBLE_TEA: DeferredItem<Item> = ITEMS.registerSimpleItem("bubble_tea", Item.Properties())
-    val GRIMACE_SHAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("grimace_shake", Item.Properties())
-    val ORANGE_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("orange_juice", Item.Properties())
-    val LEMONADE: DeferredItem<Item> = ITEMS.registerSimpleItem("lemonade", Item.Properties())
-    val APPLE_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("apple_juice", Item.Properties())
-    val PEAR_WITH_ROCK_SUGAR: DeferredItem<Item> = ITEMS.registerSimpleItem("pear_with_rock_sugar", Item.Properties())
-    val BELLINI_BASE: DeferredItem<Item> = ITEMS.registerSimpleItem("bellini_base", Item.Properties())
-    val STRAWBERRY_SHAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("strawberry_shake", Item.Properties())
-    val MANGO_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("mango_juice", Item.Properties())
+    // === Juices ===
+    val DEFORMED_GLASS_BOTTLE = item("deformed_glass_bottle")
+    val MELON_SODA = foodItez(
+        "melon_soda", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.HAMI_MELON, FoodType.B, ModMobEffects.MELON_GRAVITY)
+    )
 
-    val WATERMELON_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("watermelon_juice", Item.Properties())
-    val MARTINI: DeferredItem<Item> = ITEMS.registerSimpleItem("martini", Item.Properties())
-    val CHORUS_FRUIT_JUICE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_fruit_juice", Item.Properties())
-    val FRUIT_PUNCH: DeferredItem<Item> = ITEMS.registerSimpleItem("fruit_punch", Item.Properties())
-    val BLUEBERRY_YOGURT: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_yogurt", Item.Properties())
-    val MANGO_PUDDING: DeferredItem<Item> = ITEMS.registerSimpleItem("mango_pudding", Item.Properties())
-    val RISALAMANDE: DeferredItem<Item> = ITEMS.registerSimpleItem("risalamande", Item.Properties())
-    val ETON_MESS: DeferredItem<Item> = ITEMS.registerSimpleItem("eton_mess", Item.Properties())
-    val MARMALADE: DeferredItem<Item> = ITEMS.registerSimpleItem("marmalade", Item.Properties())
-    val BOXED_CHOCOLATE_MILK: DeferredItem<Item> = ITEMS.registerSimpleItem("boxed_chocolate_milk", Item.Properties())
-    val BOXED_LEMON_TEA: DeferredItem<Item> = ITEMS.registerSimpleItem("boxed_lemon_tea", Item.Properties())
-    val BOTTLED_OLIVE_OIL: DeferredItem<Item> = ITEMS.registerSimpleItem("bottled_olive_oil", Item.Properties())
-    val LAVENDER_ESSENTIAL_OIL: DeferredItem<Item> = ITEMS.registerSimpleItem("lavender_essential_oil", Item.Properties())
+    val BUBBLE_TEA = foodItez(
+        "bubble_tea", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        })
 
-    val CHORUS_CHROME_CUBE: DeferredItem<Item> = ITEMS.registerSimpleItem("chorus_chrome_cube", Item.Properties())
+    val GRIMACE_SHAKE = foodItez(
+        "grimace_shake", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 4, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.STRAWBERRY,
+            FoodType.B,
+            foodEffects = listOf(ModMobEffects.BURSTING_BERRY, ModMobEffects.CHERRY_BLOSSOMS_WEEPING)
+        )
+    )
 
-    val ICE_CREAM_CONE: DeferredItem<Item> = ITEMS.registerSimpleItem("ice_cream_cone", Item.Properties())
-    val VANILLA_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_ice_cream", Item.Properties())
-    val CHOCOLATE_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("chocolate_ice_cream", Item.Properties())
-    val BLUEBERRY_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_ice_cream", Item.Properties())
-    val CHERRIES_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_ice_cream", Item.Properties())
-    val STARFRUIT_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("starfruit_ice_cream", Item.Properties())
-    val JALAPENO_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("jalapeno_ice_cream", Item.Properties())
-    val VANILLA_CHOCOLATE_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_chocolate_ice_cream", Item.Properties())
-    val BLUEBERRY_CHERRIES_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_cherries_ice_cream", Item.Properties())
-    val STARFRUIT_JALAPENO_ICE_CREAM: DeferredItem<Item> = ITEMS.registerSimpleItem("starfruit_jalapeno_ice_cream", Item.Properties())
+    val ORANGE_JUICE = foodItez(
+        "orange_juice", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.ORANGE, FoodType.B, ModMobEffects.RUTIN_LEMONENE)
+    )
 
-    val VANILLA_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("vanilla_ice_cream_fluid_bucket", Item.Properties())
-    val CHOCOLATE_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
-        ITEMS.registerSimpleItem("chocolate_ice_cream_fluid_bucket", Item.Properties())
-    val BLUEBERRY_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
-        ITEMS.registerSimpleItem("blueberry_ice_cream_fluid_bucket", Item.Properties())
-    val CHERRIES_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_ice_cream_fluid_bucket", Item.Properties())
-    val STARFRUIT_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> =
-        ITEMS.registerSimpleItem("starfruit_ice_cream_fluid_bucket", Item.Properties())
-    val JALAPENO_ICE_CREAM_FLUID_BUCKET: DeferredItem<Item> = ITEMS.registerSimpleItem("jalapeno_ice_cream_fluid_bucket", Item.Properties())
+    val LEMONADE = foodItez(
+        "lemonade", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 5, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }) // TODO: effect
 
-    val POWSICLE_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("powsicle_paleteria", Item.Properties())
-    val LUAU_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("luau_paleteria", Item.Properties())
-    val WATERMELON_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("watermelon_paleteria", Item.Properties())
-    val PINK_SNOWMAN_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("pink_snowman_paleteria", Item.Properties())
-    val HEART_CRUSH_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("heart_crush_paleteria", Item.Properties())
-    val HAMIMELON_PALETERIA: DeferredItem<Item> = ITEMS.registerSimpleItem("hamimelon_paleteria", Item.Properties())
+    val APPLE_JUICE = foodItez(
+        "apple_juice", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.APPLE, FoodType.B, ModMobEffects.ROSA_HEDGE)
+    )
+
+    val PEAR_WITH_ROCK_SUGAR = foodItez(
+        "pear_with_rock_sugar", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.PEAR, FoodType.B, ModMobEffects.ROSA_HEDGE)
+    )
+
+    val BELLINI_BASE = foodItez(
+        "bellini_base", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.PEACH, FoodType.B, ModMobEffects.ROSA_HEDGE)
+    )
+
+    val STRAWBERRY_SHAKE = foodItez(
+        "strawberry_shake", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.STRAWBERRY, FoodType.B, ModMobEffects.BURSTING_BERRY)
+    )
+
+    val MANGO_JUICE = foodItez(
+        "mango_juice", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.MANGO,
+            FoodType.B,
+            foodEffects = listOf(ModMobEffects.SUMMER_HEATWAVE, ModMobEffects.ORIGINAL_EVOLUTION)
+        )
+    )
+
+    val WATERMELON_JUICE = foodItez(
+        "watermelon_juice", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.WATERMELON, FoodType.B, ModMobEffects.MELON_GRAVITY)
+    )
+
+    val MARTINI = foodItez(
+        "martini", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }) // TODO: effect
+
+    val CHORUS_FRUIT_JUICE = foodItez(
+        "chorus_fruit_juice", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.CHORUS_FRUIT, FoodType.B, ModMobEffects.TRANSMIT)
+    )
+
+    val FRUIT_PUNCH = foodItez(
+        "fruit_punch", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 5, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        })
+
+    val BLUEBERRY_YOGURT = foodItez(
+        "blueberry_yogurt", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.BLUEBERRY, FoodType.B, ModMobEffects.BURSTING_BERRY)
+    )
+
+    // === C-type Drink ===
+    val MANGO_PUDDING = foodItez(
+        "mango_pudding", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.3F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.MANGO,
+            FoodType.C,
+            foodEffects = listOf(ModMobEffects.SUMMER_HEATWAVE, ModMobEffects.ORIGINAL_EVOLUTION)
+        )
+    )
+
+    val RISALAMANDE = foodItez(
+        "risalamande", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.CHERRY, FoodType.C, ModMobEffects.CHERRY_BLOSSOMS_WEEPING)
+    )
+
+    val ETON_MESS = foodItez(
+        "eton_mess", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.6F, alwaysEdible = true, usingConvertsTo = DEFORMED_GLASS_BOTTLE)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.SWEET_BERRY, FoodType.C, ModMobEffects.BURSTING_BERRY)
+    )
+
+    // === Other Drink ===
+    val BOXED_CHOCOLATE_MILK = foodItez(
+        "boxed_chocolate_milk", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true)
+        })
+
+    val BOXED_LEMON_TEA = foodItez(
+        "boxed_lemon_tea", stackSize = 16, useAnim = UseAnim.DRINK, food = {
+            FoodProperties(nutrition = 2, saturationModifier = 0.1F, alwaysEdible = true)
+        }) // TODO: effect
+
+    // === Oils ===
+    val BOTTLED_OLIVE_OIL = item("bottled_olive_oil")
+    val LAVENDER_ESSENTIAL_OIL = item("lavender_essential_oil")
+
+    // === IDK ===
+    val MARMALADE = foodItez(
+        "marmalade", stackSize = 16, food = {
+            FoodProperties(nutrition = 12, saturationModifier = 0.1F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.ORANGE, FoodType.B, ModMobEffects.RUTIN_LEMONENE)
+    )
+
+    val CHORUS_CHROME_CUBE = foodItez(
+        "chorus_chrome_cube", stackSize = 16, food = {
+            FoodProperties(nutrition = 3, saturationModifier = 0.1F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.CHORUS_FRUIT, FoodType.C, ModMobEffects.TRANSMIT)
+    )
+
+    // === Ice Cream ===
+    val ICE_CREAM_CONE = item("ice_cream_cone")
+    val VANILLA_ICE_CREAM = foodItez("vanilla_ice_cream", food = {
+        FoodProperties(nutrition = 6, saturationModifier = 0.3F)
+    })
+
+    val CHOCOLATE_ICE_CREAM = foodItez("chocolate_ice_cream", food = {
+        FoodProperties(nutrition = 6, saturationModifier = 0.3F)
+    })
+
+    val BLUEBERRY_ICE_CREAM = foodItez(
+        "blueberry_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.BLUEBERRY, FoodType.C, ModMobEffects.BURSTING_BERRY)
+    )
+
+    val CHERRIES_ICE_CREAM = foodItez(
+        "cherries_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.CHERRY, FoodType.C, ModMobEffects.CHERRY_BLOSSOMS_WEEPING)
+    )
+
+    val STARFRUIT_ICE_CREAM = foodItez(
+        "starfruit_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.STARFRUIT,
+            FoodType.C,
+            foodEffects = listOf(ModMobEffects.SUMMER_HEATWAVE, ModMobEffects.MOMENTARY_METEOR)
+        )
+    )
+
+    val JALAPENO_ICE_CREAM = foodItez(
+        "jalapeno_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true) {
+                effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 2.seconds.inWholeTicks, 0, false, true) }, 1F)
+            }
+        })
+
+    val VANILLA_CHOCOLATE_ICE_CREAM = foodItez("vanilla_chocolate_ice_cream", food = {
+        FoodProperties(nutrition = 6, saturationModifier = 0.3F)
+    })
+
+    val BLUEBERRY_CHERRIES_ICE_CREAM = foodItez(
+        "blueberry_cherries_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.CHERRY,
+            FoodType.C,
+            foodEffects = listOf(ModMobEffects.CHERRY_BLOSSOMS_WEEPING, ModMobEffects.BURSTING_BERRY)
+        )
+    )
+
+    val STARFRUIT_JALAPENO_ICE_CREAM = foodItez(
+        "starfruit_jalapeno_ice_cream", food = {
+            FoodProperties(nutrition = 6, saturationModifier = 0.3F, alwaysEdible = true) {
+                effect({ MobEffectInstance(ModMobEffects.WARM_SHIELD, 2.seconds.inWholeTicks, 0, false, true) }, 1F)
+            }
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.STARFRUIT,
+            FoodType.C,
+            foodEffects = listOf(ModMobEffects.SUMMER_HEATWAVE, ModMobEffects.MOMENTARY_METEOR)
+        )
+    )
+
+    // === Ice Cream Fluids ===
+    val VANILLA_ICE_CREAM_BUCKET = bucketItem("vanilla_ice_cream_bucket", ModFluids.VANILLA_ICE_CREAM)
+    val CHOCOLATE_ICE_CREAM_BUCKET = bucketItem("chocolate_ice_cream_bucket", ModFluids.CHOCOLATE_ICE_CREAM)
+    val BLUEBERRY_ICE_CREAM_BUCKET = bucketItem("blueberry_ice_cream_bucket", ModFluids.BLUEBERRY_ICE_CREAM)
+    val CHERRIES_ICE_CREAM_BUCKET = bucketItem("cherries_ice_cream_bucket", ModFluids.CHERRIES_ICE_CREAM)
+    val STARFRUIT_ICE_CREAM_BUCKET = bucketItem("starfruit_ice_cream_bucket", ModFluids.STARFRUIT_ICE_CREAM)
+    val JALAPENO_ICE_CREAM_BUCKET = bucketItem("jalapeno_ice_cream_bucket", ModFluids.JALAPENO_ICE_CREAM)
+
+    // === Paleteria ===
+    val POWSICLE_PALETERIA = foodItez(
+        "powsicle_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 8, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.OTHER, FoodType.C, ModMobEffects.BURSTING_BERRY)
+    )
+    val LUAU_PALETERIA = foodItez(
+        "luau_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 12, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(
+            FoodIngredientType.OTHER,
+            FoodType.C,
+            foodEffects = listOf(ModMobEffects.SUMMER_HEATWAVE, ModMobEffects.ORIGINAL_EVOLUTION)
+        )
+    )
+    val WATERMELON_PALETERIA = foodItez(
+        "watermelon_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 8, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.WATERMELON, FoodType.C, ModMobEffects.MELON_GRAVITY)
+    )
+    val PINK_SNOWMAN_PALETERIA = foodItez(
+        "pink_snowman_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 12, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.OTHER, FoodType.C, ModMobEffects.BURSTING_BERRY)
+    )
+    val HEART_CRUSH_PALETERIA = foodItez(
+        "heart_crush_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 10, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.OTHER, FoodType.C, ModMobEffects.CHERRY_BLOSSOMS_WEEPING)
+    )
+    val HAMIMELON_PALETERIA = foodItez(
+        "hamimelon_paleteria", stackSize = 16, food = {
+            FoodProperties(nutrition = 8, saturationModifier = 0.2F, alwaysEdible = true, usingConvertsTo = Items.STICK)
+        }, fruitEffect = FruitEffectDataComponent(FoodIngredientType.HAMI_MELON, FoodType.C, ModMobEffects.MELON_GRAVITY)
+    )
 
     val CHERRIES_PIE: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_pie", Item.Properties())
     val CHERRIES_PIE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("cherries_pie_slice", Item.Properties())
     val TRUFFLE_PIE: DeferredItem<Item> = ITEMS.registerSimpleItem("truffle_pie", Item.Properties())
     val TRUFFLE_PIE_SLICE: DeferredItem<Item> = ITEMS.registerSimpleItem("truffle_pie_slice", Item.Properties())
     val PANCAKE: DeferredItem<Item> = ITEMS.registerSimpleItem("pancake", Item.Properties())
-
 
     val MUFFIN: DeferredItem<Item> = ITEMS.registerSimpleItem("muffin", Item.Properties())
     val BLUEBERRY_MUFFIN: DeferredItem<Item> = ITEMS.registerSimpleItem("blueberry_muffin", Item.Properties())
@@ -217,7 +438,7 @@ object ModItems {
 
     // Durian
     val DURIAN_SEED = blockItem(ModBlocks.DURIAN_SEED)
-    val MUSANG_KING_DURIAN: DeferredItem<Item> = ITEMS.registerSimpleItem("musang_king_durian", Item.Properties())
+    val MUSANG_KING_DURIAN = item("musang_king_durian")
     val HALF_OF_MUSANG_KING_DURIAN = foodItem("half_of_musang_king_durian") {
         DurianFoodItems.Half(it.build(food = FoodProperties(nutrition = 5, saturationModifier = 0.3F)))
     }
@@ -298,7 +519,8 @@ object ModItems {
     val CHRISTMAS_HAT_HELMET: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_hat_helmet", Item.Properties())
     val MINER_HAT_HELMET: DeferredItem<Item> = ITEMS.registerSimpleItem("miner_hat_helmet", Item.Properties())
 
-    val CHRISTMAS_MUFFLER_CHESTPLATE: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_muffler_chestplate", Item.Properties())
+    val CHRISTMAS_MUFFLER_CHESTPLATE: DeferredItem<Item> =
+        ITEMS.registerSimpleItem("christmas_muffler_chestplate", Item.Properties())
     val CHRISTMAS_WREATHS: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_wreaths", Item.Properties())
     val CHRISTMAS_SOCK: DeferredItem<Item> = ITEMS.registerSimpleItem("christmas_sock", Item.Properties())
 
@@ -313,10 +535,11 @@ object ModItems {
     val GIFT_SHORT_LUCKY: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_short_lucky", Item.Properties())
     val GIFT_TALL_LUCKY: DeferredItem<Item> = ITEMS.registerSimpleItem("gift_tall_lucky", Item.Properties())
 
-    val PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.PEARL_ROCK_ORE)
-    val DEEPSLATE_PEARL_ROCK_ORE: DeferredItem<BlockItem> = ITEMS.registerSimpleBlockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
+    // === Ores ===
+    val PEARL_ROCK_ORE = blockItem(ModBlocks.PEARL_ROCK_ORE)
+    val DEEPSLATE_PEARL_ROCK_ORE = blockItem(ModBlocks.DEEPSLATE_PEARL_ROCK_ORE)
 
-    // Leaves
+    // === Leaves ===
     val SCOTS_PINE_LEAVES = blockItem(ModBlocks.SCOTS_PINE_LEAVES)
     val ALPINE_TREE_LEAVES = blockItem(ModBlocks.ALPINE_TREE_LEAVES)
     val CHERRIES_TREE_LEAVES = blockItem(ModBlocks.CHERRIES_TREE_LEAVES)
@@ -330,7 +553,7 @@ object ModItems {
     val KIWIFRUIT_TREE_LEAVES = blockItem(ModBlocks.KIWIFRUIT_TREE_LEAVES)
     val AVOCADO_TREE_LEAVES = blockItem(ModBlocks.AVOCADO_TREE_LEAVES)
 
-    // Saplings & Seeds
+    // === Saplings & Seeds ===
     val SCOTS_PINE_SAPLING = blockItem(ModBlocks.SCOTS_PINE_SAPLING)
     val CHERRIES_SEED = blockItem(ModBlocks.CHERRIES_SEED)
     val STARFRUIT_SEED = blockItem(ModBlocks.STARFRUIT_SEED)
@@ -343,7 +566,7 @@ object ModItems {
     val KIWIFRUIT_SEED = blockItem(ModBlocks.KIWIFRUIT_SEED)
     val AVOCADO_SEED = blockItem(ModBlocks.AVOCADO_SEED)
 
-    // Snow Color Blocks
+    // === Snow Color Blocks ===
     val SNOW_TERRACOTTA = blockItem(ModBlocks.SNOW_TERRACOTTA)
     val SNOW_GLAZED_TERRACOTTA = blockItem(ModBlocks.SNOW_GLAZED_TERRACOTTA)
     val SNOW_CONCRETE = blockItem(ModBlocks.SNOW_CONCRETE)
@@ -351,7 +574,7 @@ object ModItems {
     val SNOW_GLASS = blockItem(ModBlocks.SNOW_GLASS)
     val SNOW_GLASS_PANE = blockItem(ModBlocks.SNOW_GLASS_PANE)
 
-    private fun item(name: String, func: (Item.Properties) -> Item.Properties): DeferredItem<Item> {
+    private fun item(name: String, func: (Item.Properties) -> Item.Properties = { it }): DeferredItem<Item> {
         return ITEMS.registerItem(name) { Item(func(it)) }
     }
 
@@ -361,7 +584,7 @@ object ModItems {
         return holder
     }
 
-    private fun foodItemNew(
+    private fun foodItez(
         name: String,
         food: (() -> FoodProperties)? = null,
         fruitEffect: FruitEffectDataComponent? = null,

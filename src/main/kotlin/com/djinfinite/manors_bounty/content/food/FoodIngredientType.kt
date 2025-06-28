@@ -10,7 +10,23 @@ import java.util.function.IntFunction
 
 
 enum class FoodIngredientType(val id: String) : StringRepresentable {
-    PINEAPPLE("pineapple"), DURIAN("durian"), SWEET_BERRY("sweet_berry"), CHORUS_FRUIT("chorus_fruit");
+    PINEAPPLE("pineapple"),
+    DURIAN("durian"),
+    SWEET_BERRY("sweet_berry"),
+    CHORUS_FRUIT("chorus_fruit"),
+    HAMI_MELON("hami_melon"),
+    ORANGE("orange"),
+    STRAWBERRY("strawberry"),
+    APPLE("apple"),
+    PEAR("pear"),
+    PEACH("peach"),
+    MANGO("mango"),
+    WATERMELON("watermelon"),
+    BLUEBERRY("blueberry"),
+    CHERRY("cherry"),
+    STARFRUIT("starfruit"),
+
+    OTHER("other");
 
     val items = mutableListOf<Item>()
 

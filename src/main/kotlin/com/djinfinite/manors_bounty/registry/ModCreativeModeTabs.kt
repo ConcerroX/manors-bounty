@@ -115,12 +115,12 @@ object ModCreativeModeTabs {
             ModItems.BLUEBERRY_CHERRIES_ICE_CREAM,
             ModItems.STARFRUIT_JALAPENO_ICE_CREAM,
 
-            ModItems.VANILLA_ICE_CREAM_FLUID_BUCKET,
-            ModItems.CHOCOLATE_ICE_CREAM_FLUID_BUCKET,
-            ModItems.BLUEBERRY_ICE_CREAM_FLUID_BUCKET,
-            ModItems.CHERRIES_ICE_CREAM_FLUID_BUCKET,
-            ModItems.STARFRUIT_ICE_CREAM_FLUID_BUCKET,
-            ModItems.JALAPENO_ICE_CREAM_FLUID_BUCKET,
+            ModItems.VANILLA_ICE_CREAM_BUCKET,
+            ModItems.CHOCOLATE_ICE_CREAM_BUCKET,
+            ModItems.BLUEBERRY_ICE_CREAM_BUCKET,
+            ModItems.CHERRIES_ICE_CREAM_BUCKET,
+            ModItems.STARFRUIT_ICE_CREAM_BUCKET,
+            ModItems.JALAPENO_ICE_CREAM_BUCKET,
 
             ModItems.POWSICLE_PALETERIA,
             ModItems.LUAU_PALETERIA,

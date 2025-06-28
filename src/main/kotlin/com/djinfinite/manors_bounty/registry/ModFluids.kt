@@ -26,6 +26,24 @@ object ModFluids {
     lateinit var CAKE_LIQUID: DeferredHolder<Fluid, SimpleFluid.Source>
     lateinit var CAKE_LIQUID_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
 
+    lateinit var VANILLA_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var VANILLA_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var CHOCOLATE_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var CHOCOLATE_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var BLUEBERRY_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var BLUEBERRY_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var CHERRIES_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var CHERRIES_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var STARFRUIT_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var STARFRUIT_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
+    lateinit var JALAPENO_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var JALAPENO_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
     init {
         register("pineapple_juice", SimpleFluid::Source, SimpleFluid::Flowing, {
             newProperties(
@@ -62,6 +80,96 @@ object ModFluids {
         }).apply {
             CAKE_LIQUID = source
             CAKE_LIQUID_FLOWING = flowing
+        }
+
+        register("vanilla_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.VANILLA_ICE_CREAM,
+                VANILLA_ICE_CREAM,
+                VANILLA_ICE_CREAM_FLOWING,
+                ModBlocks.VANILLA_ICE_CREAM,
+                ModItems.VANILLA_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            VANILLA_ICE_CREAM = source
+            VANILLA_ICE_CREAM_FLOWING = flowing
+        }
+
+        register("chocolate_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.CHOCOLATE_ICE_CREAM,
+                CHOCOLATE_ICE_CREAM,
+                CHOCOLATE_ICE_CREAM_FLOWING,
+                ModBlocks.CHOCOLATE_ICE_CREAM,
+                ModItems.CHOCOLATE_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            CHOCOLATE_ICE_CREAM = source
+            CHOCOLATE_ICE_CREAM_FLOWING = flowing
+        }
+
+        register("blueberry_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.BLUEBERRY_ICE_CREAM,
+                BLUEBERRY_ICE_CREAM,
+                BLUEBERRY_ICE_CREAM_FLOWING,
+                ModBlocks.BLUEBERRY_ICE_CREAM,
+                ModItems.BLUEBERRY_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            BLUEBERRY_ICE_CREAM = source
+            BLUEBERRY_ICE_CREAM_FLOWING = flowing
+        }
+
+        register("cherries_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.CHERRIES_ICE_CREAM,
+                CHERRIES_ICE_CREAM,
+                CHERRIES_ICE_CREAM_FLOWING,
+                ModBlocks.CHERRIES_ICE_CREAM,
+                ModItems.CHERRIES_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            CHERRIES_ICE_CREAM = source
+            CHERRIES_ICE_CREAM_FLOWING = flowing
+        }
+
+        register("starfruit_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.STARFRUIT_ICE_CREAM,
+                STARFRUIT_ICE_CREAM,
+                STARFRUIT_ICE_CREAM_FLOWING,
+                ModBlocks.STARFRUIT_ICE_CREAM,
+                ModItems.STARFRUIT_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            STARFRUIT_ICE_CREAM = source
+            STARFRUIT_ICE_CREAM_FLOWING = flowing
+        }
+
+        register("jalapeno_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.JALAPENO_ICE_CREAM,
+                JALAPENO_ICE_CREAM,
+                JALAPENO_ICE_CREAM_FLOWING,
+                ModBlocks.JALAPENO_ICE_CREAM,
+                ModItems.JALAPENO_ICE_CREAM_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 1
+            )
+        }).apply {
+            JALAPENO_ICE_CREAM = source
+            JALAPENO_ICE_CREAM_FLOWING = flowing
         }
     }
 

@@ -111,8 +111,14 @@ object ModBlocks {
     // Olive
     val OLIVE_OIL = registerFluidBlock("olive_oil", ModFluids.OLIVE_OIL)
 
-    // Vanilla
+    // IDK
     val CAKE_LIQUID = registerFluidBlock("cake_liquid", ModFluids.CAKE_LIQUID)
+    val VANILLA_ICE_CREAM = registerFluidBlock("vanilla_ice_cream", ModFluids.VANILLA_ICE_CREAM)
+    val CHOCOLATE_ICE_CREAM = registerFluidBlock("chocolate_ice_cream", ModFluids.CHOCOLATE_ICE_CREAM)
+    val BLUEBERRY_ICE_CREAM = registerFluidBlock("blueberry_ice_cream", ModFluids.BLUEBERRY_ICE_CREAM)
+    val CHERRIES_ICE_CREAM = registerFluidBlock("cherries_ice_cream", ModFluids.CHERRIES_ICE_CREAM)
+    val STARFRUIT_ICE_CREAM = registerFluidBlock("starfruit_ice_cream", ModFluids.STARFRUIT_ICE_CREAM)
+    val JALAPENO_ICE_CREAM = registerFluidBlock("jalapeno_ice_cream", ModFluids.JALAPENO_ICE_CREAM)
 
     // Pineapple
     val PINEAPPLE = registerBlock("pineapple") {
