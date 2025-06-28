@@ -1,6 +1,6 @@
 package com.djinfinite.manors_bounty.registry
 
-import com.djinfinite.manors_bounty.content.LogBlock
+import com.djinfinite.manors_bounty.content.SimpleLogBlock
 import com.djinfinite.manors_bounty.registry.ModBlocks.BLOCKS
 import com.djinfinite.manors_bounty.registry.ModBlocks.newProperties
 import net.minecraft.core.Direction
@@ -65,19 +65,19 @@ object ModWoodTypes {
         val mcWoodType =
             net.minecraft.world.level.block.state.properties.WoodType.register(WoodType(path, blockSetType))
         log = BLOCKS.registerBlock(
-            path + "_log", { LogBlock(it, strippedLog) },
+            path + "_log", { SimpleLogBlock(it, strippedLog) },
             newProperties(Blocks.OAK_LOG).mapColor { if (it.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y) planksMapColor else barkMapColor },
         )
         wood = BLOCKS.registerBlock(
-            path + "_wood", { LogBlock(it, strippedWood) },
+            path + "_wood", { SimpleLogBlock(it, strippedWood) },
             newProperties(Blocks.OAK_WOOD, mapColor = barkMapColor),
         )
         strippedLog = BLOCKS.registerBlock(
-            "stripped_" + path + "_log", ::LogBlock,
+            "stripped_" + path + "_log", ::SimpleLogBlock,
             newProperties(Blocks.STRIPPED_OAK_LOG, mapColor = planksMapColor),
         )
         strippedWood = BLOCKS.registerBlock(
-            "stripped_" + path + "_wood", ::LogBlock,
+            "stripped_" + path + "_wood", ::SimpleLogBlock,
             newProperties(Blocks.STRIPPED_OAK_WOOD, mapColor = planksMapColor),
         )
         planks = BLOCKS.registerBlock(

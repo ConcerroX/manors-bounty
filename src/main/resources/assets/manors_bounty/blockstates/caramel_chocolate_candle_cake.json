@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"lit=false": {
+			"model": "manors_bounty:block/caramel_chocolate_candle_cake"
+		},
+		"lit=true": {
+			"model": "manors_bounty:block/caramel_chocolate_candle_cake_lit"
+		}
+	}
+}

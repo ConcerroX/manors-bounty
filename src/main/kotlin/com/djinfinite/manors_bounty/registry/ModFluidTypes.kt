@@ -20,10 +20,18 @@ object ModFluidTypes {
 
     val PINEAPPLE_JUICE: DeferredHolder<FluidType, FluidType> = registerJuice("pineapple_juice")
     val OLIVE_OIL: DeferredHolder<FluidType, FluidType> = registerJuice("olive_oil")
+    val CAKE_LIQUID: DeferredHolder<FluidType, FluidType> = registerJuice(
+        "cake_liquid",
+        Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true)
+            .motionScale(0.007).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
+            .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+    )
 
     internal fun registerTextures(event: RegisterClientExtensionsEvent) {
         event.registerTexture(PINEAPPLE_JUICE)
         event.registerTexture(OLIVE_OIL)
+        event.registerTexture(CAKE_LIQUID)
     }
 
     private fun RegisterClientExtensionsEvent.registerTexture(fluidType: DeferredHolder<FluidType, FluidType>) {
@@ -34,11 +42,11 @@ object ModFluidTypes {
         }, fluidType)
     }
 
-    private fun registerJuice(id: String): DeferredHolder<FluidType, FluidType> {
+    private fun registerJuice(id: String, properties: Properties? = null): DeferredHolder<FluidType, FluidType> {
         return FLUID_TYPES.register(id, Supplier {
             FluidType(
-                Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true)
-                    .motionScale(0.007).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                properties ?: Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true)
+                    .canHydrate(true).motionScale(0.007).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
             )

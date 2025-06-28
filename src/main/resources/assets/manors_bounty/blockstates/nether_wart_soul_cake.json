@@ -1,27 +1,24 @@
 {
   "variants": {
-    "blockstate=0": {
-      "model": "manors_bounty:block/nether_wart_soul_cake"
-    },
-    "blockstate=1": {
+    "bites=0": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_0"
     },
-    "blockstate=2": {
+    "bites=1": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_1"
     },
-    "blockstate=3": {
+    "bites=2": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_2"
     },
-    "blockstate=4": {
+    "bites=3": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_3"
     },
-    "blockstate=5": {
+    "bites=4": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_4"
     },
-    "blockstate=6": {
+    "bites=5": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_5"
     },
-    "blockstate=7": {
+    "bites=6": {
       "model": "manors_bounty:block/nether_wart_soul_cake_state_blockstate_6"
     }
   }

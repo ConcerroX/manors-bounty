@@ -41,11 +41,10 @@ object ModCreativeModeTabs {
     )
 
     private val MAIN_TAB_ITEMS by lazy {
-        listOf<ItemLike>(
+        listOf(
             // Misc
             ModItems.PEARL_ROCK,
             ModItems.SNOW_DYE,
-            ModItems.CHORUS_CHROME_CUBE,
             ModItems.CREATIVITY_MECHANISM,
 
             // Liquids
@@ -283,6 +282,9 @@ object ModCreativeModeTabs {
             // Ores
             ModItems.PEARL_ROCK_ORE,
             ModItems.DEEPSLATE_PEARL_ROCK_ORE,
+
+            // Uncategorized
+            ModItems.CHORUS_CHROME_CUBE,
         )
     }
 

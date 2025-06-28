@@ -2,6 +2,7 @@ package com.djinfinite.manors_bounty.content.mobeffect
 
 import com.djinfinite.manors_bounty.ManorsBountyConfig
 import com.djinfinite.manors_bounty.res
+import com.djinfinite.manors_bounty.util.chance
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.Mth
@@ -37,7 +38,7 @@ class CherryBlossomsWeepingMobEffect(category: MobEffectCategory, color: Int) : 
 
     override fun applyEffectTick(livingEntity: LivingEntity, amplifier: Int): Boolean {
         val level = livingEntity.level()
-        if (Math.random() < 0.2 && level is ServerLevel) {
+        if (chance(0.2) && level is ServerLevel) {
             level.sendParticles(
                 ParticleTypes.CHERRY_LEAVES,
                 livingEntity.x,

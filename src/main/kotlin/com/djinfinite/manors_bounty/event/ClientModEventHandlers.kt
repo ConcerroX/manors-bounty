@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent
 
-
 @EventBusSubscriber(modid = ManorsBounty.ID, bus = EventBusSubscriber.Bus.MOD, value = [Dist.CLIENT])
 object ClientModEventHandlers {
 

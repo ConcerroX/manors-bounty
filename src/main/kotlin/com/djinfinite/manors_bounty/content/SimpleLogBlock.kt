@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.ItemAbility
 import net.neoforged.neoforge.registries.DeferredBlock
 
 
-class LogBlock : RotatedPillarBlock {
+class SimpleLogBlock : RotatedPillarBlock {
 
     private var stripped: Holder<out Block>? = null
 //    var blockBlockStateFunction: Function<BlockState, BlockState?> = Function { blockState ->

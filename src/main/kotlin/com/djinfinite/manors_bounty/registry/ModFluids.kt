@@ -23,6 +23,9 @@ object ModFluids {
     lateinit var OLIVE_OIL: DeferredHolder<Fluid, SimpleFluid.Source>
     lateinit var OLIVE_OIL_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
 
+    lateinit var CAKE_LIQUID: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var CAKE_LIQUID_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+
     init {
         register("pineapple_juice", SimpleFluid::Source, SimpleFluid::Flowing, {
             newProperties(
@@ -36,17 +39,29 @@ object ModFluids {
             PINEAPPLE_JUICE = source
             PINEAPPLE_JUICE_FLOWING = flowing
         }
+
         register("olive_oil", SimpleFluid::Source, SimpleFluid::Flowing, {
             newProperties(
-                ModFluidTypes.OLIVE_OIL,
-                OLIVE_OIL,
-                OLIVE_OIL_FLOWING,
-                ModBlocks.OLIVE_OIL,
-                ModItems.OLIVE_OIL_BUCKET
+                ModFluidTypes.OLIVE_OIL, OLIVE_OIL, OLIVE_OIL_FLOWING, ModBlocks.OLIVE_OIL, ModItems.OLIVE_OIL_BUCKET
             )
         }).apply {
             OLIVE_OIL = source
             OLIVE_OIL_FLOWING = flowing
+        }
+
+        register("cake_liquid", SimpleFluid::Source, SimpleFluid::Flowing, {
+            newProperties(
+                ModFluidTypes.CAKE_LIQUID,
+                CAKE_LIQUID,
+                CAKE_LIQUID_FLOWING,
+                ModBlocks.CAKE_LIQUID,
+                ModItems.CAKE_LIQUID_BUCKET,
+                levelDecreasePerBlock = 2,
+                slopeFindDistance = 3
+            )
+        }).apply {
+            CAKE_LIQUID = source
+            CAKE_LIQUID_FLOWING = flowing
         }
     }
 
@@ -71,12 +86,16 @@ object ModFluids {
         flowing: Supplier<out Fluid>,
         block: Supplier<out LiquidBlock>,
         bucket: Supplier<BucketItem>,
-        explosionResistance: Float = 100F
+        explosionResistance: Float = 100F,
+        levelDecreasePerBlock: Int = 1,
+        slopeFindDistance: Int = 4
     ): BaseFlowingFluid.Properties {
         return BaseFlowingFluid.Properties(fluidType, source, flowing).apply {
             explosionResistance(explosionResistance)
             block(block)
             bucket(bucket)
+            levelDecreasePerBlock(levelDecreasePerBlock)
+            slopeFindDistance(slopeFindDistance)
         }
     }
 
