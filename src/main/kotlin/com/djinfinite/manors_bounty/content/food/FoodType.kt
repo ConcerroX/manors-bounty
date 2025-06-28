@@ -1,6 +1,11 @@
 package com.djinfinite.manors_bounty.content.food
 
 import com.djinfinite.manors_bounty.util.inWholeTicks
+import io.netty.buffer.ByteBuf
+import net.minecraft.network.codec.ByteBufCodecs
+import net.minecraft.network.codec.StreamCodec
+import net.minecraft.util.ByIdMap
+import java.util.function.IntFunction
 import kotlin.time.Duration.Companion.seconds
 
 enum class FoodType(
@@ -43,4 +48,11 @@ enum class FoodType(
         maxAmplifier = 7,
         sharedCooldownTime = false,
     );
+
+    companion object {
+        private val BY_ID: IntFunction<FoodType> = ByIdMap.continuous(
+            FoodType::ordinal, FoodType.entries.toTypedArray(), ByIdMap.OutOfBoundsStrategy.ZERO
+        )
+        val STREAM_CODEC: StreamCodec<ByteBuf, FoodType> = ByteBufCodecs.idMapper(FoodType.BY_ID, FoodType::ordinal)
+    }
 }

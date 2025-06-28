@@ -2,7 +2,8 @@ package com.djinfinite.manors_bounty.registry
 
 import com.djinfinite.manors_bounty.ManorsBounty
 import com.djinfinite.manors_bounty.content.FruitLeavesBlock
-import com.djinfinite.manors_bounty.content.LogBlock
+import com.djinfinite.manors_bounty.content.SimpleCakeBlock
+import com.djinfinite.manors_bounty.content.SimpleLogBlock
 import com.djinfinite.manors_bounty.content.durian.DurianBlock
 import com.djinfinite.manors_bounty.content.durian.DurianFruitBlock
 import com.djinfinite.manors_bounty.content.durian.DurianLeavesBlock
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.DropExperienceBlock
 import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.LiquidBlock
 import net.minecraft.world.level.block.SaplingBlock
+import com.djinfinite.manors_bounty.content.SimpleCandleCakeBlock
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.grower.TreeGrower
 import net.minecraft.world.level.block.state.BlockBehaviour
@@ -58,8 +60,59 @@ object ModBlocks {
         )
     }
 
+    // Chocolate
+    val CARAMEL_CHOCOLATE_CAKE = registerBlock("caramel_chocolate_cake") {
+        SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.COLOR_BROWN))
+    }
+    val CARAMEL_CHOCOLATE_CANDLE_CAKE = registerBlock("caramel_chocolate_candle_cake") {
+        SimpleCandleCakeBlock(
+            CARAMEL_CHOCOLATE_CAKE.get(),
+            Blocks.CANDLE,
+            newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_BROWN)
+        )
+    }
+
+    // Chorus Fruit
+    val CHORUS_FLOWER_JELLY_CAKE = registerBlock("chorus_flower_jelly_cake") {
+        SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.COLOR_PURPLE))
+    }
+    val CHORUS_FLOWER_JELLY_CANDLE_CAKE = registerBlock("chorus_flower_jelly_candle_cake") {
+        SimpleCandleCakeBlock(
+            CHORUS_FLOWER_JELLY_CAKE.get(),
+            Blocks.CANDLE,
+            newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PURPLE)
+        )
+    }
+
+    // Nether Wart
+    val NETHER_WART_SOUL_CAKE = registerBlock("nether_wart_soul_cake") {
+        SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.WARPED_HYPHAE))
+    }
+    val NETHER_WART_SOUL_CANDLE_CAKE = registerBlock("nether_wart_soul_candle_cake") {
+        SimpleCandleCakeBlock(
+            NETHER_WART_SOUL_CAKE.get(),
+            Blocks.CANDLE,
+            newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.WARPED_HYPHAE)
+        )
+    }
+
+    // Sweet Berry
+    val SWEET_BERRY_CAKE = registerBlock("sweet_berry_cake") {
+        SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.COLOR_PINK))
+    }
+    val SWEET_BERRY_CANDLE_CAKE = registerBlock("sweet_berry_candle_cake") {
+        SimpleCandleCakeBlock(
+            SWEET_BERRY_CAKE.get(),
+            Blocks.CANDLE,
+            newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PINK)
+        )
+    }
+
     // Olive
     val OLIVE_OIL = registerFluidBlock("olive_oil", ModFluids.OLIVE_OIL)
+
+    // Vanilla
+    val CAKE_LIQUID = registerFluidBlock("cake_liquid", ModFluids.CAKE_LIQUID)
 
     // Pineapple
     val PINEAPPLE = registerBlock("pineapple") {
@@ -102,10 +155,10 @@ object ModBlocks {
     }
 
     val DURIAN_TREE_LOG = registerBlock("durian_tree_log") {
-        LogBlock(newProperties(base = Blocks.OAK_LOG), STRIPPED_DURIAN_TREE_LOG)
+        SimpleLogBlock(newProperties(base = Blocks.OAK_LOG), STRIPPED_DURIAN_TREE_LOG)
     }
     val STRIPPED_DURIAN_TREE_LOG = registerBlock("stripped_durian_tree_log") {
-        LogBlock(newProperties(base = Blocks.STRIPPED_OAK_LOG))
+        SimpleLogBlock(newProperties(base = Blocks.STRIPPED_OAK_LOG))
     }
 
     //    com.djinfinite.manors_bounty.registries.ModBlocks.STRIPPED_DURIAN_TREE_WOOD = com.djinfinite.manors_bounty.registries.ModBlocks.REGISTRY.register("stripped_durian_tree_wood", com.djinfinite.manors_bounty.registries.ModBlocks.getStrippedWood())
@@ -375,20 +428,7 @@ object ModBlocks {
     private fun registerFluidBlock(
         id: String, fluid: DeferredHolder<Fluid, SimpleFluid.Source>
     ): DeferredBlock<LiquidBlock> {
-        return BLOCKS.registerBlock(id) {
-            LiquidBlock(
-                fluid.get(), newProperties(
-                    mapColor = MapColor.WATER,
-                    destroyTime = 100F,
-                    noCollission = true,
-                    noLootTable = true,
-                    isLiquid = true,
-                    pushReaction = PushReaction.DESTROY,
-                    sound = SoundType.EMPTY,
-                    isReplaceable = true
-                )
-            )
-        }
+        return BLOCKS.registerBlock(id) { LiquidBlock(fluid.get(), newProperties(Blocks.WATER)) }
     }
 
     fun newProperties(

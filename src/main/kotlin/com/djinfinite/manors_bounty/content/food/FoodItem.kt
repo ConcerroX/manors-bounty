@@ -43,21 +43,21 @@ open class FoodItem(
             foodEffects.forEach { foodEffect ->
                 val effect = livingEntity.getEffect(foodEffect)
                 if (effect != null) {
-                    if (foodType == FoodType.A) FoodCooldownManager.cooldown(this, livingEntity)
+                    if (foodType == FoodType.A) FoodCooldownManager.cooldown(stack, livingEntity)
                     if (effect.amplifier < foodType.maxAmplifier) {
                         livingEntity.addEffect(
                             MobEffectInstance(
                                 foodEffect, effect.duration + extensionDuration, effect.amplifier + extraAmplifier
                             )
                         )
-                        if (foodType == FoodType.B) FoodCooldownManager.cooldown(this, livingEntity)
+                        if (foodType == FoodType.B) FoodCooldownManager.cooldown(stack, livingEntity)
                     }
                 } else if (apply < applyChance) {
                     livingEntity.addEffect(MobEffectInstance(foodEffect, foodType.applyTime, 0))
-                    if (foodType == FoodType.B) FoodCooldownManager.cooldown(this, livingEntity)
+                    if (foodType == FoodType.B) FoodCooldownManager.cooldown(stack, livingEntity)
                 }
             }
-            if (foodType == FoodType.C) FoodCooldownManager.cooldown(this, livingEntity)
+            if (foodType == FoodType.C) FoodCooldownManager.cooldown(stack, livingEntity)
         }
         val result = super.finishUsingItem(stack, level, livingEntity)
         return getReturnItem(livingEntity, result, returnItem)
