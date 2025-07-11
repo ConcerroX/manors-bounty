@@ -3,26 +3,21 @@ package com.djinfinite.manors_bounty.registry
 import com.djinfinite.manors_bounty.ManorsBounty
 import com.djinfinite.manors_bounty.content.FruitLeavesBlock
 import com.djinfinite.manors_bounty.content.SimpleCakeBlock
+import com.djinfinite.manors_bounty.content.SimpleCandleCakeBlock
 import com.djinfinite.manors_bounty.content.SimpleLogBlock
 import com.djinfinite.manors_bounty.content.durian.DurianBlock
 import com.djinfinite.manors_bounty.content.durian.DurianFruitBlock
 import com.djinfinite.manors_bounty.content.durian.DurianLeavesBlock
 import com.djinfinite.manors_bounty.content.durian.DurianSaplingBlock
 import com.djinfinite.manors_bounty.content.food.SimpleFluid
+import com.djinfinite.manors_bounty.content.fryer.FryerBlock
 import com.djinfinite.manors_bounty.content.icecream.IceCreamMachineBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleCropBlock
 import com.djinfinite.manors_bounty.util.FeatureUtils
 import net.minecraft.util.valueproviders.UniformInt
 import net.minecraft.world.item.Items
-import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.DropExperienceBlock
-import net.minecraft.world.level.block.LeavesBlock
-import net.minecraft.world.level.block.LiquidBlock
-import net.minecraft.world.level.block.SaplingBlock
-import com.djinfinite.manors_bounty.content.SimpleCandleCakeBlock
-import net.minecraft.world.level.block.SoundType
+import net.minecraft.world.level.block.*
 import net.minecraft.world.level.block.grower.TreeGrower
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument
@@ -55,6 +50,31 @@ object ModBlocks {
                 sound = SoundType.METAL,
                 destroyTime = 2F,
                 noOcclusion = true,
+                requiresCorrectToolForDrops = true,
+                isRedstoneConductor = IsRedstoneConductor.Never
+            )
+        )
+    }
+    val FRYER = registerBlock("fryer") {
+        FryerBlock(
+            newProperties(
+                mapColor = MapColor.WOOL,
+                sound = SoundType.METAL,
+                destroyTime = 2F,
+                noOcclusion = true,
+                requiresCorrectToolForDrops = true,
+                isRedstoneConductor = IsRedstoneConductor.Never
+            )
+        )
+    }
+    val OVEN = registerBlock("oven") {
+        IceCreamMachineBlock(
+            newProperties(
+                mapColor = MapColor.METAL,
+                sound = SoundType.METAL,
+                destroyTime = 2F,
+                noOcclusion = true,
+                requiresCorrectToolForDrops = true,
                 isRedstoneConductor = IsRedstoneConductor.Never
             )
         )
@@ -102,9 +122,7 @@ object ModBlocks {
     }
     val SWEET_BERRY_CANDLE_CAKE = registerBlock("sweet_berry_candle_cake") {
         SimpleCandleCakeBlock(
-            SWEET_BERRY_CAKE.get(),
-            Blocks.CANDLE,
-            newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PINK)
+            SWEET_BERRY_CAKE.get(), Blocks.CANDLE, newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PINK)
         )
     }
 
@@ -453,6 +471,7 @@ object ModBlocks {
         randomTicks: Boolean = false,
         isReplaceable: Boolean = false,
         instabreak: Boolean = false,
+        requiresCorrectToolForDrops: Boolean = false,
         pushReaction: PushReaction? = null,
         offsetType: BlockBehaviour.OffsetType? = null,
         isRedstoneConductor: IsRedstoneConductor? = null
@@ -474,6 +493,7 @@ object ModBlocks {
             if (instabreak) instabreak()
             if (offsetType != null) offsetType(offsetType)
             if (pushReaction != null) pushReaction(pushReaction)
+            if (requiresCorrectToolForDrops) requiresCorrectToolForDrops()
             if (isRedstoneConductor != null) isRedstoneConductor(isRedstoneConductor.predicate)
         }
     }

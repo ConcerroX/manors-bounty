@@ -693,7 +693,13 @@
   "tips.manors_bounty.summer_heatwave_tips_item_line_formula": "[1 + ( Effect Level ×  %1 )]",
   "tips.manors_bounty.transmit_tips_item_line_1": "§5Transmit - When Applied:",
   "tips.manors_bounty.transmit_tips_item_line_2": "§9Record the current coordinates and continuously generate particle markers at that location. Whenever the effect ends, the effect level decreases by 1 and resets to 10 seconds. When the effect ends at level I, teleport the player back to the recorded coordinates,",
-  "ui.manors_bounty.fryer.oil_amount": "Olive oil : %d/4000",
-  "ui.manors_bounty.fryer.oil_consumption": "Probability of olive oil consumption : %.2f%%"
 
+
+  "gui.manors_bounty.fryer.oil_amount": "Olive oil : %d/4000",
+  "gui.manors_bounty.fryer.oil_consumption": "Probability of olive oil consumption : %.2f%%",
+
+  // New entries
+  "gui.manors_bounty.fryer.stop": "Stop",
+  "gui.manors_bounty.fryer.start": "Start",
+  "gui.manors_bounty.fryer.tip_during_frying": "It's too hot to take anything out!"
 }

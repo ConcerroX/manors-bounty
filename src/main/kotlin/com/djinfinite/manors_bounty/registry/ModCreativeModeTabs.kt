@@ -45,6 +45,10 @@ object ModCreativeModeTabs {
             // Misc
             ModItems.PEARL_ROCK,
             ModItems.SNOW_DYE,
+            ModItems.LAVENDER_DYE,
+            ModItems.TURQUOISE_DYE,
+            ModItems.SUPER_ANCIENT_MUSHROOM,
+            ModItems.INCOMPLETE_CREATIVE_MECHANISM,
             ModItems.CREATIVITY_MECHANISM,
 
             // Liquids
@@ -54,13 +58,15 @@ object ModCreativeModeTabs {
 
             // Machines
             ModItems.ICE_CREAM_MACHINE,
+            ModItems.FRYER,
+            ModItems.OVEN,
 
             // Cakes
             ModItems.VANILLA_CAKE_SLICE,
             ModItems.CARAMEL_CHOCOLATE_CAKE,
             ModItems.CARAMEL_CHOCOLATE_CAKE_SLICE,
             ModItems.SWEET_BERRY_CAKE,
-            ModItems.SWEEP_BERRY_CAKE_SLICE,
+            ModItems.SWEET_BERRY_CAKE_SLICE,
             ModItems.CHORUS_FLOWER_JELLY_CAKE,
             ModItems.CHORUS_FLOWER_JELLY_CAKE_SLICE,
             ModItems.NETHER_WART_SOUL_CAKE,
@@ -122,13 +128,13 @@ object ModCreativeModeTabs {
             ModItems.STARFRUIT_ICE_CREAM_BUCKET,
             ModItems.JALAPENO_ICE_CREAM_BUCKET,
 
-            ModItems.POWSICLE_PALETERIA,
-            ModItems.LUAU_PALETERIA,
-            ModItems.WATERMELON_PALETERIA,
-            ModItems.PINK_SNOWMAN_PALETERIA,
-            ModItems.HEART_CRUSH_PALETERIA,
+            ModItems.POWSICLE_POPSICLE,
+            ModItems.LUAU_POPSICLE,
+            ModItems.WATERMELON_POPSICLE,
+            ModItems.PINK_SNOWMAN_POPSICLE,
+            ModItems.HEART_CRUSH_POPSICLE,
             ModItems.PINEAPPLE_PALETERIA,
-            ModItems.HAMIMELON_PALETERIA,
+            ModItems.HAMI_MELON_POPSICLE,
 
             ModItems.CHERRIES_PIE,
             ModItems.CHERRIES_PIE_SLICE,
@@ -210,8 +216,8 @@ object ModCreativeModeTabs {
             ModItems.DRAGON_FRUIT_CACTUS_FLOWER,
             ModItems.STRAWBERRY,
             ModItems.PINEBERRY,
-            ModItems.BLUEBERRY,
-            ModItems.CRANBERRY,
+            ModItems.BLUEBERRIES,
+            ModItems.CRANBERRIES,
             ModItems.CHERRIES,
             ModItems.OLIVE_FRUIT,
 
@@ -284,7 +290,7 @@ object ModCreativeModeTabs {
             ModItems.DEEPSLATE_PEARL_ROCK_ORE,
 
             // Uncategorized
-            ModItems.CHORUS_CHROME_CUBE,
+            ModItems.CHORUS_CHROME,
         )
     }
 

@@ -22,21 +22,21 @@ object ModFluidTypes {
             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_POWDER_SNOW)
             .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
 
-    val PINEAPPLE_JUICE = registerJuice("pineapple_juice")
-    val OLIVE_OIL = registerJuice("olive_oil")
-    val CAKE_LIQUID = registerJuice(
+    val PINEAPPLE_JUICE = registerFluid("pineapple_juice")
+    val OLIVE_OIL = registerFluid("olive_oil")
+    val CAKE_LIQUID = registerFluid(
         "cake_liquid",
         Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(0.007)
             .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
             .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
     )
-    val VANILLA_ICE_CREAM = registerJuice("vanilla_ice_cream", ICE_CREAM_PROPERTIES)
-    val CHOCOLATE_ICE_CREAM = registerJuice("chocolate_ice_cream", ICE_CREAM_PROPERTIES)
-    val BLUEBERRY_ICE_CREAM = registerJuice("blueberry_ice_cream", ICE_CREAM_PROPERTIES)
-    val CHERRIES_ICE_CREAM = registerJuice("cherries_ice_cream", ICE_CREAM_PROPERTIES)
-    val STARFRUIT_ICE_CREAM = registerJuice("starfruit_ice_cream", ICE_CREAM_PROPERTIES)
-    val JALAPENO_ICE_CREAM = registerJuice("jalapeno_ice_cream", ICE_CREAM_PROPERTIES)
+    val VANILLA_ICE_CREAM = registerFluid("vanilla_ice_cream", ICE_CREAM_PROPERTIES)
+    val CHOCOLATE_ICE_CREAM = registerFluid("chocolate_ice_cream", ICE_CREAM_PROPERTIES)
+    val BLUEBERRY_ICE_CREAM = registerFluid("blueberry_ice_cream", ICE_CREAM_PROPERTIES)
+    val CHERRIES_ICE_CREAM = registerFluid("cherries_ice_cream", ICE_CREAM_PROPERTIES)
+    val STARFRUIT_ICE_CREAM = registerFluid("starfruit_ice_cream", ICE_CREAM_PROPERTIES)
+    val JALAPENO_ICE_CREAM = registerFluid("jalapeno_ice_cream", ICE_CREAM_PROPERTIES)
 
     internal fun registerTextures(event: RegisterClientExtensionsEvent) {
         event.registerTexture(PINEAPPLE_JUICE)
@@ -58,7 +58,7 @@ object ModFluidTypes {
         }, fluidType)
     }
 
-    private fun registerJuice(id: String, properties: Properties? = null): DeferredHolder<FluidType, FluidType> {
+    private fun registerFluid(id: String, properties: Properties? = null): DeferredHolder<FluidType, FluidType> {
         return FLUID_TYPES.register(id, Supplier {
             FluidType(
                 properties ?: Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true)

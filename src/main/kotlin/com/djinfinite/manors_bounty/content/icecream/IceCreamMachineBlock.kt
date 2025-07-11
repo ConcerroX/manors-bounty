@@ -28,7 +28,7 @@ import net.minecraft.world.phys.shapes.Shapes
 import net.minecraft.world.phys.shapes.VoxelShape
 
 
-class IceCreamMachineBlock(properties: Properties) : BaseEntityBlock(properties), EntityBlock {
+class IceCreamMachineBlock(properties: Properties) : BaseEntityBlock(properties) {
 
     companion object {
         val FACING: DirectionProperty = BlockStateProperties.FACING
@@ -45,15 +45,6 @@ class IceCreamMachineBlock(properties: Properties) : BaseEntityBlock(properties)
 
     override fun getStateForPlacement(context: BlockPlaceContext): BlockState? {
         return super.getStateForPlacement(context)?.setValue(FACING, context.horizontalDirection.opposite)
-    }
-
-    override fun rotate(state: BlockState, rotation: Rotation): BlockState {
-        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)))
-    }
-
-    @Suppress("DEPRECATION")
-    override fun mirror(state: BlockState, mirror: Mirror): BlockState {
-        return state.rotate(mirror.getRotation(state.getValue(FACING)))
     }
 
     override fun useWithoutItem(

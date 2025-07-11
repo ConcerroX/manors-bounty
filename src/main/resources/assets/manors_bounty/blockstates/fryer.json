@@ -1,48 +1,33 @@
 {
   "variants": {
-    "facing=north,blockstate=0": {
+    "facing=north,has_oil=false": {
       "model": "manors_bounty:block/fryer"
     },
-    "facing=east,blockstate=0": {
+    "facing=east,has_oil=false": {
       "model": "manors_bounty:block/fryer",
       "y": 90
     },
-    "facing=south,blockstate=0": {
+    "facing=south,has_oil=false": {
       "model": "manors_bounty:block/fryer",
       "y": 180
     },
-    "facing=west,blockstate=0": {
+    "facing=west,has_oil=false": {
       "model": "manors_bounty:block/fryer",
       "y": 270
     },
-    "facing=north,blockstate=1": {
-      "model": "manors_bounty:block/fryer_state_blockstate_0"
+    "facing=north,has_oil=true": {
+      "model": "manors_bounty:block/fryer_with_oil"
     },
-    "facing=east,blockstate=1": {
-      "model": "manors_bounty:block/fryer_state_blockstate_0",
+    "facing=east,has_oil=true": {
+      "model": "manors_bounty:block/fryer_with_oil",
       "y": 90
     },
-    "facing=south,blockstate=1": {
-      "model": "manors_bounty:block/fryer_state_blockstate_0",
+    "facing=south,has_oil=true": {
+      "model": "manors_bounty:block/fryer_with_oil",
       "y": 180
     },
-    "facing=west,blockstate=1": {
-      "model": "manors_bounty:block/fryer_state_blockstate_0",
-      "y": 270
-    },
-    "facing=north,blockstate=2": {
-      "model": "manors_bounty:block/fryer_state_blockstate_1"
-    },
-    "facing=east,blockstate=2": {
-      "model": "manors_bounty:block/fryer_state_blockstate_1",
-      "y": 90
-    },
-    "facing=south,blockstate=2": {
-      "model": "manors_bounty:block/fryer_state_blockstate_1",
-      "y": 180
-    },
-    "facing=west,blockstate=2": {
-      "model": "manors_bounty:block/fryer_state_blockstate_1",
+    "facing=west,has_oil=true": {
+      "model": "manors_bounty:block/fryer_with_oil",
       "y": 270
     }
   }

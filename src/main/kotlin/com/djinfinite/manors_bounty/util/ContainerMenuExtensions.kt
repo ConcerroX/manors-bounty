@@ -7,6 +7,8 @@ import net.minecraft.world.inventory.Slot
 private const val SLOT_SIZE = 18
 private const val SLOT_INVENTORY_HOT_BAR_GAP = 4
 
+val VANILLA_SLOT_RANGE = 0 until (9 * 4)
+
 fun AbstractContainerMenu.addPlayerInventorySlots(
     inventory: Inventory, x: Int, y: Int
 ) {

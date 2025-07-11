@@ -48,12 +48,12 @@ class IceCreamMachineMenu(
             })
         addSlot(
             SimpleSlotItemHandler(
-            blockEntity.itemHandler, IceCreamMachineBlockEntity.SLOT_ITEM_IN_FRUIT_2, 143, 118
-        ).mayPlace {
-            blockEntity.isTwoScoops && it.`is`(ModTags.Items.ICE_CREAM_TYPE)
-        }.mayPickup {
-            blockEntity.isTwoScoops
-        })
+                blockEntity.itemHandler, IceCreamMachineBlockEntity.SLOT_ITEM_IN_FRUIT_2, 143, 118
+            ).mayPlace {
+                blockEntity.isTwoScoops && it.`is`(ModTags.Items.ICE_CREAM_TYPE)
+            }.mayPickup {
+                blockEntity.isTwoScoops
+            })
     }
 
     override fun quickMoveStack(player: Player, index: Int): ItemStack {

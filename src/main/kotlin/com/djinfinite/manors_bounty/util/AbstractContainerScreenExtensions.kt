@@ -65,7 +65,7 @@ fun AbstractContainerScreen<*>.drawFluid(
             if (bounds.width > 0 && h > 0) {
                 val maskTop = 16 - h
                 val maskRight = 16 - w
-                drawFluidTexture(guiGraphics, x, y, texture, maskTop, maskRight, 100F, color)
+                drawFluidTexture(guiGraphics, x, y, texture, maskTop, maskRight, 1F, color)
             }
         }
     }

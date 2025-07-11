@@ -1,19 +1,6 @@
 package com.djinfinite.manors_bounty
 
-import com.djinfinite.manors_bounty.registry.ModAttachmentTypes
-import com.djinfinite.manors_bounty.registry.ModBlockEntityTypes
-import com.djinfinite.manors_bounty.registry.ModBlocks
-import com.djinfinite.manors_bounty.registry.ModCreativeModeTabs
-import com.djinfinite.manors_bounty.registry.ModDataComponents
-import com.djinfinite.manors_bounty.registry.ModFeatures
-import com.djinfinite.manors_bounty.registry.ModFluidTypes
-import com.djinfinite.manors_bounty.registry.ModFluids
-import com.djinfinite.manors_bounty.registry.ModItems
-import com.djinfinite.manors_bounty.registry.ModMenuTypes
-import com.djinfinite.manors_bounty.registry.ModMobEffects
-import com.djinfinite.manors_bounty.registry.ModRecipeSerializers
-import com.djinfinite.manors_bounty.registry.ModRecipeTypes
-import com.djinfinite.manors_bounty.registry.ModWoodTypes
+import com.djinfinite.manors_bounty.registry.*
 import com.mojang.logging.LogUtils
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.IEventBus
@@ -40,6 +27,7 @@ class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
         ModMenuTypes.MENU_TYPES.register(modEventBus)
         ModFluidTypes.FLUID_TYPES.register(modEventBus)
         ModMobEffects.MOB_EFFECTS.register(modEventBus)
+        ModSoundEvents.SOUND_EVENTS.register(modEventBus)
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus)
         ModDataComponents.DATA_COMPONENTS.register(modEventBus)
         ModAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus)
