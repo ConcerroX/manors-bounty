@@ -25,3 +25,5 @@ run-data
 
 repo
 /src/generated/
+/data/
+/assets2/
