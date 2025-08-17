@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:ice_cream_machine"
+    },
+    "title": {
+      "translate": "advancements.fashion_platform.title"
+    },
+    "description": {
+      "translate": "advancements.fashion_platform.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fashion_platform_0": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "manors_bounty:ice_cream_machine"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "manors_bounty:final_fantasy"
+}

@@ -18,7 +18,7 @@ object PineappleFoodItems {
         FoodIngredientType.PINEAPPLE,
         FoodType.B,
         arrayOf(ModMobEffects.SUMMER_HEATWAVE),
-        ModItems.DEFORMED_GLASS_BOTTLE.get(),
+        ModItems.DEFORMABLE_GLASS_BOTTLE.get(),
         1,
         UseAnim.DRINK
     )
@@ -26,10 +26,10 @@ object PineappleFoodItems {
     class Pie(properties: Properties) :
         FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE))
 
-    class Paleteria(properties: Properties) :
+    class Popsicle(properties: Properties) :
         FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE))
 
-    class Pastries(properties: Properties) :
+    class Cakes(properties: Properties) :
         FoodItem(properties, FoodIngredientType.PINEAPPLE, FoodType.C, arrayOf(ModMobEffects.SUMMER_HEATWAVE), Items.STICK)
 
 }

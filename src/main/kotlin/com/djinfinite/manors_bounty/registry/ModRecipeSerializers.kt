@@ -12,7 +12,7 @@ import java.util.function.Supplier
 object ModRecipeSerializers {
 
     val RECIPE_SERIALIZERS: DeferredRegister<RecipeSerializer<*>> = DeferredRegister.create(
-        Registries.RECIPE_SERIALIZER, ManorsBounty.ID
+        Registries.RECIPE_SERIALIZER, ManorsBounty.MOD_ID
     )
 
     val ICE_CREAM_MACHINE: DeferredHolder<RecipeSerializer<*>, IceCreamMachineRecipe.Serializer> =

@@ -12,7 +12,7 @@ import java.util.function.Supplier
 
 object ModMenuTypes {
 
-    val MENU_TYPES: DeferredRegister<MenuType<*>> = DeferredRegister.create(Registries.MENU, ManorsBounty.ID)
+    val MENU_TYPES: DeferredRegister<MenuType<*>> = DeferredRegister.create(Registries.MENU, ManorsBounty.MOD_ID)
 
     val ICE_CREAM_MACHINE: DeferredHolder<MenuType<*>, MenuType<IceCreamMachineMenu>> = MENU_TYPES.register(
         "ice_cream_machine", Supplier { IMenuTypeExtension.create(::IceCreamMachineMenu) })

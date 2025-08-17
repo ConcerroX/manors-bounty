@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:sea_touch_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.touching_abyss.title"
+    },
+    "description": {
+      "translate": "advancements.touching_abyss.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "touching_abyss_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

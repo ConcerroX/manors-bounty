@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:rutin_lemonene_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.genetic_research.title"
+    },
+    "description": {
+      "translate": "advancements.genetic_research.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "genetic_research_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

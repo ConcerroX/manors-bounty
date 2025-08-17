@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:summer_heatwave_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.summer_special_offer.title"
+    },
+    "description": {
+      "translate": "advancements.summer_special_offer.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "summer_special_offer_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

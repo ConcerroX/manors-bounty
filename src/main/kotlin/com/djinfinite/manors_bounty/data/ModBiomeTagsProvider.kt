@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture
 
 class ModBiomeTagsProvider(
     output: PackOutput, lookupProvider: CompletableFuture<HolderLookup.Provider>, existingFileHelper: ExistingFileHelper
-) : TagsProvider<Biome>(output, Registries.BIOME, lookupProvider, ManorsBounty.ID, existingFileHelper) {
+) : TagsProvider<Biome>(output, Registries.BIOME, lookupProvider, ManorsBounty.MOD_ID, existingFileHelper) {
 
     override fun addTags(provider: HolderLookup.Provider) {
         tag(ModTags.Biomes.OPTIONAL_VIOLET_BLUE_PLAINS).addOptional(res("violet_blue_plains"))

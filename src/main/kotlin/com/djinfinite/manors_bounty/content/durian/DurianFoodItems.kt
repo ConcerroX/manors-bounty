@@ -19,7 +19,7 @@ object DurianFoodItems {
 
     class CookedFlesh(properties: Properties) : FoodItem(properties, FoodIngredientType.DURIAN, FoodType.B, MOB_EFFECTS)
 
-    class Crisp(properties: Properties) : FoodItem(properties, FoodIngredientType.DURIAN, FoodType.B, MOB_EFFECTS)
+    class Pastry(properties: Properties) : FoodItem(properties, FoodIngredientType.DURIAN, FoodType.B, MOB_EFFECTS)
 
     class Cake(properties: Properties) : FoodItem(properties, FoodIngredientType.DURIAN, FoodType.C, MOB_EFFECTS)
 

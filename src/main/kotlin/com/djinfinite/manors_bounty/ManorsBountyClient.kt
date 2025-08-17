@@ -6,7 +6,7 @@ import net.neoforged.fml.common.Mod
 import net.neoforged.neoforge.client.gui.ConfigurationScreen
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory
 
-@Mod(value = ManorsBounty.ID, dist = [Dist.CLIENT])
+@Mod(value = ManorsBounty.MOD_ID, dist = [Dist.CLIENT])
 class ManorsBountyClient(container: ModContainer) {
 
     init {

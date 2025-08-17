@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:orange_seed"
+    },
+    "title": {
+      "translate": "advancements.fruits_delight.title"
+    },
+    "description": {
+      "translate": "advancements.fruits_delight.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fruits_delight_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:novelty_fruits"
+}

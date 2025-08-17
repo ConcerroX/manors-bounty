@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:original_evolution_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.natural_resistance.title"
+    },
+    "description": {
+      "translate": "advancements.natural_resistance.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "natural_resistance_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

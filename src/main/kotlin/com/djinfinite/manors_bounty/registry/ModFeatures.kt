@@ -11,7 +11,7 @@ import java.util.function.Supplier
 
 object ModFeatures {
 
-    val FEATURES: DeferredRegister<Feature<*>> = DeferredRegister.create(Registries.FEATURE, ManorsBounty.ID)
+    val FEATURES: DeferredRegister<Feature<*>> = DeferredRegister.create(Registries.FEATURE, ManorsBounty.MOD_ID)
 
     val STRUCTURE_FEATURE: DeferredHolder<Feature<*>, StructureFeature> =
         FEATURES.register("structure_feature", Supplier { StructureFeature(StructureFeatureConfiguration.CODEC) })

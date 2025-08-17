@@ -44,7 +44,7 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
 
         //TODO: remove the test
         FryerRecipeBuilder(
-            ModItems.PINEAPPLE.ingredient, ModItems.PINEAPPLE_PASTRIES, false
+            ModItems.PINEAPPLE.ingredient, ModItems.PINEAPPLE_CAKES, false
         ).unlockedBy("has_pineapple", has(ModItems.PINEAPPLE)).save(output, res("fryer_pineapple"))
 
         FryerRecipeBuilder(
@@ -59,23 +59,23 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
 
         // Pearl Rock
         blasting(
-            ModBlocks.PEARL_ROCK_ORE.ingredient, MISC, ModItems.PEARL_ROCK, 1F, 100
+            ModBlocks.PERLITE_ORE.ingredient, MISC, ModItems.PERLITE, 1F, 100
         ).unlockedBy("has_pearl_rock_ore", has(ModItems.PEARL_ROCK_ORE)).save(
             output, res("pearl_rock_from_blasting_pearl_rock_ore")
         )
         smelting(
-            ModBlocks.PEARL_ROCK_ORE.ingredient, MISC, ModItems.PEARL_ROCK, 1F, 200
+            ModBlocks.PERLITE_ORE.ingredient, MISC, ModItems.PERLITE, 1F, 200
         ).unlockedBy("has_pearl_rock_ore", has(ModItems.PEARL_ROCK_ORE)).save(
             output, res("pearl_rock_from_smelting_pearl_rock_ore")
         )
         blasting(
-            ModBlocks.DEEPSLATE_PEARL_ROCK_ORE.ingredient, MISC, ModItems.PEARL_ROCK, 1F, 200
-        ).unlockedBy("has_deepslate_pearl_rock_ore", has(ModItems.DEEPSLATE_PEARL_ROCK_ORE)).save(
+            ModBlocks.DEEPSLATE_PERLITE_ORE.ingredient, MISC, ModItems.PERLITE, 1F, 200
+        ).unlockedBy("has_deepslate_pearl_rock_ore", has(ModItems.DEEPSLATE_PERLITE_ORE)).save(
             output, res("pearl_rock_from_blasting_deepslate_pearl_rock_ore")
         )
         smelting(
-            ModBlocks.DEEPSLATE_PEARL_ROCK_ORE.ingredient, MISC, ModItems.PEARL_ROCK, 1F, 200
-        ).unlockedBy("has_deepslate_pearl_rock_ore", has(ModItems.DEEPSLATE_PEARL_ROCK_ORE)).save(
+            ModBlocks.DEEPSLATE_PERLITE_ORE.ingredient, MISC, ModItems.PERLITE, 1F, 200
+        ).unlockedBy("has_deepslate_pearl_rock_ore", has(ModItems.DEEPSLATE_PERLITE_ORE)).save(
             output, res("pearl_rock_from_smelting_deepslate_pearl_rock_ore")
         )
 
@@ -214,19 +214,19 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
         // Sweet Berry Cake
         shapeless(
             FOOD,
-            ModItems.SWEET_BERRY_CAKE,
+            ModItems.SWEET_BERRY_ICE_CREAM_CAKE,
             1,
-            "has_sweet_berry_cake_slice" to ModItems.SWEET_BERRY_CAKE_SLICE,
+            "has_sweet_berry_cake_slice" to ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE,
             arrayOf(
-                ModItems.SWEET_BERRY_CAKE_SLICE,
-                ModItems.SWEET_BERRY_CAKE_SLICE,
-                ModItems.SWEET_BERRY_CAKE_SLICE,
-                ModItems.SWEET_BERRY_CAKE_SLICE
+                ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE,
+                ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE,
+                ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE,
+                ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE
             ),
         ).save(output, res("sweet_berry_cake_from_sweet_berry_cake_slice"))
         shaped(
             FOOD,
-            ModItems.SWEET_BERRY_CAKE,
+            ModItems.SWEET_BERRY_ICE_CREAM_CAKE,
             "has_sweet_berry" to Items.SWEET_BERRIES,
         ).pattern(
             "BBB",
@@ -240,9 +240,9 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
 
         // Sweet Berry Cake Slice
         cutting(
-            ModItems.SWEET_BERRY_CAKE_SLICE,
-            "has_sweet_berry_cake" to ModItems.SWEET_BERRY_CAKE,
-            ModItems.SWEET_BERRY_CAKE,
+            ModItems.SWEET_BERRY_ICE_CREAM_CAKE_SLICE,
+            "has_sweet_berry_cake" to ModItems.SWEET_BERRY_ICE_CREAM_CAKE,
+            ModItems.SWEET_BERRY_ICE_CREAM_CAKE,
             count = 4
         ).save(output)
 
@@ -428,7 +428,7 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
 
         // Sea Pearl Salad
         shapeless(
-            FOOD, ModItems.SEA_PEARL_SALAD, 1, "has_kelp" to Items.KELP,
+            FOOD, ModItems.OCEANIC_PEARL_SALAD, 1, "has_kelp" to Items.KELP,
             arrayOf(
                 ModItems.MARBLE_BOWL,
                 Items.KELP,
@@ -446,15 +446,15 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
                 ModItems.MARBLE_BOWL,
                 Items.MELON_SLICE,
                 Items.MELON_SLICE,
-                ModItems.HAMIMELON_SLICE,
-                ModItems.HAMIMELON_SLICE,
+                ModItems.HAMI_MELON_SLICE,
+                ModItems.HAMI_MELON_SLICE,
                 Items.HONEY_BOTTLE
             ),
         ).save(output)
 
         // Jewellery Box Salad
         shapeless(
-            FOOD, ModItems.JEWELLERY_BOX_SALAD, 1, "has_pomegranate_seeds" to ModItems.POMEGRANATE_SEEDS,
+            FOOD, ModItems.JEWELERY_BOX_SALAD, 1, "has_pomegranate_seeds" to ModItems.POMEGRANATE_SEEDS,
             arrayOf(
                 ModItems.MARBLE_BOWL,
                 ModItems.POMEGRANATE_SEEDS,
@@ -480,7 +480,7 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
 
         // Deformed Glass Bottle
         shapeless(
-            MISC, ModItems.DEFORMED_GLASS_BOTTLE, 1, "has_glass_bottle" to Items.GLASS_BOTTLE, arrayOf(
+            MISC, ModItems.DEFORMABLE_GLASS_BOTTLE, 1, "has_glass_bottle" to Items.GLASS_BOTTLE, arrayOf(
                 Items.GLASS_BOTTLE, Items.BONE_MEAL
             )
         ).save(output)
@@ -511,7 +511,7 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
         // Bottle Olive Oil
         shapeless(
             FOOD, ModItems.BOTTLED_OLIVE_OIL, 2, "has_olive_oil_bucket" to ModItems.OLIVE_OIL_BUCKET, arrayOf(
-                ModItems.OLIVE_OIL_BUCKET, ModItems.DEFORMED_GLASS_BOTTLE, ModItems.DEFORMED_GLASS_BOTTLE
+                ModItems.OLIVE_OIL_BUCKET, ModItems.DEFORMABLE_GLASS_BOTTLE, ModItems.DEFORMABLE_GLASS_BOTTLE
             )
         ).save(output)
 
@@ -523,14 +523,14 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
         ).define(
             'L' to ModItems.LAVENDER,
             'N' to Items.NETHERITE_SCRAP,
-            'P' to ModItems.PEARL_ROCK,
+            'P' to ModItems.PERLITE,
             'D' to Items.DRAGON_BREATH
         ).save(output)
 
         // Chorus Chrome
         shapeless(
             FOOD,
-            ModItems.CHORUS_CHROME,
+            ModItems.CHORUS_ALLOY,
             3,
             "has_chorus_fruit" to Items.CHORUS_FRUIT,
             arrayOf(Items.CHORUS_FRUIT, Items.CHORUS_FRUIT, Items.SUGAR, Items.HONEY_BOTTLE)
@@ -682,7 +682,7 @@ class ModRecipesProvider(output: PackOutput, lookupProvider: CompletableFuture<H
     private fun cookJuice(
         result: Holder<Item>, ingredient: Holder<Item>
     ): CookingPotRecipeBuilder {
-        return CookingPotRecipeBuilder.cookingPotRecipe(result.value(), 1, 200, 0.35F, ModItems.DEFORMED_GLASS_BOTTLE)
+        return CookingPotRecipeBuilder.cookingPotRecipe(result.value(), 1, 200, 0.35F, ModItems.DEFORMABLE_GLASS_BOTTLE)
             .setRecipeBookTab(
                 CookingPotRecipeBookTab.DRINKS
             ).addIngredient(ingredient.value()).addIngredient(ingredient.value()).addIngredient(ingredient.value())

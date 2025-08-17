@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture
 
 class ModMixingRecipesProvider(
     output: PackOutput, registries: CompletableFuture<HolderLookup.Provider>
-) : MixingRecipeGen(output, registries, ManorsBounty.ID) {
+) : MixingRecipeGen(output, registries, ManorsBounty.MOD_ID) {
 
     init {
         mixPies(ModItems.PINEAPPLE_PIES, ModItems.PINEAPPLE_SLICE)

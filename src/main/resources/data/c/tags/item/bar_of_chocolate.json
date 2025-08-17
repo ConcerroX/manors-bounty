@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "manors_bounty:chocolate",
+    {
+      "id":"create:bar_of_chocolate",
+      "required": false
+    }
+  ]
+}

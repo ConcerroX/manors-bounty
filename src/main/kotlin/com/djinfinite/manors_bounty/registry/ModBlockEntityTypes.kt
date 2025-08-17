@@ -15,7 +15,7 @@ typealias DeferredBEType<T> = DeferredHolder<BlockEntityType<*>, BlockEntityType
 object ModBlockEntityTypes {
 
     val BLOCK_ENTITY_TYPES: DeferredRegister<BlockEntityType<*>> = DeferredRegister.create(
-        Registries.BLOCK_ENTITY_TYPE, ManorsBounty.ID
+        Registries.BLOCK_ENTITY_TYPE, ManorsBounty.MOD_ID
     )
 
     val ICE_CREAM_MACHINE: DeferredBEType<IceCreamMachineBlockEntity> = BLOCK_ENTITY_TYPES.register(

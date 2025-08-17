@@ -16,7 +16,7 @@ import java.util.function.Supplier
 
 object ModMobEffects {
 
-    val MOB_EFFECTS: DeferredRegister<MobEffect> = DeferredRegister.create(Registries.MOB_EFFECT, ManorsBounty.ID)
+    val MOB_EFFECTS: DeferredRegister<MobEffect> = DeferredRegister.create(Registries.MOB_EFFECT, ManorsBounty.MOD_ID)
 
     val SUMMER_HEATWAVE: DeferredHolder<MobEffect, SimpleMobEffect> = MOB_EFFECTS.register("summer_heatwave", Supplier {
         SimpleMobEffect(MobEffectCategory.BENEFICIAL, 3402751).apply {

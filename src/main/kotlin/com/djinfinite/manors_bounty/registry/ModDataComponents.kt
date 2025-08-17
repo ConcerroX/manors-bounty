@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister
 object ModDataComponents {
 
     val DATA_COMPONENTS: DeferredRegister.DataComponents =
-        DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, ManorsBounty.ID)
+        DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, ManorsBounty.MOD_ID)
 
     val FRUIT_EFFECT: DeferredHolder<DataComponentType<*>, DataComponentType<FruitEffectDataComponent>> =
         DATA_COMPONENTS.registerComponentType("fruit_effect") {

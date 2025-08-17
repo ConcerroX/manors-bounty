@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent
 import net.neoforged.neoforge.event.entity.player.CriticalHitEvent
 
-@EventBusSubscriber(modid = ManorsBounty.ID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = ManorsBounty.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 object CommonGameEventHandlers {
 
     @SubscribeEvent

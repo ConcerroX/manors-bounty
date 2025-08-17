@@ -12,7 +12,7 @@ import java.util.function.Supplier
 object ModAttachmentTypes {
 
     val ATTACHMENT_TYPES: DeferredRegister<AttachmentType<*>> = DeferredRegister.create(
-        NeoForgeRegistries.Keys.ATTACHMENT_TYPES, ManorsBounty.ID
+        NeoForgeRegistries.Keys.ATTACHMENT_TYPES, ManorsBounty.MOD_ID
     )
 
     val COOLDOWN: DeferredHolder<AttachmentType<*>, AttachmentType<CooldownAttachmentData>> = ATTACHMENT_TYPES.register(

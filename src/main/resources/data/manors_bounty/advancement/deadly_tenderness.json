@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:cherry_blossoms_weeping_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.deadly_tenderness.title"
+    },
+    "description": {
+      "translate": "advancements.deadly_tenderness.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "deadly_tenderness_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

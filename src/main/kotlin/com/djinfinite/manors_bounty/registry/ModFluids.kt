@@ -15,7 +15,7 @@ import java.util.function.Supplier
 
 object ModFluids {
 
-    val FLUIDS: DeferredRegister<Fluid> = DeferredRegister.create(Registries.FLUID, ManorsBounty.ID)
+    val FLUIDS: DeferredRegister<Fluid> = DeferredRegister.create(Registries.FLUID, ManorsBounty.MOD_ID)
 
     lateinit var PINEAPPLE_JUICE: DeferredHolder<Fluid, SimpleFluid.Source>
     lateinit var PINEAPPLE_JUICE_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
@@ -35,8 +35,8 @@ object ModFluids {
     lateinit var BLUEBERRY_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
     lateinit var BLUEBERRY_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
 
-    lateinit var CHERRIES_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
-    lateinit var CHERRIES_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
+    lateinit var CHERRY_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
+    lateinit var CHERRY_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
 
     lateinit var STARFRUIT_ICE_CREAM: DeferredHolder<Fluid, SimpleFluid.Source>
     lateinit var STARFRUIT_ICE_CREAM_FLOWING: DeferredHolder<Fluid, SimpleFluid.Flowing>
@@ -127,19 +127,19 @@ object ModFluids {
             BLUEBERRY_ICE_CREAM_FLOWING = flowing
         }
 
-        register("cherries_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
+        register("cherry_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {
             newProperties(
-                ModFluidTypes.CHERRIES_ICE_CREAM,
-                CHERRIES_ICE_CREAM,
-                CHERRIES_ICE_CREAM_FLOWING,
-                ModBlocks.CHERRIES_ICE_CREAM,
-                ModItems.CHERRIES_ICE_CREAM_BUCKET,
+                ModFluidTypes.CHERRY_ICE_CREAM,
+                CHERRY_ICE_CREAM,
+                CHERRY_ICE_CREAM_FLOWING,
+                ModBlocks.CHERRY_ICE_CREAM,
+                ModItems.CHERRY_ICE_CREAM_BUCKET,
                 levelDecreasePerBlock = 2,
                 slopeFindDistance = 1
             )
         }).apply {
-            CHERRIES_ICE_CREAM = source
-            CHERRIES_ICE_CREAM_FLOWING = flowing
+            CHERRY_ICE_CREAM = source
+            CHERRY_ICE_CREAM_FLOWING = flowing
         }
 
         register("starfruit_ice_cream", SimpleFluid::Source, SimpleFluid::Flowing, {

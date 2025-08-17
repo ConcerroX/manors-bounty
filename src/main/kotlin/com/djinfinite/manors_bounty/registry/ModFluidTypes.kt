@@ -15,7 +15,7 @@ import java.util.function.Supplier
 
 object ModFluidTypes {
 
-    val FLUID_TYPES: DeferredRegister<FluidType> = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, ManorsBounty.ID)
+    val FLUID_TYPES: DeferredRegister<FluidType> = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, ManorsBounty.MOD_ID)
     private val ICE_CREAM_PROPERTIES: Properties =
         Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true)
             .motionScale(0.0035).temperature(260).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
@@ -34,7 +34,7 @@ object ModFluidTypes {
     val VANILLA_ICE_CREAM = registerFluid("vanilla_ice_cream", ICE_CREAM_PROPERTIES)
     val CHOCOLATE_ICE_CREAM = registerFluid("chocolate_ice_cream", ICE_CREAM_PROPERTIES)
     val BLUEBERRY_ICE_CREAM = registerFluid("blueberry_ice_cream", ICE_CREAM_PROPERTIES)
-    val CHERRIES_ICE_CREAM = registerFluid("cherries_ice_cream", ICE_CREAM_PROPERTIES)
+    val CHERRY_ICE_CREAM = registerFluid("cherry_ice_cream", ICE_CREAM_PROPERTIES)
     val STARFRUIT_ICE_CREAM = registerFluid("starfruit_ice_cream", ICE_CREAM_PROPERTIES)
     val JALAPENO_ICE_CREAM = registerFluid("jalapeno_ice_cream", ICE_CREAM_PROPERTIES)
 
@@ -45,7 +45,7 @@ object ModFluidTypes {
         event.registerTexture(VANILLA_ICE_CREAM)
         event.registerTexture(CHOCOLATE_ICE_CREAM)
         event.registerTexture(BLUEBERRY_ICE_CREAM)
-        event.registerTexture(CHERRIES_ICE_CREAM)
+        event.registerTexture(CHERRY_ICE_CREAM)
         event.registerTexture(STARFRUIT_ICE_CREAM)
         event.registerTexture(JALAPENO_ICE_CREAM)
     }

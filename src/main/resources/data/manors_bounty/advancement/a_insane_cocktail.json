@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:martini"
+    },
+    "title": {
+      "translate": "advancements.a_insane_cocktail.title"
+    },
+    "description": {
+      "translate": "advancements.a_insane_cocktail.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "a_insane_cocktail_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

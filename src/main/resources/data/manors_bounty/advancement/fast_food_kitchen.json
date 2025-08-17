@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:fryer"
+    },
+    "title": {
+      "translate": "advancements.fast_food_kitchen.title"
+    },
+    "description": {
+      "translate": "advancements.fast_food_kitchen.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fast_food_kitchen_0": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "manors_bounty:fryer"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "manors_bounty:final_fantasy"
+}

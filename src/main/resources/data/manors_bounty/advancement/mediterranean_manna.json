@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:bottled_olive_oil"
+    },
+    "title": {
+      "translate": "advancements.mediterranean_manna.title"
+    },
+    "description": {
+      "translate": "advancements.mediterranean_manna.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "mediterranean_manna_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "manors_bounty:bottled_olive_oil"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 50
+  },
+  "parent": "manors_bounty:fruits_delight"
+}

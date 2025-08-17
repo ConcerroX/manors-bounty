@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:orange"
+    },
+    "title": {
+      "translate": "advancements.novelty_fruits.title"
+    },
+    "description": {
+      "translate": "advancements.novelty_fruits.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "novelty_fruits_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "manors_bounty:all_fruits",
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "manors_bounty:manor_story"
+}

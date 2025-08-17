@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:melon_gravity_effect_tips_item"
+    },
+    "title": {
+      "translate": "advancements.walk_steadily.title"
+    },
+    "description": {
+      "translate": "advancements.walk_steadily.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "walk_steadily_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

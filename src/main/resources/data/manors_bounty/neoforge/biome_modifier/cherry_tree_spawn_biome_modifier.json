@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "snowy_taiga",
+    "snowy_plains"
+  ],
+  "features": "manors_bounty:cherry_tree_spawn",
+  "step": "surface_structures"
+}

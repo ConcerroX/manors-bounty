@@ -10,7 +10,7 @@ import java.util.function.Supplier
 
 object ModSoundEvents {
 
-    val SOUND_EVENTS: DeferredRegister<SoundEvent> = DeferredRegister.create(Registries.SOUND_EVENT, ManorsBounty.ID)
+    val SOUND_EVENTS: DeferredRegister<SoundEvent> = DeferredRegister.create(Registries.SOUND_EVENT, ManorsBounty.MOD_ID)
 
     val FRYING: DeferredHolder<SoundEvent, SoundEvent> =
         SOUND_EVENTS.register("frying", Supplier { SoundEvent.createVariableRangeEvent(res("frying")) })

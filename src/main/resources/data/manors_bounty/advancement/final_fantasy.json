@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:creativity_mechanism"
+    },
+    "title": {
+      "translate": "advancements.final_fantasy.title"
+    },
+    "description": {
+      "translate": "advancements.final_fantasy.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "final_fantasy_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "manors_bounty:creativity_mechanism"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "manors_bounty:manor_story"
+}

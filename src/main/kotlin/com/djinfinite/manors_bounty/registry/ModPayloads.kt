@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
 import net.neoforged.neoforge.network.registration.HandlerThread
 
-@EventBusSubscriber(modid = ManorsBounty.ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = ManorsBounty.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 object ModPayloads {
 
     @SubscribeEvent

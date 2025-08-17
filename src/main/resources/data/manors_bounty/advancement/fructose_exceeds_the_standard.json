@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "manors_bounty:watermelon_paleteria"
+    },
+    "title": {
+      "translate": "advancements.fructose_exceeds_the_standard.title"
+    },
+    "description": {
+      "translate": "advancements.fructose_exceeds_the_standard.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fructose_exceeds_the_standard_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "parent": "manors_bounty:you_need_a_cup_of_lemon_tea"
+}

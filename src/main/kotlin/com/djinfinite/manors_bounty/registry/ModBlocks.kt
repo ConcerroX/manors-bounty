@@ -13,7 +13,7 @@ import com.djinfinite.manors_bounty.content.food.SimpleFluid
 import com.djinfinite.manors_bounty.content.fryer.FryerBlock
 import com.djinfinite.manors_bounty.content.icecream.IceCreamMachineBlock
 import com.djinfinite.manors_bounty.content.pineapple.PineappleBlock
-import com.djinfinite.manors_bounty.content.pineapple.PineappleCropBlock
+import com.djinfinite.manors_bounty.content.pineapple.PineapplePlantletBlock
 import com.djinfinite.manors_bounty.util.FeatureUtils
 import net.minecraft.util.valueproviders.UniformInt
 import net.minecraft.world.item.Items
@@ -32,13 +32,13 @@ import java.util.function.Function
 
 object ModBlocks {
 
-    val BLOCKS: DeferredRegister.Blocks = DeferredRegister.createBlocks(ManorsBounty.ID)
+    val BLOCKS: DeferredRegister.Blocks = DeferredRegister.createBlocks(ManorsBounty.MOD_ID)
 
     // Pearl Rock Ore
-    val PEARL_ROCK_ORE = registerBlock("pearl_rock_ore") {
+    val PERLITE_ORE = registerBlock("pearl_rock_ore") {
         DropExperienceBlock(UniformInt.of(2, 6), newProperties(Blocks.IRON_ORE, lightLevel = 15))
     }
-    val DEEPSLATE_PEARL_ROCK_ORE = registerBlock("deepslate_pearl_rock_ore") {
+    val DEEPSLATE_PERLITE_ORE = registerBlock("deepslate_pearl_rock_ore") {
         DropExperienceBlock(UniformInt.of(2, 6), newProperties(Blocks.DEEPSLATE_IRON_ORE, lightLevel = 15))
     }
 
@@ -92,11 +92,39 @@ object ModBlocks {
         )
     }
 
+    val LAVENDER = registerBlock("lavender") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val DEBRISHROOM = registerBlock("debrishroom") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val POLISHED_MARBLE = registerBlock("polished_marble") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val POMEGRANATE_SEEDS = registerBlock("pomegranate_seeds") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val DRAGON_FRUIT_CACTUS = registerBlock("dragon_fruit_cactus") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val DRAGON_FRUIT_CACTUS_FLOWER = registerBlock("dragon_fruit_cactus_flower") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val CHRISTMAS_STOCKING = registerBlock("christmas_stocking") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val CHRISTMAS_WREATHS = registerBlock("christmas_wreaths") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+    val CUTTING_BOARD = registerBlock("cutting_board") {
+        Block(newProperties(Blocks.LILY_OF_THE_VALLEY))
+    }
+
     // Chorus Fruit
     val CHORUS_FLOWER_JELLY_CAKE = registerBlock("chorus_flower_jelly_cake") {
         SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.COLOR_PURPLE))
     }
-    val CHORUS_FLOWER_JELLY_CANDLE_CAKE = registerBlock("chorus_flower_jelly_candle_cake") {
+    val CHORUS_FLOWER_JELLY_CANDLE_CAKE = registerBlock("candle_chorus_flower_jelly_cake") {
         SimpleCandleCakeBlock(
             CHORUS_FLOWER_JELLY_CAKE.get(),
             Blocks.CANDLE,
@@ -108,7 +136,7 @@ object ModBlocks {
     val NETHER_WART_SOUL_CAKE = registerBlock("nether_wart_soul_cake") {
         SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.WARPED_HYPHAE))
     }
-    val NETHER_WART_SOUL_CANDLE_CAKE = registerBlock("nether_wart_soul_candle_cake") {
+    val NETHER_WART_SOUL_CANDLE_CAKE = registerBlock("candle_nether_wart_soul_cake") {
         SimpleCandleCakeBlock(
             NETHER_WART_SOUL_CAKE.get(),
             Blocks.CANDLE,
@@ -117,12 +145,12 @@ object ModBlocks {
     }
 
     // Sweet Berry
-    val SWEET_BERRY_CAKE = registerBlock("sweet_berry_cake") {
+    val SWEET_BERRY_ICE_CREAM_CAKE = registerBlock("sweet_berry_ice_cream_cake") {
         SimpleCakeBlock(newProperties(Blocks.CAKE, mapColor = MapColor.COLOR_PINK))
     }
-    val SWEET_BERRY_CANDLE_CAKE = registerBlock("sweet_berry_candle_cake") {
+    val SWEET_BERRY_CANDLE_CAKE = registerBlock("candle_sweet_berry_ice_cream_cake") {
         SimpleCandleCakeBlock(
-            SWEET_BERRY_CAKE.get(), Blocks.CANDLE, newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PINK)
+            SWEET_BERRY_ICE_CREAM_CAKE.get(), Blocks.CANDLE, newProperties(Blocks.CANDLE_CAKE, mapColor = MapColor.COLOR_PINK)
         )
     }
 
@@ -134,7 +162,7 @@ object ModBlocks {
     val VANILLA_ICE_CREAM = registerFluidBlock("vanilla_ice_cream", ModFluids.VANILLA_ICE_CREAM)
     val CHOCOLATE_ICE_CREAM = registerFluidBlock("chocolate_ice_cream", ModFluids.CHOCOLATE_ICE_CREAM)
     val BLUEBERRY_ICE_CREAM = registerFluidBlock("blueberry_ice_cream", ModFluids.BLUEBERRY_ICE_CREAM)
-    val CHERRIES_ICE_CREAM = registerFluidBlock("cherries_ice_cream", ModFluids.CHERRIES_ICE_CREAM)
+    val CHERRY_ICE_CREAM = registerFluidBlock("cherry_ice_cream", ModFluids.CHERRY_ICE_CREAM)
     val STARFRUIT_ICE_CREAM = registerFluidBlock("starfruit_ice_cream", ModFluids.STARFRUIT_ICE_CREAM)
     val JALAPENO_ICE_CREAM = registerFluidBlock("jalapeno_ice_cream", ModFluids.JALAPENO_ICE_CREAM)
 
@@ -151,8 +179,8 @@ object ModBlocks {
             )
         )
     }
-    val PINEAPPLE_CROP = registerBlock("pineapple_crop") {
-        PineappleCropBlock(
+    val PINEAPPLE_PLANTLET = registerBlock("pineapple_plantlet") {
+        PineapplePlantletBlock(
             newProperties(
                 Blocks.WHEAT, destroyTime = 0.6F, noOcclusion = true, isRedstoneConductor = IsRedstoneConductor.Never
             )
@@ -236,19 +264,19 @@ object ModBlocks {
     }
 
     // Cherries
-    val CHERRIES_TREE_LEAVES = registerBlockWithWoodType("cherries_tree_leaves", ModWoodTypes.CHERRIES_TREE) {
+    val CHERRY_TREE_LEAVES = registerBlockWithWoodType("cherry_tree_leaves", ModWoodTypes.CHERRY_TREE) {
         FruitLeavesBlock(
             ModItems.CHERRIES,
             fruitDropCount = 1..2,
             newProperties(Blocks.CHERRY_LEAVES, mapColor = MapColor.WARPED_WART_BLOCK)
         )
     }
-    val CHERRIES_SEED = registerBlockWithWoodType("cherries_seed", ModWoodTypes.CHERRIES_TREE) {
+    val CHERRY_SEEDS = registerBlockWithWoodType("cherry_seeds", ModWoodTypes.CHERRY_TREE) {
         SaplingBlock(
             TreeGrower(
-                "cherries_tree",
+                "cherry_tree",
                 Optional.empty(),
-                FeatureUtils.createOptionalConfiguredFeatureKey("cherries_tree_spawn"),
+                FeatureUtils.createOptionalConfiguredFeatureKey("cherry_tree_spawn"),
                 Optional.empty(),
             ), newProperties(Blocks.CHERRY_SAPLING, mapColor = MapColor.WARPED_WART_BLOCK)
         )
@@ -262,7 +290,7 @@ object ModBlocks {
             newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.TERRACOTTA_LIGHT_GREEN)
         )
     }
-    val STARFRUIT_SEED = registerBlockWithWoodType("starfruit_seed", ModWoodTypes.STARFRUIT_TREE) {
+    val STARFRUIT_SEEDS = registerBlockWithWoodType("starfruit_seeds", ModWoodTypes.STARFRUIT_TREE) {
         SaplingBlock(
             TreeGrower(
                 "starfruit",
@@ -279,7 +307,7 @@ object ModBlocks {
             ModItems.OLIVE_FRUIT, fruitDropCount = 2..3, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.GRASS)
         )
     }
-    val OLIVE_FRUIT_SEED = registerBlockWithWoodType("olive_fruit_seed", ModWoodTypes.OLIVE_TREE) {
+    val OLIVE_SEED = registerBlockWithWoodType("olive_fruit_seed", ModWoodTypes.OLIVE_TREE) {
         SaplingBlock(
             TreeGrower(
                 "olive",
@@ -296,7 +324,7 @@ object ModBlocks {
             ModItems.ORANGE, fruitDropCount = 1..2, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.COLOR_GREEN)
         )
     }
-    val ORANGE_SEED = registerBlockWithWoodType("orange_seed", ModWoodTypes.RUTACEAE_TREE) {
+    val ORANGE_SEEDS = registerBlockWithWoodType("orange_seeds", ModWoodTypes.RUTACEAE_TREE) {
         SaplingBlock(
             TreeGrower(
                 "orange",
@@ -330,7 +358,7 @@ object ModBlocks {
             ModItems.PEAR, fruitDropCount = 1..2, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.QUARTZ)
         )
     }
-    val PEAR_SEED = registerBlockWithWoodType("pear_seed", ModWoodTypes.ROSACEAE_TREE) {
+    val PEAR_SEEDS = registerBlockWithWoodType("pear_seeds", ModWoodTypes.ROSACEAE_TREE) {
         SaplingBlock(
             TreeGrower(
                 "pear",
@@ -347,7 +375,7 @@ object ModBlocks {
             Items.APPLE, fruitDropCount = 1..2, newProperties(Blocks.OAK_LEAVES, mapColor = MapColor.WARPED_WART_BLOCK)
         )
     }
-    val APPLE_SEED = registerBlockWithWoodType("apple_seed", ModWoodTypes.ROSACEAE_TREE) {
+    val APPLE_SEEDS = registerBlockWithWoodType("apple_seeds", ModWoodTypes.ROSACEAE_TREE) {
         SaplingBlock(
             TreeGrower(
                 "apple",

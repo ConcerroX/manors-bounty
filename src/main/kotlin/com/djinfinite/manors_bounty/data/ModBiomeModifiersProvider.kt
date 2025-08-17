@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture
 class ModBiomeModifiersProvider(
     output: PackOutput,
     registries: CompletableFuture<HolderLookup.Provider>,
-) : DatapackBuiltinEntriesProvider(output, registries, BUILDER, setOf(ManorsBounty.ID)) {
+) : DatapackBuiltinEntriesProvider(output, registries, BUILDER, setOf(ManorsBounty.MOD_ID)) {
 
     companion object {
 

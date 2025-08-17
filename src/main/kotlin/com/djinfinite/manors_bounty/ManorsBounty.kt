@@ -10,10 +10,10 @@ import net.neoforged.fml.config.ModConfig
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 
 fun res(path: String): ResourceLocation {
-    return ResourceLocation.fromNamespaceAndPath(ManorsBounty.ID, path)
+    return ResourceLocation.fromNamespaceAndPath(ManorsBounty.MOD_ID, path)
 }
 
-@Mod(ManorsBounty.ID)
+@Mod(ManorsBounty.MOD_ID)
 class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
 
     init {
@@ -45,7 +45,7 @@ class ManorsBounty(modEventBus: IEventBus, modContainer: ModContainer) {
     }
 
     companion object {
-        const val ID = "manors_bounty"
+        const val MOD_ID = "manors_bounty"
         private val LOGGER = LogUtils.getLogger()
     }
 

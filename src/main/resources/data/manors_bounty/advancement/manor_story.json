@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "manors_bounty:textures/screens/manors_bounty_advancement_background.png",
+    "icon": {
+      "item": "manors_bounty:building_icon_item"
+    },
+    "title": {
+      "translate": "advancements.manor_story.title"
+    },
+    "description": {
+      "translate": "advancements.manor_story.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "manor_story_0": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

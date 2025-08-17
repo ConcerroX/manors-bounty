@@ -12,7 +12,7 @@ import java.util.function.Supplier
 
 object ModRecipeTypes {
 
-    val RECIPE_TYPES: DeferredRegister<RecipeType<*>> = DeferredRegister.create(Registries.RECIPE_TYPE, ManorsBounty.ID)
+    val RECIPE_TYPES: DeferredRegister<RecipeType<*>> = DeferredRegister.create(Registries.RECIPE_TYPE, ManorsBounty.MOD_ID)
 
     val ICE_CREAM_MACHINE: DeferredHolder<RecipeType<*>, RecipeType<IceCreamMachineRecipe>> = RECIPE_TYPES.register(
         "ice_cream_machine", Supplier { RecipeType.simple(res("ice_cream_machine")) })
